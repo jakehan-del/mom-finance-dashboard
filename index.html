@@ -1866,13 +1866,25 @@ async function sendMsg(){
   document.getElementById('qBtns').style.display='none';
 
   const u=getU();
-  const apiKey=localStorage.getItem('_ak')||'ENTER_YOUR_API_KEY_HERE';
+  const apiKey=localStorage.getItem('_ak')||'';
 
-  // API 키 없거나 예산 초과시
-  if(!apiKey || apiKey==='ENTER_YOUR_API_KEY_HERE'){
-    addMsg('이 기능은 앱 버전에서만 사용 가능해요.\n시훈이에게 앱 설치를 부탁해주세요! 😊\n\n대시보드 각 탭에서 모든 정보를 보실 수 있어요.','b');
+  // API 키 없으면 입력 요청
+  if(!apiKey || apiKey.length<20){
+    addMsg('🔑 AI 챗봇을 처음 사용하시네요!\n\n시훈이가 알려준 코드를 아래 입력칸에 붙여넣고 보내주세요.\n\n(시훈이에게 "챗봇 코드 알려줘"라고 하시면 돼요!)','b');
+    // 다음 메시지를 API키로 처리
+    window._waitingForKey=true;
     return;
   }
+  if(window._waitingForKey){
+    const possibleKey=txt.trim();
+    if(possibleKey.startsWith('sk-ant-')){
+      localStorage.setItem('_ak',possibleKey);
+      window._waitingForKey=false;
+      addMsg('✅ 코드가 저장됐어요! 이제 뭐든 물어보세요 😊','b');
+      return;
+    }
+  }
+  window._waitingForKey=false;
   if(u.c>=ML){
     addMsg('⚠️ 이번 달 AI 사용량이 많아 잠시 쉬고 있어요.\n다음 달에 자동으로 다시 사용할 수 있어요!\n\n대시보드 각 탭에서 정보를 확인해주세요 😊','b');
     return;
