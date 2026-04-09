@@ -1738,19 +1738,19 @@ document.getElementById('emailIn').addEventListener('keydown',e=>{if(e.key==='En
 </div>
 
 <!-- Chat FAB -->
-<button class="fab" id="fab" onclick="toggleChat()">💬</button>
+<button class="fab" id="fab" onclick="toggleChat()" style="width:auto;border-radius:30px;padding:0 18px 0 16px;gap:6px;font-size:14px;font-weight:700">💬 챗봇</button>
 </div>
 
 <!-- ===== CHATBOT PANEL ===== -->
 <div class="cpan" id="cp">
   <div class="chdr">
     <div class="av">🤖</div>
-    <div><h3>재무 AI 비서</h3><div class="cst">무엇이든 편하게 물어보세요</div></div>
+    <div><h3>AI 챗봇</h3><div class="cst">재무에 대해 무엇이든 물어보세요!</div></div>
     <button class="cx" onclick="toggleChat()">✕</button>
   </div>
   <div class="cbudget" id="cBudget"></div>
   <div class="cbody" id="cBody">
-    <div class="msg m-b">안녕하세요 어머니! 💎<br><br>재무 현황에 대해 궁금한 것이 있으시면 편하게 물어보세요!<br>아래 버튼을 눌러보셔도 됩니다 😊</div>
+    <div class="msg m-b">안녕하세요 어머니! 저는 <b>AI 챗봇</b>이에요 🤖💎<br><br>어머니의 재무에 대해 <b>무엇이든</b> 물어보실 수 있어요!<br><br>예를 들어:<br>• "내 총 자산이 얼마야?"<br>• "대출이 얼마 남았어?"<br>• "세금 어떻게 되는거야?"<br>• "그림 뭐 가지고 있어?"<br><br>아래 버튼을 눌러보시거나,<br>직접 글자를 입력해서 질문해주세요! 😊</div>
     <div class="qbs" id="qBtns">
       <div class="qb" onclick="askQ(this)">내 총 자산이 얼마야?</div>
       <div class="qb" onclick="askQ(this)">대출이 얼마 남았어?</div>
