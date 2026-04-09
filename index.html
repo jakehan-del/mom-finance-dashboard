@@ -5,11 +5,15 @@
 <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no">
 <meta name="apple-mobile-web-app-capable" content="yes">
 <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="mobile-web-app-capable" content="yes">
 <title>어머니 재무</title>
 <link rel="manifest" href="manifest.json">
 <meta name="theme-color" content="#0f0c29">
 <meta name="apple-mobile-web-app-title" content="재무현황">
 <link rel="apple-touch-icon" href="icons/icon-192.png">
+<link rel="apple-touch-icon" sizes="192x192" href="icons/icon-192.png">
+<link rel="apple-touch-icon" sizes="512x512" href="icons/icon-512.png">
+<link rel="apple-touch-startup-image" href="icons/icon-512.png">
 <link rel="preconnect" href="https://cdn.jsdelivr.net">
 <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.4/dist/chart.umd.min.js"></script>
 <style>
@@ -176,8 +180,32 @@ button{font-family:inherit}
 /* ========== RESPONSIVE ========== */
 @media(min-width:500px){.sc{width:170px}}
 </style>
+<style>
+/* Install Banner */
+.install-banner{position:fixed;bottom:0;left:0;right:0;z-index:10000;background:linear-gradient(135deg,#302b63,#24243e);color:#fff;padding:20px;padding-bottom:max(20px,env(safe-area-inset-bottom));border-radius:20px 20px 0 0;box-shadow:0 -4px 24px rgba(0,0,0,0.3);display:none;animation:su .3s ease}
+.install-banner.show{display:block}
+.install-banner h3{font-size:17px;font-weight:700;margin-bottom:8px}
+.install-banner p{font-size:13px;color:rgba(255,255,255,0.7);line-height:1.7;margin-bottom:14px}
+.install-banner .steps{font-size:14px;line-height:2}
+.install-banner .close-bn{position:absolute;top:16px;right:16px;background:rgba(255,255,255,0.15);border:none;color:#fff;width:28px;height:28px;border-radius:50%;font-size:14px;cursor:pointer;display:flex;align-items:center;justify-content:center}
+.install-banner .arrow-down{text-align:center;margin-top:8px;font-size:24px;animation:bounce 1.5s infinite}
+@keyframes bounce{0%,100%{transform:translateY(0)}50%{transform:translateY(8px)}}
+</style>
 </head>
 <body>
+
+<!-- iOS 앱 설치 안내 배너 -->
+<div class="install-banner" id="installBanner">
+  <button class="close-bn" onclick="dismissInstall()">✕</button>
+  <h3>📱 앱으로 설치하세요!</h3>
+  <p>홈 화면에 추가하면 앱처럼 사용할 수 있어요</p>
+  <div class="steps">
+    1️⃣ 아래 <b>공유 버튼</b> ⬆️ 을 누르세요<br>
+    2️⃣ <b>"홈 화면에 추가"</b>를 누르세요<br>
+    3️⃣ <b>"추가"</b>를 누르면 끝!
+  </div>
+  <div class="arrow-down">⬇️</div>
+</div>
 
 <!-- ===================== LOCK SCREEN ===================== -->
 <div id="lock">
@@ -1146,11 +1174,40 @@ function initC(){
 </script>
 <script>
 // PWA 서비스워커 등록
+// PWA 서비스워커 등록
 if('serviceWorker' in navigator){
   window.addEventListener('load',()=>{
     navigator.serviceWorker.register('sw.js').then(r=>console.log('SW registered')).catch(e=>console.log('SW failed',e));
   });
 }
+
+// iOS 앱 설치 안내 배너
+function showInstallBanner(){
+  const isIos=/iphone|ipad|ipod/.test(navigator.userAgent.toLowerCase());
+  const isStandalone=window.navigator.standalone===true;
+  const dismissed=localStorage.getItem('_installDismissed');
+  if(isIos && !isStandalone && !dismissed){
+    setTimeout(()=>{document.getElementById('installBanner').classList.add('show')},2000);
+  }
+}
+function dismissInstall(){
+  document.getElementById('installBanner').classList.remove('show');
+  localStorage.setItem('_installDismissed','1');
+}
+// Android PWA 설치 프롬프트
+let deferredPrompt;
+window.addEventListener('beforeinstallprompt',(e)=>{
+  e.preventDefault();
+  deferredPrompt=e;
+  // Android에서는 자동 프롬프트
+  setTimeout(()=>{
+    if(deferredPrompt){
+      deferredPrompt.prompt();
+      deferredPrompt.userChoice.then(r=>{deferredPrompt=null});
+    }
+  },3000);
+});
+window.addEventListener('load',showInstallBanner);
 </script>
 </body>
 </html>
