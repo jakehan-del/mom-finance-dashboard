@@ -796,13 +796,172 @@ button{font-family:inherit}
       </div>
     </div>
 
+    <!-- ======================== -->
+    <!-- 시나리오 시뮬레이션 섹션 -->
+    <!-- ======================== -->
+    <div class="st" style="margin-top:24px">🧮 매각 시나리오 시뮬레이션</div>
+    <div class="ss">만약 건물이나 미술품을 팔면 세금이 얼마나 나올까? 시나리오별로 미리 계산해봤습니다.</div>
+
+    <!-- 시나리오 1: 서울숲 건물 법인 매각 -->
+    <div class="cd" style="border-left:4px solid var(--red)">
+      <div class="ct" style="color:var(--red)">시나리오 ① 서울숲 건물 매각 (법인)</div>
+      <div style="font-size:13px;color:var(--t3);margin-bottom:12px">법인(소솝)이 서울숲 건물을 120억에 매각한다면?</div>
+      <table class="tb">
+        <tr><th>항목</th><th class="R">금액</th><th class="R">설명</th></tr>
+        <tr><td>매각가 (추정)</td><td class="R" style="font-weight:700">120억</td><td class="R" style="font-size:11px;color:var(--t3)">현재 시세 추정</td></tr>
+        <tr><td>취득가 + 자본적지출</td><td class="R">약 30~50억</td><td class="R" style="font-size:11px;color:var(--t3)">실제 취득가 세무사 확인 필요</td></tr>
+        <tr><td>감가상각 누적액</td><td class="R">차감</td><td class="R" style="font-size:11px;color:var(--t3)">장부가 낮아진 만큼 차익↑</td></tr>
+        <tr style="background:rgba(231,76,60,0.04)"><td><b>양도차익 (추정)</b></td><td class="R r" style="font-weight:800;font-size:16px">약 70~90억</td><td class="R" style="font-size:11px;color:var(--t3)">취득가에 따라 변동</td></tr>
+      </table>
+
+      <div style="margin-top:14px;font-size:14px;color:var(--t2);line-height:1.9">
+        <b>📌 세금 계산 (양도차익 80억 가정)</b><br><br>
+
+        <b>① 법인세</b> (일반 사업연도 소득으로 합산과세)<br>
+      </div>
+      <table class="tb" style="margin:8px 0">
+        <tr><th>과세표준 구간</th><th class="R">세율</th><th class="R">세액</th></tr>
+        <tr><td>2억 이하</td><td class="R">10%</td><td class="R">2,000만</td></tr>
+        <tr><td>2억~200억 (78억)</td><td class="R">21%</td><td class="R">16억 3,800만</td></tr>
+        <tr class="T"><td>법인세 합계</td><td class="R"></td><td class="R r" style="font-size:16px">약 16.6억</td></tr>
+      </table>
+      <div style="font-size:14px;color:var(--t2);line-height:1.9">
+        <b>② 지방소득세</b> (법인세의 10%)<br>
+        → 약 <b style="color:var(--red)">1.66억</b><br><br>
+
+        <b>③ 토지등 양도소득 추가과세</b><br>
+        → 상업용 건물(비주택)이므로 <b>추가과세 없음</b> ✅<br>
+        (주택/비사업용토지만 10~20% 추가과세 대상)<br><br>
+
+        <b>④ 이월결손금 상계</b><br>
+        → 2025년 적자 3.3억이 있으면 과세소득에서 차감<br>
+        → 법인세 약 <b>6,900만원 절감</b> 가능<br>
+      </div>
+
+      <div style="margin-top:12px;padding:14px;background:rgba(231,76,60,0.06);border-radius:12px">
+        <table class="tb">
+          <tr style="border:none"><td style="font-weight:800;font-size:16px;border:none">매각대금 120억 중</td><td class="R" style="border:none"></td></tr>
+          <tr><td>법인세 + 지방소득세</td><td class="R r" style="font-weight:800;font-size:16px">약 18.3억</td></tr>
+          <tr><td>이월결손금 절감</td><td class="R g" style="font-weight:700">-0.7억</td></tr>
+          <tr><td>대출 상환</td><td class="R" style="font-weight:700">-21.3억</td></tr>
+          <tr class="T"><td><b>실수령 추정</b></td><td class="R" style="font-weight:900;font-size:18px;color:var(--blu)">약 80.1억</td></tr>
+        </table>
+      </div>
+      <div style="font-size:11px;color:var(--t3);margin-top:8px;line-height:1.6">
+        ⚠️ 취득가, 감가상각 누적액, 자본적지출에 따라 세액 크게 변동<br>
+        ⚠️ 실제 계산은 세무사가 장부 기준으로 정확히 산출해야 함
+      </div>
+    </div>
+
+    <!-- 시나리오 2: DH 클래스트 개인 매각 -->
+    <div class="cd" style="border-left:4px solid var(--org)">
+      <div class="ct" style="color:var(--org)">시나리오 ② DH 클래스트 매각 (개인)</div>
+      <div style="font-size:13px;color:var(--t3);margin-bottom:12px">개인이 디에이치 클래스트(구반포 재건축)를 120억에 매각한다면?</div>
+
+      <div style="font-size:14px;color:var(--t2);line-height:1.9">
+        <b>📌 현재 상태: 재건축 조합원 입주권</b><br>
+        완공 전이므로 <b>조합원입주권</b>으로 양도소득세 과세<br><br>
+
+        <b>핵심 변수: 1세대 1주택 여부</b><br>
+        • 1세대 1주택이면 → 12억 초과분만 과세 + <b>장기보유특별공제 최대 80%</b><br>
+        • 다주택이면 → 전액 과세 + 중과 가능<br><br>
+
+        <b>📌 1세대 1주택 가정시 (보유 10년+, 거주 2년+)</b><br>
+      </div>
+      <table class="tb" style="margin:8px 0">
+        <tr><th>항목</th><th class="R">금액</th></tr>
+        <tr><td>매각가</td><td class="R" style="font-weight:700">120억</td></tr>
+        <tr><td>취득가 (추정)</td><td class="R">약 15~25억</td></tr>
+        <tr><td>양도차익 (추정)</td><td class="R" style="font-weight:700">약 95~105억</td></tr>
+        <tr><td>비과세 (12억 이하분)</td><td class="R g">비과세</td></tr>
+        <tr><td>12억 초과분 과세대상</td><td class="R">약 85~93억</td></tr>
+        <tr><td>장기보유특별공제 (최대 80%)</td><td class="R g">-68~74억</td></tr>
+        <tr><td>과세표준</td><td class="R" style="font-weight:700">약 17~19억</td></tr>
+      </table>
+      <div style="font-size:14px;color:var(--t2);line-height:1.9;margin-top:8px">
+        <b>양도소득세 (과세표준 18억 가정)</b>
+      </div>
+      <table class="tb" style="margin:8px 0">
+        <tr><th>구간</th><th class="R">세율</th><th class="R">세액</th></tr>
+        <tr><td>1,200만 이하</td><td class="R">6%</td><td class="R">72만</td></tr>
+        <tr><td>~4,600만</td><td class="R">15%</td><td class="R">510만</td></tr>
+        <tr><td>~8,800만</td><td class="R">24%</td><td class="R">1,008만</td></tr>
+        <tr><td>~1.5억</td><td class="R">35%</td><td class="R">2,170만</td></tr>
+        <tr><td>~3억</td><td class="R">38%</td><td class="R">5,700만</td></tr>
+        <tr><td>~5억</td><td class="R">40%</td><td class="R">8,000만</td></tr>
+        <tr><td>~10억</td><td class="R">42%</td><td class="R">2억 1,000만</td></tr>
+        <tr><td>10억 초과 (8억)</td><td class="R">45%</td><td class="R">3억 6,000만</td></tr>
+        <tr class="T"><td>양도소득세</td><td class="R"></td><td class="R r" style="font-size:16px">약 7.4억</td></tr>
+      </table>
+
+      <div style="margin-top:12px;padding:14px;background:rgba(243,156,18,0.06);border-radius:12px">
+        <table class="tb">
+          <tr><td>양도소득세</td><td class="R r" style="font-weight:700">약 7.4억</td></tr>
+          <tr><td>지방소득세 (10%)</td><td class="R r" style="font-weight:700">약 0.74억</td></tr>
+          <tr class="T"><td><b>세금 합계</b></td><td class="R r" style="font-weight:900;font-size:18px">약 8.1억</td></tr>
+          <tr><td><b>실수령 추정</b></td><td class="R" style="font-weight:900;font-size:18px;color:var(--blu)">약 111.9억</td></tr>
+        </table>
+      </div>
+
+      <div style="font-size:11px;color:var(--t3);margin-top:8px;line-height:1.6">
+        ⚠️ 1세대 1주택 요건 충족 여부가 핵심 (다주택이면 세금 2~3배↑)<br>
+        ⚠️ 재건축 입주권은 보유기간 기산점이 다를 수 있음<br>
+        ⚠️ 장기보유특별공제: 보유기간 3년부터 연 4%씩 + 거주기간 연 4%씩 (최대 80%)<br>
+        ⚠️ 완공 후 입주하고 2년 거주 후 매각하면 세금 크게 줄어듦
+      </div>
+    </div>
+
+    <!-- 시나리오 3: 미술품 매각 -->
+    <div class="cd" style="border-left:4px solid var(--pur)">
+      <div class="ct" style="color:var(--pur)">시나리오 ③ 법인 미술품 전량 매각</div>
+      <div style="font-size:13px;color:var(--t3);margin-bottom:12px">소솝이 보유 미술품 7점(장부가 12.5억)을 시가에 매각한다면?</div>
+      <table class="tb">
+        <tr><th>작품</th><th class="R">장부가</th><th class="R">시가 추정</th><th class="R">차익</th></tr>
+        <tr><td>George Condo</td><td class="R">4.77억</td><td class="R">7~10억</td><td class="R g">2~5억</td></tr>
+        <tr><td>Gary Simmons</td><td class="R">3.70억</td><td class="R">5~7억</td><td class="R g">1~3억</td></tr>
+        <tr><td>Matthew Wong</td><td class="R">1.54억</td><td class="R">3~5억</td><td class="R g">1.5~3.5억</td></tr>
+        <tr><td>기타 4점</td><td class="R">2.50억</td><td class="R">3~5억</td><td class="R g">0.5~2.5억</td></tr>
+        <tr class="T"><td><b>합계</b></td><td class="R">12.5억</td><td class="R" style="font-weight:700">18~27억</td><td class="R g" style="font-weight:700">5.5~14.5억</td></tr>
+      </table>
+
+      <div style="margin-top:14px;font-size:14px;color:var(--t2);line-height:1.9">
+        <b>📌 세금 계산 (양도차익 10억 가정)</b><br><br>
+
+        <b>Case A: 적자 시기에 매각 (이월결손금 3.3억 있음)</b><br>
+        • 과세소득: 10억 - 3.3억 = <b>6.7억</b><br>
+        • 법인세: 2억×10% + 4.7억×21% = <b>1.19억</b><br>
+        • 지방소득세: <b>0.12억</b><br>
+        • <b style="color:var(--grn)">세금 합계: 약 1.3억 (실효세율 13%)</b><br><br>
+
+        <b>Case B: 흑자 시기에 매각 (이월결손금 없음)</b><br>
+        • 과세소득: <b>10억</b> 전액<br>
+        • 법인세: 2억×10% + 8억×21% = <b>1.88억</b><br>
+        • 지방소득세: <b>0.19억</b><br>
+        • <b style="color:var(--red)">세금 합계: 약 2.1억 (실효세율 21%)</b><br><br>
+
+        <b style="color:var(--grn)">→ 적자 시기 매각이 약 0.8억 절세!</b>
+      </div>
+    </div>
+
+    <!-- 시나리오 비교 요약 -->
+    <div class="cd" style="background:linear-gradient(135deg,var(--g1),var(--g2));color:#fff">
+      <div style="font-size:14px;color:rgba(255,255,255,0.5);font-weight:600;margin-bottom:14px">📊 시나리오 비교 요약</div>
+      <table class="tb" style="color:#fff">
+        <tr><th style="color:rgba(255,255,255,0.5)">시나리오</th><th class="R" style="color:rgba(255,255,255,0.5)">매각가</th><th class="R" style="color:rgba(255,255,255,0.5)">예상 세금</th><th class="R" style="color:rgba(255,255,255,0.5)">실수령</th></tr>
+        <tr><td>① 서울숲건물 (법인)</td><td class="R">120억</td><td class="R" style="color:#ff6b6b">~18.3억</td><td class="R" style="font-weight:700">~80억</td></tr>
+        <tr><td>② DH클래스트 (개인)</td><td class="R">120억</td><td class="R" style="color:#ff6b6b">~8.1억</td><td class="R" style="font-weight:700">~112억</td></tr>
+        <tr><td>③ 미술품 전량 (법인)</td><td class="R">18~27억</td><td class="R" style="color:#ff6b6b">~1.3억</td><td class="R" style="font-weight:700">~17~26억</td></tr>
+      </table>
+      <div style="font-size:10px;color:rgba(255,255,255,0.3);margin-top:10px">* 모든 수치는 추정치이며, 취득가/감가상각/공제에 따라 크게 변동. 반드시 세무사와 정확한 계산 필요.</div>
+    </div>
+
     <div class="advice">
       <div class="atit">💡 핵심 메시지</div>
       <ul>
         <li>법인 적자 = 법인세 0원 + 이월결손금(15년간 공제)</li>
-        <li>지금이 급여 조정, 주식 평가, 증여 검토의 <b>최적 타이밍</b></li>
-        <li>미술품은 적자 시기에 매각하면 세금 상계 가능</li>
-        <li>부동산과다법인이므로 주식 평가시 <b>순자산가치 비중 높음</b> 주의</li>
+        <li>서울숲 건물 매각시 법인세+지방세 약 18.3억 예상 (취득가에 따라 변동)</li>
+        <li>DH 클래스트는 <b>완공 후 2년 거주 후 매각</b>하면 세금 크게 절감</li>
+        <li>미술품은 <b>적자 시기에 매각</b>하면 이월결손금과 상계 → 절세</li>
         <li>모든 전략은 <b>담당 세무사와 구체적 수치로 시뮬레이션</b>하세요</li>
       </ul>
     </div>
