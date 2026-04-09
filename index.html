@@ -900,22 +900,30 @@ document.getElementById('emailIn').addEventListener('keydown',e=>{if(e.key==='En
   </div>
 </div>
 
-<!-- ===================== TAB 5: 세금·조언 ===================== -->
+<!-- ===================== TAB 5: 세금·조언 (재구성) ===================== -->
 <div id="t5" class="tab">
   <div class="sec">
-    <div class="st">📋 세금 · 절세 전략</div>
+    <div class="st">📋 세금 · 절세 · 승계</div>
     <div style="padding:10px 14px;background:rgba(108,92,231,0.08);border-radius:12px;margin-bottom:14px;border:1px solid rgba(108,92,231,0.15)">
       <div style="font-size:13px;color:var(--pur);line-height:1.7">
-        🤖 <b>이 페이지의 모든 분석과 추천은 AI가 재무 데이터를 자동 분석하여 생성한 참고 자료입니다.</b><br>
+        🤖 <b>이 페이지의 모든 분석은 AI가 자동 생성한 참고 자료입니다.</b><br>
         정확한 세무 전략은 반드시 담당 세무사·회계사와 함께 검토하세요.
       </div>
+    </div>
+
+    <!-- 빠른 이동 버튼 -->
+    <div style="display:flex;gap:8px;flex-wrap:wrap;margin-bottom:16px">
+      <a href="#tax-summary" style="flex:1;min-width:70px;padding:10px;background:var(--card);border:1px solid var(--bdr);border-radius:12px;text-align:center;text-decoration:none;font-size:12px;font-weight:600;color:var(--grn)">💰 세금현황</a>
+      <a href="#tax-ai" style="flex:1;min-width:70px;padding:10px;background:var(--card);border:1px solid var(--bdr);border-radius:12px;text-align:center;text-decoration:none;font-size:12px;font-weight:600;color:var(--pur)">🤖 AI분석</a>
+      <a href="#tax-scenario" style="flex:1;min-width:70px;padding:10px;background:var(--card);border:1px solid var(--bdr);border-radius:12px;text-align:center;text-decoration:none;font-size:12px;font-weight:600;color:var(--red)">🧮 매각시뮬</a>
+      <a href="#tax-succession" style="flex:1;min-width:70px;padding:10px;background:var(--card);border:1px solid var(--bdr);border-radius:12px;text-align:center;text-decoration:none;font-size:12px;font-weight:600;color:var(--blu)">🏢 법인승계</a>
     </div>
 
     <!-- ============================== -->
     <!-- 어머니께 드리는 구체적 개선 조언 -->
     <!-- ============================== -->
     <div class="cd" style="background:linear-gradient(135deg,rgba(108,92,231,0.04),rgba(108,92,231,0.08));border:1px solid rgba(108,92,231,0.15)">
-      <div class="ct" style="color:var(--pur);font-size:17px">🤖 AI 재무 분석 리포트</div>
+      <div id="tax-ai" class="ct" style="color:var(--pur);font-size:17px">🤖 AI 재무 분석 리포트</div>
       <div style="font-size:13px;color:var(--t3);margin-bottom:14px">아래는 AI가 재무 데이터를 자동 분석하여 생성한 참고 자료입니다.<br>실제 의사결정은 담당 세무사·회계사와 상의하시기 바랍니다.</div>
 
       <!-- 개선 1 -->
@@ -1040,7 +1048,7 @@ document.getElementById('emailIn').addEventListener('keydown',e=>{if(e.key==='En
 
     <!-- 핵심 안심 메시지 -->
     <div class="cd" style="border-left:4px solid var(--grn)">
-      <div class="ct" style="color:var(--grn)">😌 어머니, 걱정 안 하셔도 됩니다!</div>
+      <div id="tax-summary" class="ct" style="color:var(--grn)">😌 어머니, 걱정 안 하셔도 됩니다!</div>
       <div style="font-size:15px;color:var(--t2);line-height:2">
         ✅ 총 순자산 <b>304.5억</b> — 대출(23.5억)은 자산 대비 <b>7.2%</b>에 불과<br>
         ✅ 법인 적자라서 <b>법인세 0원</b> + 이월결손금으로 향후 절세 가능<br>
@@ -1051,7 +1059,7 @@ document.getElementById('emailIn').addEventListener('keydown',e=>{if(e.key==='En
 
     <!-- 1. 법인세 분석 -->
     <div class="cd">
-      <div class="ct"><div class="ci" style="background:var(--red);color:#fff">🏢</div>법인세 분석 — 현재 적자, 세금 0원</div>
+      <div class="ct"><div class="ci" style="background:var(--red);color:#fff">🏢</div>법인세 — 적자라서 세금 0원이에요!</div>
       <div style="font-size:14px;color:var(--t2);line-height:1.9">
         <b>2025년 법인 손익: -3.3억 적자</b><br>
         → <b>법인세 납부액: 0원</b> (과세소득 없음)<br><br>
@@ -1075,7 +1083,7 @@ document.getElementById('emailIn').addEventListener('keydown',e=>{if(e.key==='En
 
     <!-- 2. 실제 세금 지출 내역 -->
     <div class="cd">
-      <div class="ct"><div class="ci" style="background:var(--org);color:#fff">💰</div>2025년 실제 세금 지출 (법인 장부 기준)</div>
+      <div class="ct"><div class="ci" style="background:var(--org);color:#fff">💰</div>2025년에 실제로 낸 세금</div>
       <table class="tb">
         <tr><th>항목</th><th class="R">2025년 합계</th><th class="R">설명</th></tr>
         <tr><td><b>갑근세</b> (원천징수)</td><td class="R r" style="font-weight:600">1억 4,310만</td><td class="R" style="font-size:11px;color:var(--t3)">직원 급여에서 원천징수하는 소득세</td></tr>
@@ -1094,7 +1102,7 @@ document.getElementById('emailIn').addEventListener('keydown',e=>{if(e.key==='En
 
     <!-- 개인 종합소득세 정밀 시뮬레이션 -->
     <div class="cd" style="border-left:4px solid var(--org)">
-      <div class="ct" style="color:var(--org)">📊 어머니 개인 종합소득세 정밀 계산 (2025년 귀속)</div>
+      <div class="ct" style="color:var(--org)">📊 어머니 개인 소득세 — 5월에 644만원 납부 예상</div>
       <table class="tb">
         <tr><th>항목</th><th class="R">금액</th></tr>
         <tr><td>① 급여 소득</td><td class="R" style="font-weight:600">2억 4,000만</td></tr>
@@ -1140,7 +1148,7 @@ document.getElementById('emailIn').addEventListener('keydown',e=>{if(e.key==='En
 
     <!-- 3. 적자 상황 절세 전략 -->
     <div class="cd" style="background:linear-gradient(135deg,rgba(231,76,60,0.03),rgba(231,76,60,0.08));border:1px solid rgba(231,76,60,0.12)">
-      <div class="ct" style="color:var(--red)">🔥 법인 매출 감소 시기 = 절세 황금기!</div>
+      <div class="ct" style="color:var(--red)">🔥 지금이 절세 황금기인 이유</div>
       <div style="font-size:14px;color:var(--t2);line-height:2">
         법인이 적자라서 걱정되시겠지만,<br>
         세금 관점에서는 <b>오히려 유리한 시기</b>입니다:<br><br>
@@ -1257,7 +1265,7 @@ document.getElementById('emailIn').addEventListener('keydown',e=>{if(e.key==='En
     <!-- ======================== -->
     <!-- 시나리오 시뮬레이션 섹션 -->
     <!-- ======================== -->
-    <div class="st" style="margin-top:24px">🧮 매각 시나리오 시뮬레이션</div>
+    <div id="tax-scenario" class="st" style="margin-top:24px">🧮 매각 시나리오 시뮬레이션</div>
     <div class="ss">만약 건물이나 미술품을 팔면 세금이 얼마나 나올까? 시나리오별로 미리 계산해봤습니다.</div>
 
     <!-- 시나리오 1: 서울숲 건물 법인 매각 -->
@@ -1424,7 +1432,7 @@ document.getElementById('emailIn').addEventListener('keydown',e=>{if(e.key==='En
     <!-- ======================== -->
     <!-- 법인 통합 시뮬레이션 -->
     <!-- ======================== -->
-    <div class="st" style="margin-top:24px">🏢 법인 승계 시뮬레이션</div>
+    <div id="tax-succession" class="st" style="margin-top:24px">🏢 법인 승계 시뮬레이션</div>
     <div class="ss">🤖 AI 분석 — 세인(딸)이 소솝을 가장 절세하면서 승계받는 방법</div>
 
     <!-- 소솝 주식 가치 분석 -->
