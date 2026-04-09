@@ -366,17 +366,62 @@ document.getElementById('emailIn').addEventListener('keydown',e=>{if(e.key==='En
 
   <!-- 2026년 현황 -->
   <div class="sec">
-    <div class="st">📅 2026년 1~3월 현황</div>
+    <div class="st">📅 2026년 1~3월 월별 상세</div>
+    <div class="ss">올해 최신 데이터입니다 (4월 9일 기준)</div>
+
     <div class="cd">
+      <div class="ct"><div class="ci" style="background:var(--blu);color:#fff">🏢</div>법인(소솝) 2026년 월별</div>
       <table class="tb">
-        <tr><th></th><th class="R">법인(소솝)</th><th class="R">개인</th></tr>
-        <tr><td>총 수입</td><td class="R" style="font-weight:600">5,698만</td><td class="R" style="font-weight:600">1억 1,184만</td></tr>
-        <tr><td>총 지출</td><td class="R r">2억 5,815만</td><td class="R r">8,770만</td></tr>
-        <tr class="T"><td>수지</td><td class="R r big-num">-2억 117만</td><td class="R g big-num">+2,415만</td></tr>
+        <tr><th></th><th class="R">1월</th><th class="R">2월</th><th class="R">3월</th><th class="R" style="font-weight:700">합계</th></tr>
+        <tr><td>행사수입</td><td class="R g">1,078만</td><td class="R" style="color:var(--t3)">-</td><td class="R" style="color:var(--t3)">-</td><td class="R g" style="font-weight:700">1,078만</td></tr>
+        <tr><td>임대차수입</td><td class="R">1,848만</td><td class="R">1,386만</td><td class="R">1,386만</td><td class="R" style="font-weight:700">4,620만</td></tr>
+        <tr style="background:rgba(0,184,148,0.04)"><td><b>수입합계</b></td><td class="R g">2,926만</td><td class="R g">1,386만</td><td class="R g">1,386만</td><td class="R g" style="font-weight:800">5,698만</td></tr>
+        <tr><td><b>지출합계</b></td><td class="R r">1억 329만</td><td class="R r">7,940만</td><td class="R r">7,546만</td><td class="R r" style="font-weight:800">2억 5,815만</td></tr>
+        <tr class="T"><td><b>수지</b></td><td class="R r">-7,403만</td><td class="R r">-6,554만</td><td class="R r">-6,160만</td><td class="R r" style="font-weight:800;font-size:16px">-2억 117만</td></tr>
       </table>
-      <div style="font-size:12px;color:var(--t3);margin-top:10px;line-height:1.6">
-        📌 법인은 행사가 적어 적자이지만, 개인은 안정적 흑자입니다.<br>
-        하반기 행사 시즌에 법인 수입이 크게 늘어날 수 있습니다.
+    </div>
+
+    <div class="cd">
+      <div class="ct"><div class="ci" style="background:var(--grn);color:#fff">👤</div>개인 2026년 월별</div>
+      <table class="tb">
+        <tr><th></th><th class="R">1월</th><th class="R">2월</th><th class="R">3월</th><th class="R" style="font-weight:700">합계</th></tr>
+        <tr><td>급여</td><td class="R g">2,000만</td><td class="R g">2,000만</td><td class="R g">2,000만</td><td class="R g" style="font-weight:700">6,000만</td></tr>
+        <tr><td>연금</td><td class="R">1,109만</td><td class="R">1,109만</td><td class="R">1,109만</td><td class="R" style="font-weight:700">3,326만</td></tr>
+        <tr><td>음원+기타</td><td class="R">619만</td><td class="R">766만</td><td class="R">473만</td><td class="R" style="font-weight:700">1,858만</td></tr>
+        <tr style="background:rgba(0,184,148,0.04)"><td><b>수입합계</b></td><td class="R g">3,728만</td><td class="R g">3,875만</td><td class="R g">3,582만</td><td class="R g" style="font-weight:800">1억 1,184만</td></tr>
+        <tr><td><b>지출합계</b></td><td class="R r">3,092만</td><td class="R r">2,962만</td><td class="R r">2,716만</td><td class="R r" style="font-weight:800">8,770만</td></tr>
+        <tr class="T"><td><b>수지</b></td><td class="R g">+636만</td><td class="R g">+914만</td><td class="R g">+866만</td><td class="R g" style="font-weight:800;font-size:16px">+2,415만</td></tr>
+      </table>
+    </div>
+
+    <!-- 추이 분석 및 AI 추천 -->
+    <div class="cd" style="border-left:4px solid var(--pur);background:rgba(108,92,231,0.02)">
+      <div class="ct" style="color:var(--pur)">🤖 AI 추이 분석 & 추천</div>
+      <div style="font-size:14px;color:var(--t2);line-height:2">
+        <b>📊 법인 트렌드 (위험 신호 ⚠️)</b><br>
+        • 행사 수입: 2024년 월평균 1.05억 → 2025년 8,659만 → <b>2026년 359만으로 급감</b><br>
+        • 임대차 수입: 2024년 6월 이후 중단 → <b>2026년 1월 재개 (월 1,386만)</b> ✅<br>
+        • 고정 지출: 월 약 7,000~8,000만이 나가는데, 수입이 월 1,400만뿐<br>
+        • <b>월 5,600~6,600만씩 현금이 줄어들고 있음</b><br>
+        • 현재 예금 6.2억 기준 → <b>약 9~11개월</b>이면 예금 소진<br><br>
+
+        <b>📊 개인 트렌드 (안정적 ✅)</b><br>
+        • 매월 수입 약 3,700만 vs 지출 약 2,900만 → <b>월 800만 흑자</b><br>
+        • 2025년 대비 투자/대여금 지출이 크게 줄어 안정화<br>
+        • 급여+연금 3,100만으로 기본생활 충분<br><br>
+
+        <b style="color:var(--red)">🚨 긴급 추천사항</b><br>
+        1. <b>법인 행사 수입 확보</b> — 올해 공연/행사 일정 적극 확보 필요<br>
+        2. <b>임대 수입 극대화</b> — 서울숲 건물 공실 최소화 (현재 월 1,386만)<br>
+        3. <b>법인 고정비 점검</b> — 월 7~8천만 나가는 구조 재검토<br>
+        4. <b>대표이사 급여 조정</b> — 적자 지속시 급여 하향으로 현금 유출 축소<br>
+        5. <b>미술품 전략적 매각</b> — 현금 확보 + 이월결손금 활용 절세<br><br>
+
+        <b style="color:var(--grn)">💡 연말 예상 시나리오</b><br>
+        • 행사 없을 경우: 법인 연간 적자 약 <b>-7~8억</b> (예금 소진 위험)<br>
+        • 2025년 수준 행사 확보시: 적자 약 <b>-3억</b> (관리 가능)<br>
+        • 2024년 수준 행사 확보시: <b>흑자 전환 가능</b><br>
+        • 개인은 연말까지 약 <b>+1억 흑자</b> 예상
       </div>
     </div>
   </div>
