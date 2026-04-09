@@ -401,7 +401,55 @@ document.getElementById('emailIn').addEventListener('keydown',e=>{if(e.key==='En
     </div>
 
     <div class="cd"><div class="ct"><div class="ci" style="background:var(--grn);color:#fff">📊</div>연도별 수입/지출 비교</div><div class="chrt"><canvas id="cCorpPL"></canvas></div></div>
-    <div class="cd"><div class="ct"><div class="ci" style="background:var(--blu);color:#fff">📈</div>2025 월별 수입·지출 추이</div><div class="chrt"><canvas id="cCorpM"></canvas></div></div>
+
+    <!-- 2024~2026 전체 월별 추이 (풀 타임라인) -->
+    <div class="cd"><div class="ct"><div class="ci" style="background:var(--blu);color:#fff">📈</div>2024~2026 전체 월별 추이</div><div class="chrt" style="height:280px"><canvas id="cCorpFull"></canvas></div></div>
+
+    <!-- 2024 월별 수입 상세 -->
+    <div class="cd">
+      <div class="ct"><div class="ci" style="background:var(--grn);color:#fff">📅</div>2024 법인 월별 수입/지출 상세</div>
+      <div style="overflow-x:auto;-webkit-overflow-scrolling:touch">
+      <table class="tb" style="font-size:11px;min-width:700px">
+        <tr><th></th><th class="R">1월</th><th class="R">2월</th><th class="R">3월</th><th class="R">4월</th><th class="R">5월</th><th class="R">6월</th><th class="R">7월</th><th class="R">8월</th><th class="R">9월</th><th class="R">10월</th><th class="R">11월</th><th class="R">12월</th><th class="R" style="font-weight:700">합계</th></tr>
+        <tr><td>행사수입</td><td class="R g">9,585</td><td class="R g">11,602</td><td class="R g">9,249</td><td class="R g">8,473</td><td class="R g">19,887</td><td class="R g">8,222</td><td class="R g">7,677</td><td class="R g">5,612</td><td class="R g">8,748</td><td class="R g">6,597</td><td class="R g">25,484</td><td class="R g">4,744</td><td class="R g" style="font-weight:700">12.6억</td></tr>
+        <tr><td>임대차수입</td><td class="R">2,816</td><td class="R">2,816</td><td class="R">2,816</td><td class="R">2,816</td><td class="R">2,816</td><td class="R">-</td><td class="R">-</td><td class="R">-</td><td class="R">-</td><td class="R">-</td><td class="R">-</td><td class="R">-</td><td class="R" style="font-weight:700">1.4억</td></tr>
+        <tr style="background:rgba(0,184,148,0.04)"><td><b>수입합계</b></td><td class="R g">12,401</td><td class="R g">14,418</td><td class="R g">12,065</td><td class="R g">11,289</td><td class="R g">22,703</td><td class="R g">8,222</td><td class="R g">7,677</td><td class="R g">5,612</td><td class="R g">8,748</td><td class="R g">6,597</td><td class="R g">25,484</td><td class="R g">4,744</td><td class="R g" style="font-weight:700">14.0억</td></tr>
+        <tr><td><b>지출합계</b></td><td class="R r">9,660</td><td class="R r">9,226</td><td class="R r">7,517</td><td class="R r">12,851</td><td class="R r">6,871</td><td class="R r">12,608</td><td class="R r">14,386</td><td class="R r">9,649</td><td class="R r">8,431</td><td class="R r">7,079</td><td class="R r">7,409</td><td class="R r">7,571</td><td class="R r" style="font-weight:700">11.3억</td></tr>
+        <tr class="T"><td><b>수지</b></td><td class="R g">+2,741</td><td class="R g">+5,192</td><td class="R g">+4,548</td><td class="R r">-1,562</td><td class="R g">+15,832</td><td class="R r">-4,386</td><td class="R r">-6,709</td><td class="R r">-4,038</td><td class="R g">+317</td><td class="R r">-483</td><td class="R g">+18,074</td><td class="R r">-2,827</td><td class="R g" style="font-weight:700">+2.7억</td></tr>
+      </table>
+      </div>
+      <div style="font-size:10px;color:var(--t3);margin-top:6px">단위: 만원 · 좌우로 스크롤 →</div>
+    </div>
+
+    <!-- 2025 월별 수입 상세 -->
+    <div class="cd">
+      <div class="ct"><div class="ci" style="background:var(--org);color:#fff">📅</div>2025 법인 월별 수입/지출 상세</div>
+      <div style="overflow-x:auto;-webkit-overflow-scrolling:touch">
+      <table class="tb" style="font-size:11px;min-width:700px">
+        <tr><th></th><th class="R">1월</th><th class="R">2월</th><th class="R">3월</th><th class="R">4월</th><th class="R">5월</th><th class="R">6월</th><th class="R">7월</th><th class="R">8월</th><th class="R">9월</th><th class="R">10월</th><th class="R">11월</th><th class="R">12월</th><th class="R" style="font-weight:700">합계</th></tr>
+        <tr><td>행사수입</td><td class="R g">11,124</td><td class="R g">3,409</td><td class="R g">3,679</td><td class="R g">5,222</td><td class="R g">6,678</td><td class="R g">3,825</td><td class="R g">3,061</td><td class="R g">2,811</td><td class="R g">24,207</td><td class="R g">10,273</td><td class="R g">16,415</td><td class="R g">13,200</td><td class="R g" style="font-weight:700">10.4억</td></tr>
+        <tr><td><b>지출합계</b></td><td class="R r">12,737</td><td class="R r">10,147</td><td class="R r">11,660</td><td class="R r">10,853</td><td class="R r">13,564</td><td class="R r">8,810</td><td class="R r">9,417</td><td class="R r">10,566</td><td class="R r">12,627</td><td class="R r">13,345</td><td class="R r">11,029</td><td class="R r">12,344</td><td class="R r" style="font-weight:700">13.7억</td></tr>
+        <tr class="T"><td><b>수지</b></td><td class="R r">-1,613</td><td class="R r">-6,738</td><td class="R r">-7,981</td><td class="R r">-5,631</td><td class="R r">-6,887</td><td class="R r">-4,985</td><td class="R r">-6,357</td><td class="R r">-7,755</td><td class="R g">+11,580</td><td class="R r">-3,072</td><td class="R g">+5,386</td><td class="R g">+856</td><td class="R r" style="font-weight:700">-3.3억</td></tr>
+      </table>
+      </div>
+      <div style="font-size:10px;color:var(--t3);margin-top:6px">단위: 만원 · 9월 공연 시즌에 +1.16억 흑자, 11월 +5,386만 흑자</div>
+    </div>
+
+    <!-- 2026 월별 수입 상세 -->
+    <div class="cd">
+      <div class="ct"><div class="ci" style="background:var(--red);color:#fff">📅</div>2026 법인 월별 수입/지출 (1~3월)</div>
+      <div style="overflow-x:auto;-webkit-overflow-scrolling:touch">
+      <table class="tb" style="font-size:11px;min-width:400px">
+        <tr><th></th><th class="R">1월</th><th class="R">2월</th><th class="R">3월</th><th class="R" style="font-weight:700">합계</th></tr>
+        <tr><td>행사수입</td><td class="R g">1,078</td><td class="R g">-</td><td class="R g">-</td><td class="R g" style="font-weight:700">1,078</td></tr>
+        <tr><td>임대차수입</td><td class="R">1,848</td><td class="R">1,386</td><td class="R">1,386</td><td class="R" style="font-weight:700">4,620</td></tr>
+        <tr style="background:rgba(0,184,148,0.04)"><td><b>수입합계</b></td><td class="R g">2,926</td><td class="R g">1,386</td><td class="R g">1,386</td><td class="R g" style="font-weight:700">5,698</td></tr>
+        <tr><td><b>지출합계</b></td><td class="R r">10,329</td><td class="R r">7,940</td><td class="R r">7,546</td><td class="R r" style="font-weight:700">25,815</td></tr>
+        <tr class="T"><td><b>수지</b></td><td class="R r">-7,403</td><td class="R r">-6,554</td><td class="R r">-6,160</td><td class="R r" style="font-weight:700">-20,117</td></tr>
+      </table>
+      </div>
+      <div style="font-size:10px;color:var(--t3);margin-top:6px">단위: 만원 · 행사 수입이 거의 없어 적자 지속, 임대차 수입(월1,386만)이 유일한 수입원</div>
+    </div>
 
     <div class="cd">
       <div class="ct"><div class="ci" style="background:var(--org);color:#fff">📋</div>2024년 — 흑자</div>
@@ -545,7 +593,26 @@ document.getElementById('emailIn').addEventListener('keydown',e=>{if(e.key==='En
       </div>
     </div>
 
-    <div class="cd"><div class="ct"><div class="ci" style="background:var(--blu);color:#fff">📈</div>2025 월별 수입·지출</div><div class="chrt"><canvas id="cPersM"></canvas></div></div>
+    <div class="cd"><div class="ct"><div class="ci" style="background:var(--blu);color:#fff">📈</div>2025~2026 개인 월별 추이</div><div class="chrt" style="height:280px"><canvas id="cPersFull"></canvas></div></div>
+
+    <!-- 2026 Q1 개인 수입/지출 -->
+    <div class="cd">
+      <div class="ct"><div class="ci" style="background:var(--red);color:#fff">📅</div>2026 개인 월별 수입/지출 (1~3월)</div>
+      <div style="overflow-x:auto;-webkit-overflow-scrolling:touch">
+      <table class="tb" style="font-size:11px;min-width:400px">
+        <tr><th></th><th class="R">1월</th><th class="R">2월</th><th class="R">3월</th><th class="R" style="font-weight:700">합계</th></tr>
+        <tr><td>급여</td><td class="R g">2,000</td><td class="R g">2,000</td><td class="R g">2,000</td><td class="R g" style="font-weight:700">6,000</td></tr>
+        <tr><td>연금</td><td class="R">1,109</td><td class="R">1,109</td><td class="R">1,109</td><td class="R" style="font-weight:700">3,326</td></tr>
+        <tr><td>음원수익</td><td class="R">493</td><td class="R">726</td><td class="R">398</td><td class="R" style="font-weight:700">1,617</td></tr>
+        <tr><td>시훈대여금이자</td><td class="R">30</td><td class="R">30</td><td class="R">30</td><td class="R" style="font-weight:700">90</td></tr>
+        <tr><td>기타</td><td class="R">96</td><td class="R">10</td><td class="R">45</td><td class="R" style="font-weight:700">151</td></tr>
+        <tr style="background:rgba(0,184,148,0.04)"><td><b>수입합계</b></td><td class="R g" style="font-weight:700">3,728</td><td class="R g" style="font-weight:700">3,875</td><td class="R g" style="font-weight:700">3,582</td><td class="R g" style="font-weight:700">1억 1,184</td></tr>
+        <tr><td><b>지출합계</b></td><td class="R r" style="font-weight:700">3,092</td><td class="R r" style="font-weight:700">2,962</td><td class="R r" style="font-weight:700">2,716</td><td class="R r" style="font-weight:700">8,770</td></tr>
+        <tr class="T"><td><b>수지</b></td><td class="R g" style="font-weight:700">+636</td><td class="R g" style="font-weight:700">+914</td><td class="R g" style="font-weight:700">+866</td><td class="R g" style="font-weight:700">+2,415</td></tr>
+      </table>
+      </div>
+      <div style="font-size:10px;color:var(--t3);margin-top:6px">단위: 만원 · 2026년 개인은 투자/대여금 지출이 줄어 안정적 흑자 전환 ✅</div>
+    </div>
 
     <div class="cd">
       <div class="ct"><div class="ci" style="background:var(--grn);color:#fff">📅</div>2025 개인 월별 수입 상세</div>
@@ -1432,9 +1499,23 @@ function initC(){
   const ce=[127370101,101469681,116597901,108530771,135644299,88100709,94174358,105664315,126268779,133452014,110293358,123438102];
   new Chart(document.getElementById('cCorpM'),{type:'line',data:{labels:ml,datasets:[{label:'수입',data:ci,borderColor:'#00b894',backgroundColor:'rgba(0,184,148,0.06)',fill:true,tension:.4,pointRadius:3},{label:'지출',data:ce,borderColor:'#e74c3c',backgroundColor:'rgba(231,76,60,0.06)',fill:true,tension:.4,pointRadius:3}]},options:cO});
 
-  const pi=[37948104,35105771,34300758,33694517,35640931,35461541,34293247,34613517,31290602,37158192,53333523,20000000];
-  const pe=[42339545,32913178,33160651,49699793,36613372,46922190,224441044,30624456,44244713,25780410,68350243,19069749];
-  new Chart(document.getElementById('cPersM'),{type:'line',data:{labels:ml,datasets:[{label:'수입',data:pi,borderColor:'#00b894',backgroundColor:'rgba(0,184,148,0.06)',fill:true,tension:.4,pointRadius:3},{label:'지출',data:pe,borderColor:'#e74c3c',backgroundColor:'rgba(231,76,60,0.06)',fill:true,tension:.4,pointRadius:3}]},options:cO});
+  // 법인 2024~2026 풀 타임라인
+  const fullLbl=['24.1','24.2','24.3','24.4','24.5','24.6','24.7','24.8','24.9','24.10','24.11','24.12','25.1','25.2','25.3','25.4','25.5','25.6','25.7','25.8','25.9','25.10','25.11','25.12','26.1','26.2','26.3'];
+  const fullIn=[124006852,144177343,120646933,112893726,227026092,82219720,76769768,56115768,87482946,65967685,254836621,47437097,111235362,34086243,36792336,52217022,66775022,38248718,30605939,28112698,242066495,102729792,164150000,132000000,29258900,13860000,13860000];
+  const fullEx=[96601901,92255269,75166788,128507701,68705365,126078045,143857342,96493480,84308136,70793832,74091632,75709657,127370101,101469681,116597901,108530771,135644299,88100709,94174358,105664315,126268779,133452014,110293358,123438102,103288436,79399298,75461715];
+  new Chart(document.getElementById('cCorpFull'),{type:'line',data:{labels:fullLbl,datasets:[
+    {label:'수입',data:fullIn,borderColor:'#00b894',backgroundColor:'rgba(0,184,148,0.06)',fill:true,tension:.3,pointRadius:2,borderWidth:2},
+    {label:'지출',data:fullEx,borderColor:'#e74c3c',backgroundColor:'rgba(231,76,60,0.06)',fill:true,tension:.3,pointRadius:2,borderWidth:2}
+  ]},options:{responsive:true,maintainAspectRatio:false,plugins:{legend:{position:'bottom',labels:{font:{size:10},padding:10}},annotation:{}},scales:{y:{ticks:{callback:v=>fmt(v),font:{size:9},color:'#999'},grid:{color:'rgba(150,150,150,0.08)'}},x:{ticks:{font:{size:8},color:'#999',maxRotation:45},grid:{display:false}}}}});
+
+  // 개인 2025~2026 풀 타임라인
+  const pi=[37948104,35105771,34300758,33694517,35640931,35461541,34293247,44613517,37290602,37158192,53333523,20000000,37282352,38747288,35864094];
+  const pe=[42339545,32913178,33160651,49699793,36613372,46922190,224441044,30624456,44244713,25780410,68350243,19069749,30916983,29615967,27164432];
+  const pLbl=['25.1','25.2','25.3','25.4','25.5','25.6','25.7','25.8','25.9','25.10','25.11','25.12','26.1','26.2','26.3'];
+  new Chart(document.getElementById('cPersFull'),{type:'line',data:{labels:pLbl,datasets:[
+    {label:'수입',data:pi,borderColor:'#00b894',backgroundColor:'rgba(0,184,148,0.06)',fill:true,tension:.3,pointRadius:2,borderWidth:2},
+    {label:'지출',data:pe,borderColor:'#e74c3c',backgroundColor:'rgba(231,76,60,0.06)',fill:true,tension:.3,pointRadius:2,borderWidth:2}
+  ]},options:{responsive:true,maintainAspectRatio:false,plugins:{legend:{position:'bottom',labels:{font:{size:10},padding:10}}},scales:{y:{ticks:{callback:v=>fmt(v),font:{size:9},color:'#999'},grid:{color:'rgba(150,150,150,0.08)'}},x:{ticks:{font:{size:8},color:'#999',maxRotation:45},grid:{display:false}}}}});
 
   new Chart(document.getElementById('cRealty'),{type:'bar',data:{labels:['서울숲건물\n(법인)','DH클래스트\n(개인)','갤러리아포레\n(전세)'],datasets:[{data:[120,120,45],backgroundColor:['#302b63','#e65100','#6c5ce7'],borderRadius:8}]},options:{responsive:true,maintainAspectRatio:false,indexAxis:'y',plugins:{legend:{display:false},tooltip:{callbacks:{label:c=>c.raw+'억원'}}},scales:{x:{ticks:{callback:v=>v+'억',font:{size:10},color:'#999'},grid:{color:'rgba(150,150,150,0.08)'}},y:{ticks:{font:{size:11},color:'#999'}}}}});
 
