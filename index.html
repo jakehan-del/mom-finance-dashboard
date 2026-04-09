@@ -1941,11 +1941,15 @@ function initC(){
 }
 </script>
 <script>
-// PWA 서비스워커 등록
-// PWA 서비스워커 등록
+// PWA 서비스워커 - 캐시 강제 갱신
 if('serviceWorker' in navigator){
   window.addEventListener('load',()=>{
-    navigator.serviceWorker.register('sw.js').then(r=>console.log('SW registered')).catch(e=>console.log('SW failed',e));
+    // 기존 캐시 모두 삭제 후 새로 등록
+    caches.keys().then(keys=>Promise.all(keys.map(k=>caches.delete(k))));
+    navigator.serviceWorker.getRegistrations().then(regs=>{
+      regs.forEach(r=>r.unregister());
+      navigator.serviceWorker.register('sw.js?v=20').then(r=>{r.update();console.log('SW updated')});
+    });
   });
 }
 
