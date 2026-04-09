@@ -194,6 +194,39 @@ button{font-family:inherit}
 </head>
 <body>
 
+<!-- 이메일 인증 화면 -->
+<div id="emailGate" style="position:fixed;inset:0;z-index:99999;background:linear-gradient(135deg,#0f0c29,#302b63,#24243e);display:flex;flex-direction:column;align-items:center;justify-content:center;color:#fff;padding:24px">
+  <div style="font-size:48px;margin-bottom:16px;filter:drop-shadow(0 4px 12px rgba(255,255,255,0.2))">🔐</div>
+  <h2 style="font-size:22px;font-weight:800;margin-bottom:6px">접근 권한 확인</h2>
+  <p style="font-size:13px;color:rgba(255,255,255,0.4);margin-bottom:28px;text-align:center">허가된 이메일 주소만 접속할 수 있습니다</p>
+  <input id="emailIn" type="email" placeholder="이메일 주소를 입력하세요" style="width:100%;max-width:320px;padding:14px 16px;border-radius:14px;border:1px solid rgba(255,255,255,0.15);background:rgba(255,255,255,0.08);color:#fff;font-size:15px;outline:none;text-align:center;font-family:inherit" autocomplete="email" autocapitalize="off">
+  <div id="emailErr" style="color:#ff1744;font-size:12px;height:20px;margin-top:8px"></div>
+  <button onclick="checkEmail()" style="width:100%;max-width:320px;padding:14px;border:none;border-radius:14px;background:linear-gradient(135deg,#6c5ce7,#0984e3);color:#fff;font-size:15px;font-weight:600;cursor:pointer;margin-top:4px;font-family:inherit">확인</button>
+  <p style="font-size:10px;color:rgba(255,255,255,0.2);margin-top:20px">인증된 이메일로만 접속 가능합니다</p>
+</div>
+
+<script>
+const ALLOWED_EMAILS=['sosob7@naver.com','insoone7@hanmail.net','han2809@gmail.com','jasminesaeinpark@gmail.com'];
+function checkEmail(){
+  const email=document.getElementById('emailIn').value.trim().toLowerCase();
+  if(ALLOWED_EMAILS.includes(email)){
+    localStorage.setItem('_authEmail',email);
+    document.getElementById('emailGate').style.display='none';
+  }else{
+    document.getElementById('emailErr').textContent='허가되지 않은 이메일입니다';
+    document.getElementById('emailIn').style.borderColor='#ff1744';
+  }
+}
+// 이미 인증된 이메일이 있으면 스킵
+document.addEventListener('DOMContentLoaded',()=>{
+  const saved=localStorage.getItem('_authEmail');
+  if(saved && ALLOWED_EMAILS.includes(saved)){
+    document.getElementById('emailGate').style.display='none';
+  }
+});
+document.getElementById('emailIn').addEventListener('keydown',e=>{if(e.key==='Enter')checkEmail()});
+</script>
+
 <!-- iOS 앱 설치 안내 배너 -->
 <div class="install-banner" id="installBanner">
   <button class="close-bn" onclick="dismissInstall()">✕</button>
@@ -415,6 +448,19 @@ button{font-family:inherit}
     </div>
 
     <div class="cd">
+      <div class="ct"><div class="ci" style="background:var(--grn);color:#fff">📅</div>2025 법인 월별 수입 상세</div>
+      <div style="overflow-x:auto;-webkit-overflow-scrolling:touch">
+      <table class="tb" style="font-size:11px;min-width:600px">
+        <tr><th>항목</th><th class="R">1월</th><th class="R">2월</th><th class="R">3월</th><th class="R">4월</th><th class="R">5월</th><th class="R">6월</th><th class="R">7월</th><th class="R">8월</th><th class="R">9월</th><th class="R">10월</th><th class="R">11월</th><th class="R">12월</th></tr>
+        <tr><td>행사 수입</td><td class="R g">11,124</td><td class="R g">3,409</td><td class="R g">3,679</td><td class="R g">5,222</td><td class="R g">6,678</td><td class="R g">3,825</td><td class="R g">3,061</td><td class="R g">2,811</td><td class="R g">24,207</td><td class="R g">10,273</td><td class="R g">16,415</td><td class="R g">13,200</td></tr>
+        <tr><td>기타 수입</td><td class="R">-</td><td class="R">-</td><td class="R">-</td><td class="R">-</td><td class="R">-</td><td class="R">-</td><td class="R">-</td><td class="R">-</td><td class="R">-</td><td class="R">-</td><td class="R">-</td><td class="R">-</td></tr>
+        <tr class="T"><td><b>합계</b></td><td class="R g">11,124</td><td class="R g">3,409</td><td class="R g">3,679</td><td class="R g">5,222</td><td class="R g">6,678</td><td class="R g">3,825</td><td class="R g">3,061</td><td class="R g">2,811</td><td class="R g">24,207</td><td class="R g">10,273</td><td class="R g">16,415</td><td class="R g">13,200</td></tr>
+      </table>
+      </div>
+      <div style="font-size:10px;color:var(--t3);margin-top:8px">단위: 만원 · 좌우로 스크롤 → · 9월(2.4억)과 11월(1.6억) 행사가 가장 많았음</div>
+    </div>
+
+    <div class="cd">
       <div class="ct"><div class="ci" style="background:var(--pnk);color:#fff">📅</div>2025 법인 월별 지출 한눈에 보기</div>
       <div style="overflow-x:auto;-webkit-overflow-scrolling:touch">
       <table class="tb" style="font-size:11px;min-width:600px">
@@ -500,6 +546,23 @@ button{font-family:inherit}
     </div>
 
     <div class="cd"><div class="ct"><div class="ci" style="background:var(--blu);color:#fff">📈</div>2025 월별 수입·지출</div><div class="chrt"><canvas id="cPersM"></canvas></div></div>
+
+    <div class="cd">
+      <div class="ct"><div class="ci" style="background:var(--grn);color:#fff">📅</div>2025 개인 월별 수입 상세</div>
+      <div style="overflow-x:auto;-webkit-overflow-scrolling:touch">
+      <table class="tb" style="font-size:11px;min-width:600px">
+        <tr><th>항목</th><th class="R">1월</th><th class="R">2월</th><th class="R">3월</th><th class="R">4월</th><th class="R">5월</th><th class="R">6월</th><th class="R">7월</th><th class="R">8월</th><th class="R">9월</th><th class="R">10월</th><th class="R">11월</th><th class="R">12월</th></tr>
+        <tr><td>급여</td><td class="R g">2,000</td><td class="R g">2,000</td><td class="R g">2,000</td><td class="R g">2,000</td><td class="R g">2,000</td><td class="R g">2,000</td><td class="R g">2,000</td><td class="R g">2,000</td><td class="R g">2,000</td><td class="R g">2,000</td><td class="R g">2,000</td><td class="R g">2,000</td></tr>
+        <tr><td>연금</td><td class="R">1,226</td><td class="R">1,226</td><td class="R">1,111</td><td class="R">1,111</td><td class="R">1,111</td><td class="R">1,111</td><td class="R">1,111</td><td class="R">1,111</td><td class="R">1,111</td><td class="R">1,111</td><td class="R">1,111</td><td class="R">1,111</td></tr>
+        <tr><td>음원수익</td><td class="R">558</td><td class="R">248</td><td class="R">309</td><td class="R">258</td><td class="R">298</td><td class="R">410</td><td class="R">318</td><td class="R">304</td><td class="R">107</td><td class="R">552</td><td class="R">622</td><td class="R">-</td></tr>
+        <tr><td>행사/방송</td><td class="R">-</td><td class="R">-</td><td class="R">-</td><td class="R">-</td><td class="R">145</td><td class="R">15</td><td class="R">-</td><td class="R">1,000</td><td class="R">529</td><td class="R">13</td><td class="R">-</td><td class="R">-</td></tr>
+        <tr><td>시훈대여금이자</td><td class="R">-</td><td class="R">-</td><td class="R">-</td><td class="R">-</td><td class="R">-</td><td class="R">-</td><td class="R">-</td><td class="R">30</td><td class="R">30</td><td class="R">30</td><td class="R">30</td><td class="R">30</td></tr>
+        <tr><td>기타</td><td class="R">10</td><td class="R">36</td><td class="R">10</td><td class="R">10</td><td class="R">10</td><td class="R">10</td><td class="R">10</td><td class="R">10</td><td class="R">10</td><td class="R">10</td><td class="R">1,570</td><td class="R">10</td></tr>
+        <tr class="T"><td><b>합계</b></td><td class="R g">3,795</td><td class="R g">3,511</td><td class="R g">3,430</td><td class="R g">3,369</td><td class="R g">3,564</td><td class="R g">3,546</td><td class="R g">3,429</td><td class="R g">4,461</td><td class="R g">3,787</td><td class="R g">3,716</td><td class="R g">5,333</td><td class="R g">3,151</td></tr>
+      </table>
+      </div>
+      <div style="font-size:10px;color:var(--t3);margin-top:8px">단위: 만원 · 좌우로 스크롤 → · 급여(2,000만)와 연금(1,111만)이 매월 안정적</div>
+    </div>
 
     <div class="cd">
       <div class="ct"><div class="ci" style="background:var(--pnk);color:#fff">📅</div>2025 개인 월별 지출 한눈에 보기</div>
