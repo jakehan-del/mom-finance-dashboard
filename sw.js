@@ -1,4 +1,4 @@
-const CACHE_NAME = 'mom-finance-v7';
+const CACHE_NAME = 'mom-finance-v20';
 const ASSETS = [
   './',
   './index.html',
@@ -23,17 +23,17 @@ self.addEventListener('activate', e => {
 });
 
 self.addEventListener('fetch', e => {
-  // API 호출은 항상 네트워크 우선
+  // API 호출은 항상 네트워크
   if (e.request.url.includes('api.anthropic.com')) {
     e.respondWith(fetch(e.request));
     return;
   }
-  // 나머지는 캐시 우선, 실패시 네트워크
+  // 네트워크 우선, 실패시 캐시 (항상 최신 버전 표시)
   e.respondWith(
-    caches.match(e.request).then(cached => cached || fetch(e.request).then(resp => {
+    fetch(e.request).then(resp => {
       const clone = resp.clone();
       caches.open(CACHE_NAME).then(cache => cache.put(e.request, clone));
       return resp;
-    }))
+    }).catch(() => caches.match(e.request))
   );
 });
