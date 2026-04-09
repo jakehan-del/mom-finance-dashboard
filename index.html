@@ -983,13 +983,219 @@ button{font-family:inherit}
       <div style="font-size:10px;color:rgba(255,255,255,0.3);margin-top:10px">* 모든 수치는 추정치이며, 취득가/감가상각/공제에 따라 크게 변동. 반드시 세무사와 정확한 계산 필요.</div>
     </div>
 
+    <!-- ======================== -->
+    <!-- 법인 통합 시뮬레이션 -->
+    <!-- ======================== -->
+    <div class="st" style="margin-top:24px">🏢 법인 통합 시뮬레이션</div>
+    <div class="ss">소솝(어머니)과 오디지디(시훈·세인)를 합치면 어떻게 될까? 3가지 방법을 비교했습니다.</div>
+
+    <!-- 현재 구조 -->
+    <div class="cd">
+      <div class="ct"><div class="ci" style="background:var(--t3);color:#fff">📍</div>현재 구조</div>
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:8px">
+        <div style="padding:14px;background:rgba(9,132,227,0.06);border:1px solid rgba(9,132,227,0.15);border-radius:14px">
+          <div style="font-size:15px;font-weight:700;color:var(--blu)">소솝</div>
+          <div style="font-size:12px;color:var(--t3);margin-top:6px;line-height:1.7">
+            👤 어머니 50% + 아버님 50%<br>
+            🏢 서울숲 건물 120억<br>
+            🎨 미술품 12.5억<br>
+            💰 예금 6.2억<br>
+            🏦 대출 21.3억<br>
+            📊 2025 적자 -3.3억
+          </div>
+        </div>
+        <div style="padding:14px;background:rgba(108,92,231,0.06);border:1px solid rgba(108,92,231,0.15);border-radius:14px">
+          <div style="font-size:15px;font-weight:700;color:var(--pur)">오디지디 (ODGM)</div>
+          <div style="font-size:12px;color:var(--t3);margin-top:6px;line-height:1.7">
+            👤 시훈 + 세인<br>
+            🎵 엔터/매니지먼트<br>
+            📊 별도 재무<br>
+            <br><br><br>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 방법 A: 오디지디가 소솝 흡수합병 -->
+    <div class="cd" style="border-left:4px solid var(--blu)">
+      <div class="ct" style="color:var(--blu)">방법 A. 오디지디가 소솝을 흡수합병</div>
+      <div style="font-size:13px;color:var(--t3);margin-bottom:12px">소솝이 소멸하고, 소솝의 자산·부채가 오디지디로 넘어감</div>
+
+      <div style="font-size:14px;color:var(--t2);line-height:1.9">
+        <b>구조</b>: 소솝(피합병) → 오디지디(합병법인)<br>
+        오디지디가 소솝의 건물, 미술품, 대출 등 모든 권리의무를 승계<br><br>
+
+        <b>📌 적격합병 요건 충족 여부</b>
+      </div>
+      <table class="tb" style="margin:8px 0">
+        <tr><th>요건</th><th class="R">충족 여부</th></tr>
+        <tr><td>양 법인 1년 이상 사업 영위</td><td class="R g" style="font-weight:700">✅ 충족</td></tr>
+        <tr><td>합병대가 80% 이상 주식 교부</td><td class="R" style="font-weight:600">⚠️ 설계 필요</td></tr>
+        <tr><td>승계 사업 계속 영위</td><td class="R g" style="font-weight:700">✅ 가능</td></tr>
+        <tr><td>근로자 80% 이상 승계</td><td class="R" style="font-weight:600">⚠️ 확인 필요</td></tr>
+      </table>
+
+      <div style="font-size:14px;color:var(--t2);line-height:1.9;margin-top:12px">
+        <b>✅ 적격합병이면 (세금 최소화)</b><br>
+        • 소솝의 자산을 <b>장부가 그대로</b> 오디지디에 이전<br>
+        • 양도차익 = 0 → <b>법인세 0원</b><br>
+        • 소솝의 이월결손금(3.3억)도 오디지디로 <b>승계</b><br>
+        • 어머니·아버님이 오디지디 주식을 받음 → <b>의제배당 과세이연</b><br><br>
+
+        <b>❌ 비적격합병이면 (세금 폭탄!)</b><br>
+        • 소솝 자산을 <b>시가로 양도</b>한 것으로 간주<br>
+        • 건물 양도차익(70~90억)에 <b>법인세 약 18.3억</b><br>
+        • 어머니·아버님에게 <b>의제배당 소득세</b> 추가 발생<br>
+        • 이월결손금 승계 <b>불가</b>
+      </div>
+
+      <div style="margin-top:12px;padding:14px;background:rgba(9,132,227,0.06);border-radius:12px">
+        <div style="font-size:13px;font-weight:700;color:var(--blu);margin-bottom:8px">적격합병 시 세금 시뮬레이션</div>
+        <table class="tb">
+          <tr><td>소솝→오디지디 법인세</td><td class="R g" style="font-weight:700">0원</td></tr>
+          <tr><td>어머니·아버님 의제배당</td><td class="R g" style="font-weight:700">과세이연</td></tr>
+          <tr><td>이월결손금 3.3억 승계</td><td class="R g" style="font-weight:700">✅ 승계</td></tr>
+          <tr><td>취득세 (건물 이전)</td><td class="R r" style="font-weight:700">약 4.8억</td></tr>
+          <tr class="T"><td><b>예상 세금 합계</b></td><td class="R o" style="font-weight:800;font-size:16px">약 4.8억</td></tr>
+        </table>
+        <div style="font-size:11px;color:var(--t3);margin-top:6px">⚠️ 건물 이전에 따른 취득세(시가의 약 4%)는 피할 수 없음</div>
+      </div>
+    </div>
+
+    <!-- 방법 B: 소솝이 오디지디 흡수합병 -->
+    <div class="cd" style="border-left:4px solid var(--pur)">
+      <div class="ct" style="color:var(--pur)">방법 B. 소솝이 오디지디를 흡수합병</div>
+      <div style="font-size:13px;color:var(--t3);margin-bottom:12px">오디지디가 소멸하고, 시훈·세인이 소솝의 주주가 됨</div>
+
+      <div style="font-size:14px;color:var(--t2);line-height:1.9">
+        <b>구조</b>: 오디지디(피합병) → 소솝(합병법인)<br>
+        소솝에 시훈·세인이 주주로 합류<br><br>
+
+        <b>장점</b><br>
+        • 건물, 미술품 등 <b>자산 이동 없음</b> → 취득세 없음!<br>
+        • 소솝의 이월결손금 그대로 유지<br>
+        • 기존 서울숲 건물 임대, 사업 등 <b>사업연속성 유지</b><br><br>
+
+        <b>단점</b><br>
+        • 소솝 주주가 어머니+아버님+시훈+세인으로 변경<br>
+        • <b>합병비율에 따라 지분 비율 결정</b> → 불균등하면 증여세 이슈<br>
+        • 향후 어머니 지분을 시훈·세인에게 넘기는 <b>별도 절차 필요</b>
+      </div>
+
+      <div style="margin-top:12px;padding:14px;background:rgba(108,92,231,0.06);border-radius:12px">
+        <div style="font-size:13px;font-weight:700;color:var(--pur);margin-bottom:8px">적격합병 시 세금 시뮬레이션</div>
+        <table class="tb">
+          <tr><td>오디지디→소솝 법인세</td><td class="R g" style="font-weight:700">0원</td></tr>
+          <tr><td>시훈·세인 의제배당</td><td class="R g" style="font-weight:700">과세이연</td></tr>
+          <tr><td>취득세</td><td class="R g" style="font-weight:700">없음 ✅</td></tr>
+          <tr><td>불균등 합병 증여세</td><td class="R" style="font-weight:600">⚠️ 합병비율에 따라</td></tr>
+          <tr class="T"><td><b>예상 세금 합계</b></td><td class="R g" style="font-weight:800;font-size:16px">최소 0원 가능</td></tr>
+        </table>
+        <div style="font-size:11px;color:var(--t3);margin-top:6px">⚠️ 합병비율을 공정하게 산정해야 증여세 문제 없음</div>
+      </div>
+    </div>
+
+    <!-- 방법 C: 지분 교환/이전 -->
+    <div class="cd" style="border-left:4px solid var(--org)">
+      <div class="ct" style="color:var(--org)">방법 C. 합병 없이 지분 이전 (단계적)</div>
+      <div style="font-size:13px;color:var(--t3);margin-bottom:12px">법인은 유지하되, 소솝 지분을 시훈·세인에게 단계적으로 이전</div>
+
+      <div style="font-size:14px;color:var(--t2);line-height:1.9">
+        <b>구조</b>: 소솝 / 오디지디 각각 유지<br>
+        어머니·아버님의 소솝 지분을 점진적으로 시훈·세인에게 이전<br><br>
+
+        <b>방법</b><br>
+        ① 증여 비과세 한도 활용 (10년간 5,000만/인)<br>
+        ② 가업승계 특례 적용시 600억 한도 10% 과세<br>
+        ③ 적자 시기 = 주식 가치↓ = 증여세↓<br><br>
+
+        <b>장점</b><br>
+        • 합병 절차 없이 <b>가장 유연</b><br>
+        • 취득세 없음 (건물 이전 없으므로)<br>
+        • 시간을 두고 <b>세금 부담 분산</b><br><br>
+
+        <b>단점</b><br>
+        • 오래 걸림 (10~20년 장기 계획)<br>
+        • 소솝이 <b>부동산과다법인</b>이라 주식가치 높음<br>
+        • 즉각적인 경영권 이전 어려움
+      </div>
+
+      <div style="margin-top:12px;padding:14px;background:rgba(243,156,18,0.06);border-radius:12px">
+        <div style="font-size:13px;font-weight:700;color:var(--org);margin-bottom:8px">지분 이전 세금 시뮬레이션 (50% 이전 가정)</div>
+        <table class="tb">
+          <tr><td>소솝 지분 50% 가치 (추정)</td><td class="R" style="font-weight:700">약 50~60억</td></tr>
+          <tr><td>증여세 (일반, 60억 기준)</td><td class="R r" style="font-weight:700">약 22억</td></tr>
+          <tr><td>가업승계 특례 적용시</td><td class="R o" style="font-weight:700">약 10억</td></tr>
+          <tr><td>10년 분할 증여시</td><td class="R g" style="font-weight:700">약 8~12억</td></tr>
+          <tr class="T"><td><b>세금 범위</b></td><td class="R" style="font-weight:800;font-size:14px">8억 ~ 22억</td></tr>
+        </table>
+        <div style="font-size:11px;color:var(--t3);margin-top:6px">⚠️ 부동산과다법인이므로 순자산가치 비중 60% → 주식가치가 높게 평가됨</div>
+      </div>
+    </div>
+
+    <!-- 통합 시나리오 비교 -->
+    <div class="cd" style="background:linear-gradient(135deg,var(--g1),var(--g2));color:#fff">
+      <div style="font-size:14px;color:rgba(255,255,255,0.5);font-weight:600;margin-bottom:14px">⚖️ 법인 통합 3가지 방법 비교</div>
+      <table class="tb" style="color:#fff;font-size:13px">
+        <tr><th style="color:rgba(255,255,255,0.4)"></th><th class="R" style="color:rgba(255,255,255,0.4);font-size:11px">A. ODGM←소솝</th><th class="R" style="color:rgba(255,255,255,0.4);font-size:11px">B. 소솝←ODGM</th><th class="R" style="color:rgba(255,255,255,0.4);font-size:11px">C. 지분이전</th></tr>
+        <tr><td>법인세</td><td class="R" style="color:#00b894">0원</td><td class="R" style="color:#00b894">0원</td><td class="R" style="color:#00b894">없음</td></tr>
+        <tr><td>취득세</td><td class="R" style="color:#ff6b6b">~4.8억</td><td class="R" style="color:#00b894">없음</td><td class="R" style="color:#00b894">없음</td></tr>
+        <tr><td>증여세</td><td class="R" style="color:#00b894">없음</td><td class="R" style="color:#ffd93d">합병비율</td><td class="R" style="color:#ff6b6b">8~22억</td></tr>
+        <tr><td>소요시간</td><td class="R">6~12개월</td><td class="R">6~12개월</td><td class="R">10~20년</td></tr>
+        <tr><td>복잡도</td><td class="R" style="color:#ff6b6b">높음</td><td class="R" style="color:#ffd93d">중간</td><td class="R" style="color:#00b894">낮음</td></tr>
+        <tr><td>경영권</td><td class="R">즉시 이전</td><td class="R">점진 이전</td><td class="R">장기 이전</td></tr>
+        <tr><td>이월결손금</td><td class="R" style="color:#00b894">승계✅</td><td class="R" style="color:#00b894">유지✅</td><td class="R" style="color:#00b894">유지✅</td></tr>
+      </table>
+    </div>
+
+    <!-- AI 추천 -->
+    <div class="cd" style="border-left:4px solid var(--grn);background:rgba(0,184,148,0.03)">
+      <div class="ct" style="color:var(--grn)">🤖 AI 분석 추천</div>
+      <div style="font-size:14px;color:var(--t2);line-height:2">
+        현재 상황을 종합 분석하면:<br><br>
+
+        <b>단기 추천 → 방법 B (소솝이 ODGM 흡수합병)</b> ⭐<br>
+        • 건물 이동이 없어 <b>취득세 0원</b> = 가장 저렴<br>
+        • 시훈·세인이 소솝 주주로 합류 → 자연스러운 경영 참여<br>
+        • 소솝의 이월결손금 3.3억 그대로 활용 가능<br>
+        • 적격합병 요건만 충족하면 법인세·의제배당 모두 이연<br><br>
+
+        <b>장기 추천 → 방법 B + C 병행</b><br>
+        • 먼저 ODGM을 소솝에 합병하여 가족이 한 법인에 모임<br>
+        • 이후 증여 비과세 한도를 활용해 어머니 지분을 <b>10년 단위로</b> 시훈·세인에게 점진 이전<br>
+        • 법인 적자 시기(지금!)에 주식 가치가 낮으므로 <b>증여 타이밍 최적</b><br><br>
+
+        <b>⚠️ 반드시 주의할 점</b><br>
+        • 특수관계인 간 합병이므로 <b>합병비율을 공정하게</b> 산정해야 함<br>
+        • 불균등 합병은 증여세 이슈 → <b>세무사+법무사 공동 검토 필수</b><br>
+        • 소솝이 <b>부동산과다법인</b>이라 주식 평가시 순자산가치 비중 60%<br>
+        • 합병 후 <b>사후관리 요건</b>(사업 영위, 고용 유지) 2년간 준수 필요
+      </div>
+    </div>
+
+    <!-- 세무사 요청 사항 -->
+    <div class="cd" style="border-left:4px solid var(--blu)">
+      <div class="ct" style="color:var(--blu)">📞 세무사에게 추가 요청할 사항</div>
+      <div style="font-size:14px;color:var(--t2);line-height:2">
+        <b>법인 통합 관련</b>:<br>
+        ① 소솝 + ODGM 합병비율 시뮬레이션 (양사 주식 가치 평가)<br>
+        ② 적격합병 요건 충족 여부 정밀 검토<br>
+        ③ 합병시 불균등 합병 증여세 이슈 여부<br>
+        ④ 취득세 발생 여부 (방향에 따라 달라짐)<br>
+        ⑤ 합병 후 사후관리 요건 체크리스트<br>
+        ⑥ 합병 vs 지분이전 세금 총액 비교표 작성 요청
+      </div>
+    </div>
+
     <div class="advice">
       <div class="atit">💡 핵심 메시지</div>
       <ul>
         <li>법인 적자 = 법인세 0원 + 이월결손금(15년간 공제)</li>
-        <li>서울숲 건물 매각시 법인세+지방세 약 18.3억 예상 (취득가에 따라 변동)</li>
-        <li>DH 클래스트는 <b>완공 후 2년 거주 후 매각</b>하면 세금 크게 절감</li>
+        <li>서울숲 건물 매각시 법인세+지방세 약 18.3억 예상</li>
+        <li>DH 클래스트는 <b>완공 후 2년 거주 후 매각</b>하면 세금 절감</li>
         <li>미술품은 <b>적자 시기에 매각</b>하면 이월결손금과 상계 → 절세</li>
+        <li><b>법인 통합은 방법 B(소솝←ODGM 합병)가 세금 최소</b></li>
+        <li>지금 적자 시기 = 주식 가치↓ = <b>합병/증여 절세 황금기</b></li>
         <li>모든 전략은 <b>담당 세무사와 구체적 수치로 시뮬레이션</b>하세요</li>
       </ul>
     </div>
