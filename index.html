@@ -1156,9 +1156,19 @@ function initC(){
 </script>
 <script>
 // PWA 서비스워커 등록
+// updateViaCache:'none' — sw.js 자체가 브라우저 캐시에 잡혀 새 판이
+// 하루 늦게 도착하는 일을 막는다. 새 서비스워커가 자리를 잡으면
+// 화면을 한 번 다시 그린다(자동, 딱 한 번) — 이게 없으면 자료를
+// 갱신해도 폰에는 옛 화면이 남는다 (소솝 개명 때 실제로 겪음).
 if('serviceWorker' in navigator){
   window.addEventListener('load',()=>{
-    navigator.serviceWorker.register('sw.js').then(r=>console.log('SW registered')).catch(e=>console.log('SW failed',e));
+    navigator.serviceWorker.register('sw.js',{updateViaCache:'none'})
+      .then(r=>{r.update();console.log('SW registered')})
+      .catch(e=>console.log('SW failed',e));
+  });
+  let reloaded=false;
+  navigator.serviceWorker.addEventListener('controllerchange',()=>{
+    if(reloaded)return; reloaded=true; location.reload();
   });
 }
 </script>
