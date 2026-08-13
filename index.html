@@ -834,7 +834,6 @@ button{font-family:inherit}
       <div class="sc"><div class="sl">총 장부가</div><div class="sv" style="color:var(--pnk)">32.8억</div><div class="ss">21점 보유</div></div>
       <div class="sc"><div class="sl">법인 미술품</div><div class="sv b">12.5억</div><div class="ss">7점</div></div>
       <div class="sc"><div class="sl">개인 미술품</div><div class="sv p">20.2억</div><div class="ss">14점</div></div>
-      <div class="sc"><div class="sl">매각 차익</div><div class="sv g">9.4억</div><div class="ss">4점 매각</div></div>
     </div>
 
     <!-- 법인 미술품 -->
@@ -846,7 +845,7 @@ button{font-family:inherit}
     <div class="pi"><div><div class="pn">Flora (Study)</div><div class="pd">2022.11 구입</div></div><div><div class="pv b">6,250만</div></div></div>
     <div class="pi"><div><div class="pn">Amy Sherald</div><div class="pd">2022.07 구입</div></div><div><div class="pv b">6,200만</div></div></div>
     <div class="pi"><div><div class="pn">Michael Armitage</div><div class="pd">2020.07 구입</div></div><div><div class="pv b">3,100만</div></div></div>
-    <div class="pi" style="opacity:.5"><div><div class="pn">Nicolas Party <span class="bdg" style="background:rgba(0,184,148,0.12);color:var(--grn)">매각완료</span></div><div class="pd">2020.05→매각 · 차익 <b>+6억 9,052만</b></div></div><div><div class="pv g">15억 매각</div></div></div>
+
 
     <!-- 개인 미술품 -->
     <div class="cd" style="padding:14px;margin-top:16px"><div style="font-size:14px;font-weight:700;color:var(--pur)">👤 개인 보유 작품 — 장부가 20.2억</div></div>
@@ -856,19 +855,6 @@ button{font-family:inherit}
     <div class="pi"><div><div class="pn">Amy Sherald</div><div class="pd">2021.04 · Handsome</div></div><div><div class="pv p">5,925만</div></div></div>
     <div class="pi"><div><div class="pn">스트키타가고</div><div class="pd">2024.09 구입</div></div><div><div class="pv p">1,900만</div></div></div>
     <div class="pi"><div><div class="pn">기타 9점</div><div class="pd">쿠사마(펌킨), 제프쿤스(2), 강예신(2), 정성준, Eddie Hara, 윤상윤, 정인혜</div></div><div><div class="pv p">1,596만</div></div></div>
-
-    <!-- 개인 매각 이력 -->
-    <div class="cd" style="margin-top:16px">
-      <div class="ct"><div class="ci" style="background:var(--grn);color:#fff">📤</div>매각 이력</div>
-      <table class="tb">
-        <tr><th>작품</th><th class="R">매각가</th><th class="R">손익</th></tr>
-        <tr><td>박서보 그린 120호</td><td class="R">4.9억</td><td class="R g" style="font-weight:700">+1.5억</td></tr>
-        <tr><td>박서보 하늘색 120호</td><td class="R">4.0억</td><td class="R g" style="font-weight:700">+0.9억</td></tr>
-        <tr><td>Nicolas Party (법인)</td><td class="R">15억</td><td class="R g" style="font-weight:700">+6.9억</td></tr>
-        <tr><td>아수카 아나스타샤 (법인)</td><td class="R">0.9억</td><td class="R g" style="font-weight:700">+0.1억</td></tr>
-        <tr><td style="color:var(--t3)">Warhol Jackie+Flower</td><td class="R" style="color:var(--t3)">29.4억</td><td class="R" style="color:var(--t3)">소송중</td></tr>
-      </table>
-    </div>
 
     <div class="cd"><div class="ct"><div class="ci" style="background:var(--pnk);color:#fff">🎨</div>보유 비중 (상위)</div><div class="chrt"><canvas id="cArt"></canvas></div></div>
 
@@ -1077,7 +1063,7 @@ const KB=[
 {k:['법인','소솝','회사'],r:'🏢 법인(소솝) 현황:\n\n예금: ~7.7억 / 대출: 21.2억\n2024: +2.7억 흑자\n2025: -3.3억 적자 (행사↓ 지출↑)\n2026 1~7월: -2.03억 (임대수입 재개, 7월엔 적자 -1,470만까지 줄었어요)\n\n자산: 서울숲건물 120억 + 미술품 12.5억'},
 {k:['개인','내 돈','사적'],r:'👤 개인 현황:\n\n예금: ~3.1억 / 대출: 2.16억\n매월 수입: 약 2,700만 (급여1천+연금1,109+음원 등)\n매월 지출: 약 4,648만 (투자/적금 포함)\n실질 지출: 약 2,600만\n\n⚠️ 4월부터 급여 2천만→1천만 조정됨\n자산: DH클래스트 120억 + 전세 45억 + 미술품 20.2억'},
 {k:['보험'],r:'🛡️ 보험 현황:\n\n개인 보험료: 월 163만\n법인 화재보험: 월 100만\n법인 퇴직보험: 월 203만\n건강보험: 월 65만\n\n합계: <b>월 약 531만원</b>'},
-{k:['매각','팔','처분','현금화'],r:'💰 매각 이력:\n\n✅ Nicolas Party: 8.1억→15억 (+6.9억)\n✅ 박서보 그린: +1.5억\n✅ 박서보 하늘색: +0.9억\n\n현금화 가능: 미술품 32.8억 + 전세금 45억'},
+{k:['매각','팔','처분','현금화'],r:'💰 현금화할 수 있는 자산이에요:\n\n• 미술품 32.8억 (21점 보유, 장부가)\n• 전세보증금 45억 (갤러리아포레)\n• 예금·펀드 10.6억\n\n미술품을 파실 때는 세금이 있으니 미리 상의해 주세요!'},
 {k:['감사','고마'],r:'😊 도움이 되셨다면 기쁩니다!\n언제든 물어보세요 💎'},
 {k:['안녕','하이'],r:'안녕하세요 어머니! 😊\n재무 현황에 대해 뭐든 물어보세요!\n\n예: "내 자산 얼마야?" "세금 걱정돼" "돈 관리 어떡해?"'}
 ];
