@@ -340,13 +340,16 @@ button{font-family:inherit}
 
   <!-- 2026년 현황 -->
   <div class="sec">
-    <div class="st">📅 2026년 1~7월 현황</div>
+    <!-- ⚠️ 이 표의 「총 지출」은 일부러 1~7월이다. 수지=수입-지출 이라 세 행의 기간이
+         같아야 한다. 지출만 1~8월로 늘리면 수지가 틀려진다.
+         지출 단독 화면(월별 지출 표·지출 구성 도넛)은 1~8월이 맞다. -->
+    <div class="st">📅 2026년 현황</div>
     <div class="cd">
       <table class="tb">
         <tr><th></th><th class="R">법인(소솝)</th><th class="R">개인</th></tr>
-        <tr><td>총 수입</td><td class="R" style="font-weight:600">3억 6,309만</td><td class="R" style="font-weight:600">2억 1,407만</td></tr>
-        <tr><td>총 지출</td><td class="R r">5억 6,658만</td><td class="R r">3억 1,296만</td></tr>
-        <tr class="T"><td>수지</td><td class="R r big-num">-2억 349만</td><td class="R r big-num">-9,889만</td></tr>
+        <tr><td>총 수입 <span style="color:var(--t3);font-size:14px">(1~7월)</span></td><td class="R" style="font-weight:600">3억 6,309만</td><td class="R" style="font-weight:600">2억 1,407만</td></tr>
+        <tr><td>총 지출 <span style="color:var(--t3);font-size:14px">(1~7월)</span></td><td class="R r">5억 6,658만</td><td class="R r">3억 1,296만</td></tr>
+        <tr class="T"><td>수지 <span style="color:var(--t3);font-size:14px">(1~7월)</span></td><td class="R r big-num">-2억 349만</td><td class="R r big-num">-9,889만</td></tr>
       </table>
       <div style="font-size:15px;color:var(--t3);margin-top:10px;line-height:1.6">
         📌 법인은 행사가 적어서 적자이지만,<br>
@@ -356,14 +359,14 @@ button{font-family:inherit}
         📢 4월부터 급여가 <b>2,000만 → 1,000만</b>으로 줄었어요.
       </div>
       <div style="margin-top:16px;padding:14px 16px;background:var(--card2);border-left:4px solid var(--gold);border-radius:12px;font-size:16px;color:var(--t2);line-height:1.7">
-        <b>8월은 왜 없나요?</b><br>
-        8월은 <b>나간 돈만</b> 적혀 있고 들어온 돈 칸이 아직 비어 있어요.
-        지금 합치면 실제로는 없는 <b>1억 6,900만원 적자</b>가 뜨기 때문에,
-        수입이 채워질 때까지 넣지 않았습니다.
+        <b>🆕 8월은 여기까지 들어왔어요</b><br>
+        나간 돈 <b>8,462만원</b> (법인 5,039만 + 개인 3,423만)<br>
+        들어온 돈은 <b>아직 안 적혔어요</b> — 그래서 8월 수지는 아직 계산할 수 없어요.<br>
+        <span style="color:var(--grn);font-weight:600">✅ 나간 돈만 보면 8월이 올해 가장 적었어요 (1월 1억 3,421만 → 8월 8,462만).</span>
       </div>
     </div>
 
-    <div class="cd"><div class="ct"><div class="ci" aria-hidden="true" style="background:var(--org);color:#fff">📊</div>2026 월별 수지 — 적자가 줄고 있어요!</div><div class="chrt"><canvas id="cNet26"></canvas></div><div style="font-size:15px;color:var(--grn);margin-top:10px;font-weight:600">1월 -6,766만 → 7월 -1,388만 · 매달 좋아지고 있어요 ✅</div></div>
+    <div class="cd"><div class="ct"><div class="ci" aria-hidden="true" style="background:var(--org);color:#fff">📊</div>2026 월별 수지 (1~7월) — 적자가 줄고 있어요!</div><div class="chrt"><canvas id="cNet26"></canvas></div><div style="font-size:15px;color:var(--grn);margin-top:10px;font-weight:600">1월 -6,766만 → 7월 -1,388만 · 매달 좋아지고 있어요 ✅</div></div>
   </div>
 </div>
 
@@ -382,7 +385,7 @@ button{font-family:inherit}
       <div style="font-size:16px;color:var(--t2);margin-top:10px;line-height:1.7">
         💡 대출 21억은 서울숲 건물(120억짜리)을 담보로 한 거예요.<br>
         건물 값의 <b>17.6%</b>만 빌린 거라서 <b>매우 안전</b>해요!<br>
-        📌 올해 1~7월에 이미 <b>3,400만원</b>을 갚았어요.
+        📌 올해 1~8월에 이미 <b>3,400만원</b>을 갚았어요.
       </div>
     </div>
 
@@ -500,9 +503,9 @@ button{font-family:inherit}
       </div>
     </div>
 
-    <div class="cd"><div class="ct"><div class="ci" aria-hidden="true" style="background:var(--blu);color:#fff">📈</div>2026 법인 월별 수입·지출 (1~7월)</div><div class="chrt"><canvas id="cCorp2026"></canvas></div></div>
+    <div class="cd"><div class="ct"><div class="ci" aria-hidden="true" style="background:var(--blu);color:#fff">📈</div>2026 법인 월별 수입·지출 (8월은 지출만)</div><div class="chrt"><canvas id="cCorp2026"></canvas></div></div>
 
-    <div class="cd"><div class="ct"><div class="ci" aria-hidden="true" style="background:var(--pur);color:#fff">🍩</div>2026 법인 지출 구성 (1~7월)</div><div class="chrt"><canvas id="cCorpMix"></canvas></div></div>
+    <div class="cd"><div class="ct"><div class="ci" aria-hidden="true" style="background:var(--pur);color:#fff">🍩</div>2026 법인 지출 구성 (1~8월)</div><div class="chrt"><canvas id="cCorpMix"></canvas></div></div>
 
     <div class="cd">
       <div class="ct"><div class="ci" aria-hidden="true" style="background:var(--grn);color:#fff">💵</div>2026 법인 수입 내역 (1~7월)</div>
@@ -528,44 +531,44 @@ button{font-family:inherit}
     </div>
 
     <div class="cd">
-      <div class="ct"><div class="ci" aria-hidden="true" style="background:var(--red);color:#fff">📅</div>2026 법인 월별 지출 한눈에 보기 (1~7월)</div>
+      <div class="ct"><div class="ci" aria-hidden="true" style="background:var(--red);color:#fff">📅</div>2026 법인 월별 지출 한눈에 보기 (1~8월)</div>
       <div style="overflow-x:auto;-webkit-overflow-scrolling:touch">
       <table class="tb" style="font-size:14px;min-width:640px">
-        <tr><th>항목</th><th class="R">1월</th><th class="R">2월</th><th class="R">3월</th><th class="R">4월</th><th class="R">5월</th><th class="R">6월</th><th class="R">7월</th></tr>
-        <tr><td>급여</td><td class="R">2,836</td><td class="R">3,449</td><td class="R">2,849</td><td class="R">1,935</td><td class="R">1,946</td><td class="R">2,029</td><td class="R">1,989</td></tr>
-        <tr><td>대출이자</td><td class="R">769</td><td class="R">765</td><td class="R">690</td><td class="R">762</td><td class="R">725</td><td class="R">768</td><td class="R">745</td></tr>
-        <tr><td>갑근세</td><td class="R">1,133</td><td class="R">1,080</td><td class="R">541</td><td class="R">984</td><td class="R">339</td><td class="R">326</td><td class="R">329</td></tr>
-        <tr><td>인건비</td><td class="R">549</td><td class="R">325</td><td class="R">224</td><td class="R">724</td><td class="R">381</td><td class="R">1,506</td><td class="R">373</td></tr>
-        <tr><td>기타</td><td class="R">25</td><td class="R">1</td><td class="R">0</td><td class="R">0</td><td class="R">74</td><td class="R">3,729</td><td class="R">0</td></tr>
-        <tr><td>대출금상환</td><td class="R">1,000</td><td class="R">400</td><td class="R">400</td><td class="R">400</td><td class="R">400</td><td class="R">400</td><td class="R">400</td></tr>
-        <tr><td>부가세</td><td class="R">1,710</td><td class="R">-</td><td class="R">-</td><td class="R">68</td><td class="R">-</td><td class="R">-</td><td class="R">1,571</td></tr>
-        <tr><td>4대보험</td><td class="R">419</td><td class="R">436</td><td class="R">428</td><td class="R">428</td><td class="R">741</td><td class="R">207</td><td class="R">408</td></tr>
-        <tr><td>카드대금</td><td class="R">688</td><td class="R">150</td><td class="R">164</td><td class="R">394</td><td class="R">359</td><td class="R">278</td><td class="R">382</td></tr>
-        <tr><td>차량할부금</td><td class="R">232</td><td class="R">232</td><td class="R">232</td><td class="R">232</td><td class="R">232</td><td class="R">232</td><td class="R">232</td></tr>
-        <tr><td>퇴직보험</td><td class="R">203</td><td class="R">203</td><td class="R">203</td><td class="R">203</td><td class="R">203</td><td class="R">203</td><td class="R">203</td></tr>
-        <tr><td>기타(물건구입비외)</td><td class="R">42</td><td class="R">330</td><td class="R">844</td><td class="R">22</td><td class="R">3</td><td class="R">11</td><td class="R">50</td></tr>
-        <tr><td>사무실월세</td><td class="R">154</td><td class="R">154</td><td class="R">154</td><td class="R">154</td><td class="R">154</td><td class="R">154</td><td class="R">154</td></tr>
-        <tr><td>건물화재보험</td><td class="R">100</td><td class="R">100</td><td class="R">100</td><td class="R">100</td><td class="R">100</td><td class="R">100</td><td class="R">100</td></tr>
-        <tr><td>근조화환,경조사비</td><td class="R">104</td><td class="R">52</td><td class="R">119</td><td class="R">124</td><td class="R">72</td><td class="R">111</td><td class="R">78</td></tr>
-        <tr><td>신곡비,음원비,콘서트,무대진행비</td><td class="R">33</td><td class="R">33</td><td class="R">-</td><td class="R">28</td><td class="R">-</td><td class="R">473</td><td class="R">66</td></tr>
-        <tr><td>회계법인</td><td class="R">44</td><td class="R">33</td><td class="R">363</td><td class="R">33</td><td class="R">33</td><td class="R">33</td><td class="R">33</td></tr>
-        <tr><td>세금</td><td class="R">105</td><td class="R">-</td><td class="R">61</td><td class="R">-</td><td class="R">-</td><td class="R">8</td><td class="R">241</td></tr>
-        <tr><td>초록건물공과금</td><td class="R">43</td><td class="R">53</td><td class="R">43</td><td class="R">33</td><td class="R">41</td><td class="R">35</td><td class="R">36</td></tr>
-        <tr><td>통신비</td><td class="R">41</td><td class="R">45</td><td class="R">41</td><td class="R">38</td><td class="R">28</td><td class="R">34</td><td class="R">34</td></tr>
-        <tr><td>건물청소비</td><td class="R">30</td><td class="R">30</td><td class="R">30</td><td class="R">30</td><td class="R">30</td><td class="R">30</td><td class="R">30</td></tr>
-        <tr><td>CCTV</td><td class="R">18</td><td class="R">18</td><td class="R">18</td><td class="R">18</td><td class="R">18</td><td class="R">18</td><td class="R">18</td></tr>
-        <tr><td>공과금</td><td class="R">30</td><td class="R">29</td><td class="R">24</td><td class="R">4</td><td class="R">3</td><td class="R">3</td><td class="R">4</td></tr>
-        <tr><td>엘베유지보수</td><td class="R">14</td><td class="R">14</td><td class="R">14</td><td class="R">14</td><td class="R">14</td><td class="R">14</td><td class="R">14</td></tr>
-        <tr><td>사무실진행비</td><td class="R">2</td><td class="R">3</td><td class="R">4</td><td class="R">2</td><td class="R">4</td><td class="R">14</td><td class="R">6</td></tr>
-        <tr><td>정수기</td><td class="R">5</td><td class="R">5</td><td class="R">-</td><td class="R">-</td><td class="R">-</td><td class="R">-</td><td class="R">-</td></tr>
-        <tr class="T"><td><b>합계</b></td><td class="R">10,329</td><td class="R">7,940</td><td class="R">7,546</td><td class="R">6,730</td><td class="R">5,901</td><td class="R">10,716</td><td class="R">7,496</td></tr>
+        <tr><th>항목</th><th class="R">1월</th><th class="R">2월</th><th class="R">3월</th><th class="R">4월</th><th class="R">5월</th><th class="R">6월</th><th class="R">7월</th><th class="R">8월</th></tr>
+        <tr><td>급여</td><td class="R">2,836</td><td class="R">3,449</td><td class="R">2,849</td><td class="R">1,935</td><td class="R">1,946</td><td class="R">2,029</td><td class="R">1,989</td><td class="R">2,180</td></tr>
+        <tr><td>대출이자</td><td class="R">769</td><td class="R">765</td><td class="R">690</td><td class="R">762</td><td class="R">725</td><td class="R">768</td><td class="R">745</td><td class="R">768</td></tr>
+        <tr><td>갑근세</td><td class="R">1,133</td><td class="R">1,080</td><td class="R">541</td><td class="R">984</td><td class="R">339</td><td class="R">326</td><td class="R">329</td><td class="R">326</td></tr>
+        <tr><td>인건비</td><td class="R">549</td><td class="R">325</td><td class="R">224</td><td class="R">724</td><td class="R">381</td><td class="R">1,506</td><td class="R">373</td><td class="R">-</td></tr>
+        <tr><td>기타</td><td class="R">25</td><td class="R">1</td><td class="R">0</td><td class="R">0</td><td class="R">74</td><td class="R">3,729</td><td class="R">0</td><td class="R">70</td></tr>
+        <tr><td>대출금상환</td><td class="R">1,000</td><td class="R">400</td><td class="R">400</td><td class="R">400</td><td class="R">400</td><td class="R">400</td><td class="R">400</td><td class="R">-</td></tr>
+        <tr><td>부가세</td><td class="R">1,710</td><td class="R">-</td><td class="R">-</td><td class="R">68</td><td class="R">-</td><td class="R">-</td><td class="R">1,571</td><td class="R">-</td></tr>
+        <tr><td>4대보험</td><td class="R">419</td><td class="R">436</td><td class="R">428</td><td class="R">428</td><td class="R">741</td><td class="R">207</td><td class="R">408</td><td class="R">360</td></tr>
+        <tr><td>카드대금</td><td class="R">688</td><td class="R">150</td><td class="R">164</td><td class="R">394</td><td class="R">359</td><td class="R">278</td><td class="R">382</td><td class="R">260</td></tr>
+        <tr><td>차량할부금</td><td class="R">232</td><td class="R">232</td><td class="R">232</td><td class="R">232</td><td class="R">232</td><td class="R">232</td><td class="R">232</td><td class="R">232</td></tr>
+        <tr><td>퇴직보험</td><td class="R">203</td><td class="R">203</td><td class="R">203</td><td class="R">203</td><td class="R">203</td><td class="R">203</td><td class="R">203</td><td class="R">203</td></tr>
+        <tr><td>기타(물건구입비외)</td><td class="R">42</td><td class="R">330</td><td class="R">844</td><td class="R">22</td><td class="R">3</td><td class="R">11</td><td class="R">50</td><td class="R">145</td></tr>
+        <tr><td>사무실월세</td><td class="R">154</td><td class="R">154</td><td class="R">154</td><td class="R">154</td><td class="R">154</td><td class="R">154</td><td class="R">154</td><td class="R">154</td></tr>
+        <tr><td>건물화재보험</td><td class="R">100</td><td class="R">100</td><td class="R">100</td><td class="R">100</td><td class="R">100</td><td class="R">100</td><td class="R">100</td><td class="R">100</td></tr>
+        <tr><td>근조화환,경조사비</td><td class="R">104</td><td class="R">52</td><td class="R">119</td><td class="R">124</td><td class="R">72</td><td class="R">111</td><td class="R">78</td><td class="R">26</td></tr>
+        <tr><td>신곡비,음원비,콘서트,무대진행비</td><td class="R">33</td><td class="R">33</td><td class="R">-</td><td class="R">28</td><td class="R">-</td><td class="R">473</td><td class="R">66</td><td class="R">11</td></tr>
+        <tr><td>회계법인</td><td class="R">44</td><td class="R">33</td><td class="R">363</td><td class="R">33</td><td class="R">33</td><td class="R">33</td><td class="R">33</td><td class="R">33</td></tr>
+        <tr><td>세금</td><td class="R">105</td><td class="R">-</td><td class="R">61</td><td class="R">-</td><td class="R">-</td><td class="R">8</td><td class="R">241</td><td class="R">11</td></tr>
+        <tr><td>초록건물공과금</td><td class="R">43</td><td class="R">53</td><td class="R">43</td><td class="R">33</td><td class="R">41</td><td class="R">35</td><td class="R">36</td><td class="R">53</td></tr>
+        <tr><td>통신비</td><td class="R">41</td><td class="R">45</td><td class="R">41</td><td class="R">38</td><td class="R">28</td><td class="R">34</td><td class="R">34</td><td class="R">34</td></tr>
+        <tr><td>건물청소비</td><td class="R">30</td><td class="R">30</td><td class="R">30</td><td class="R">30</td><td class="R">30</td><td class="R">30</td><td class="R">30</td><td class="R">30</td></tr>
+        <tr><td>CCTV</td><td class="R">18</td><td class="R">18</td><td class="R">18</td><td class="R">18</td><td class="R">18</td><td class="R">18</td><td class="R">18</td><td class="R">18</td></tr>
+        <tr><td>공과금</td><td class="R">30</td><td class="R">29</td><td class="R">24</td><td class="R">4</td><td class="R">3</td><td class="R">3</td><td class="R">4</td><td class="R">4</td></tr>
+        <tr><td>엘베유지보수</td><td class="R">14</td><td class="R">14</td><td class="R">14</td><td class="R">14</td><td class="R">14</td><td class="R">14</td><td class="R">14</td><td class="R">14</td></tr>
+        <tr><td>사무실진행비</td><td class="R">2</td><td class="R">3</td><td class="R">4</td><td class="R">2</td><td class="R">4</td><td class="R">14</td><td class="R">6</td><td class="R">6</td></tr>
+        <tr><td>정수기</td><td class="R">5</td><td class="R">5</td><td class="R">-</td><td class="R">-</td><td class="R">-</td><td class="R">-</td><td class="R">-</td><td class="R">-</td></tr>
+        <tr class="T"><td><b>합계</b></td><td class="R">10,329</td><td class="R">7,940</td><td class="R">7,546</td><td class="R">6,730</td><td class="R">5,901</td><td class="R">10,716</td><td class="R">7,496</td><td class="R">5,039</td></tr>
       </table>
       </div>
       <div style="font-size:15px;color:var(--t2);margin-top:14px;line-height:1.9">
         📌 법인 운영비가 매달 줄고 있어요!<br>
-        &nbsp;&nbsp;&nbsp;1월 7,088만 → 5월 3,640만 (<b>49% 감소!</b>)<br><br>
+        &nbsp;&nbsp;&nbsp;1월 7,088만 → 8월 3,220만 (<b>55% 감소!</b>)<br><br>
         📌 고정 금융비용도 줄었어요:<br>
-        &nbsp;&nbsp;&nbsp;1월 3,241만 → 5월 2,243만 (<b>31% 감소</b>)<br><br>
+        &nbsp;&nbsp;&nbsp;1월 3,241만 → 8월 1,820만 (<b>44% 감소</b>)<br><br>
         📌 <b>주요 변화:</b><br>
         &nbsp;&nbsp;&nbsp;• 급여: 4월부터 1,935만으로 축소 (이전 2,836~3,449만)<br>
         &nbsp;&nbsp;&nbsp;• 대출상환: 2월부터 400만으로 축소 (이전 1,000만)<br>
@@ -695,13 +698,13 @@ button{font-family:inherit}
         📌 5월에 주식투자 <b>5,000만</b>과 종합소득세 <b>1,590만</b>이<br>
         한꺼번에 나가서 많아 보이는 거예요.<br><br>
         💡 투자금+적금+세금을 빼면<br>
-        <b>실제로 쓰는 돈은 월 약 2,600만</b>이에요.
+        <b>실제로 쓰는 돈은 월 약 2,700만</b>이에요. <span style="color:var(--t3)">(1~8월 평균)</span>
       </div>
     </div>
 
-    <div class="cd"><div class="ct"><div class="ci" aria-hidden="true" style="background:var(--blu);color:#fff">📈</div>2026 개인 월별 수입·지출 (1~7월)</div><div class="chrt"><canvas id="cPers2026"></canvas></div></div>
+    <div class="cd"><div class="ct"><div class="ci" aria-hidden="true" style="background:var(--blu);color:#fff">📈</div>2026 개인 월별 수입·지출 (8월은 지출만)</div><div class="chrt"><canvas id="cPers2026"></canvas></div></div>
 
-    <div class="cd"><div class="ct"><div class="ci" aria-hidden="true" style="background:var(--pnk);color:#fff">🍩</div>2026 개인 지출 구성 (1~7월)</div><div class="chrt"><canvas id="cPersMix"></canvas></div></div>
+    <div class="cd"><div class="ct"><div class="ci" aria-hidden="true" style="background:var(--pnk);color:#fff">🍩</div>2026 개인 지출 구성 (1~8월)</div><div class="chrt"><canvas id="cPersMix"></canvas></div></div>
 
     <div class="cd">
       <div class="ct"><div class="ci" aria-hidden="true" style="background:var(--grn);color:#fff">💵</div>2026 개인 수입 내역 (1~7월)</div>
@@ -721,36 +724,36 @@ button{font-family:inherit}
     </div>
 
     <div class="cd">
-      <div class="ct"><div class="ci" aria-hidden="true" style="background:var(--red);color:#fff">📅</div>2026 개인 월별 지출 한눈에 보기 (1~7월)</div>
+      <div class="ct"><div class="ci" aria-hidden="true" style="background:var(--red);color:#fff">📅</div>2026 개인 월별 지출 한눈에 보기 (1~8월)</div>
       <div style="overflow-x:auto;-webkit-overflow-scrolling:touch">
       <table class="tb" style="font-size:14px;min-width:640px">
-        <tr><th>항목</th><th class="R">1월</th><th class="R">2월</th><th class="R">3월</th><th class="R">4월</th><th class="R">5월</th><th class="R">6월</th><th class="R">7월</th></tr>
-        <tr><td>주식및코인투자금</td><td class="R">-</td><td class="R">300</td><td class="R">-</td><td class="R">1,000</td><td class="R">5,000</td><td class="R">2,500</td><td class="R">-</td></tr>
-        <tr><td>카드대금</td><td class="R">672</td><td class="R">369</td><td class="R">259</td><td class="R">651</td><td class="R">412</td><td class="R">544</td><td class="R">369</td></tr>
-        <tr><td>대출상환</td><td class="R">433</td><td class="R">431</td><td class="R">431</td><td class="R">431</td><td class="R">431</td><td class="R">431</td><td class="R">43</td></tr>
-        <tr><td>생활비인출</td><td class="R">300</td><td class="R">300</td><td class="R">300</td><td class="R">400</td><td class="R">300</td><td class="R">400</td><td class="R">400</td></tr>
-        <tr><td>적금</td><td class="R">300</td><td class="R">300</td><td class="R">300</td><td class="R">300</td><td class="R">300</td><td class="R">300</td><td class="R">300</td></tr>
-        <tr><td>이모님</td><td class="R">306</td><td class="R">239</td><td class="R">284</td><td class="R">294</td><td class="R">287</td><td class="R">294</td><td class="R">293</td></tr>
-        <tr><td>세금</td><td class="R">60</td><td class="R">-</td><td class="R">24</td><td class="R">-</td><td class="R">1,590</td><td class="R">-</td><td class="R">11</td></tr>
-        <tr><td>관리비</td><td class="R">175</td><td class="R">178</td><td class="R">213</td><td class="R">175</td><td class="R">195</td><td class="R">166</td><td class="R">172</td></tr>
-        <tr><td>기타</td><td class="R">-</td><td class="R">11</td><td class="R">36</td><td class="R">660</td><td class="R">475</td><td class="R">30</td><td class="R">-</td></tr>
-        <tr><td>보험료</td><td class="R">163</td><td class="R">163</td><td class="R">163</td><td class="R">165</td><td class="R">165</td><td class="R">165</td><td class="R">186</td></tr>
-        <tr><td>시아버님</td><td class="R">150</td><td class="R">150</td><td class="R">150</td><td class="R">150</td><td class="R">150</td><td class="R">150</td><td class="R">150</td></tr>
-        <tr><td>물품구입비</td><td class="R">150</td><td class="R">64</td><td class="R">130</td><td class="R">99</td><td class="R">87</td><td class="R">118</td><td class="R">245</td></tr>
-        <tr><td>아우디할부료</td><td class="R">115</td><td class="R">115</td><td class="R">115</td><td class="R">115</td><td class="R">115</td><td class="R">115</td><td class="R">115</td></tr>
-        <tr><td>교수님</td><td class="R">100</td><td class="R">100</td><td class="R">100</td><td class="R">100</td><td class="R">100</td><td class="R">100</td><td class="R">100</td></tr>
-        <tr><td>건강보험료</td><td class="R">65</td><td class="R">65</td><td class="R">65</td><td class="R">65</td><td class="R">65</td><td class="R">65</td><td class="R">65</td></tr>
-        <tr><td>신사장님</td><td class="R">50</td><td class="R">50</td><td class="R">50</td><td class="R">50</td><td class="R">50</td><td class="R">50</td><td class="R">50</td></tr>
-        <tr><td>노란우산공제</td><td class="R">25</td><td class="R">25</td><td class="R">25</td><td class="R">25</td><td class="R">25</td><td class="R">25</td><td class="R">25</td></tr>
-        <tr><td>골프회비</td><td class="R">-</td><td class="R">70</td><td class="R">-</td><td class="R">-</td><td class="R">-</td><td class="R">-</td><td class="R">-</td></tr>
-        <tr><td>경조사비화환</td><td class="R">-</td><td class="R">-</td><td class="R">40</td><td class="R">-</td><td class="R">-</td><td class="R">30</td><td class="R">-</td></tr>
-        <tr><td>숑숑이</td><td class="R">-</td><td class="R">6</td><td class="R">11</td><td class="R">6</td><td class="R">11</td><td class="R">6</td><td class="R">12</td></tr>
-        <tr><td>가스비</td><td class="R">16</td><td class="R">16</td><td class="R">10</td><td class="R">2</td><td class="R">2</td><td class="R">2</td><td class="R">1</td></tr>
-        <tr><td>아우디전기세</td><td class="R">6</td><td class="R">5</td><td class="R">6</td><td class="R">5</td><td class="R">5</td><td class="R">5</td><td class="R">6</td></tr>
-        <tr><td>개인폰요금</td><td class="R">4</td><td class="R">4</td><td class="R">4</td><td class="R">4</td><td class="R">4</td><td class="R">4</td><td class="R">4</td></tr>
-        <tr><td>상하우유</td><td class="R">2</td><td class="R">3</td><td class="R">2</td><td class="R">2</td><td class="R">2</td><td class="R">3</td><td class="R">2</td></tr>
-        <tr><td>정수기</td><td class="R">-</td><td class="R">-</td><td class="R">-</td><td class="R">1</td><td class="R">2</td><td class="R">2</td><td class="R">2</td></tr>
-        <tr class="T"><td><b>합계</b></td><td class="R">3,092</td><td class="R">2,962</td><td class="R">2,716</td><td class="R">4,698</td><td class="R">9,773</td><td class="R">5,504</td><td class="R">2,551</td></tr>
+        <tr><th>항목</th><th class="R">1월</th><th class="R">2월</th><th class="R">3월</th><th class="R">4월</th><th class="R">5월</th><th class="R">6월</th><th class="R">7월</th><th class="R">8월</th></tr>
+        <tr><td>주식및코인투자금</td><td class="R">-</td><td class="R">300</td><td class="R">-</td><td class="R">1,000</td><td class="R">5,000</td><td class="R">2,500</td><td class="R">-</td><td class="R">-</td></tr>
+        <tr><td>카드대금</td><td class="R">672</td><td class="R">369</td><td class="R">259</td><td class="R">651</td><td class="R">412</td><td class="R">544</td><td class="R">369</td><td class="R">585</td></tr>
+        <tr><td>대출상환</td><td class="R">433</td><td class="R">431</td><td class="R">431</td><td class="R">431</td><td class="R">431</td><td class="R">431</td><td class="R">43</td><td class="R">432</td></tr>
+        <tr><td>생활비인출</td><td class="R">300</td><td class="R">300</td><td class="R">300</td><td class="R">400</td><td class="R">300</td><td class="R">400</td><td class="R">400</td><td class="R">300</td></tr>
+        <tr><td>적금</td><td class="R">300</td><td class="R">300</td><td class="R">300</td><td class="R">300</td><td class="R">300</td><td class="R">300</td><td class="R">300</td><td class="R">300</td></tr>
+        <tr><td>이모님</td><td class="R">306</td><td class="R">239</td><td class="R">284</td><td class="R">294</td><td class="R">287</td><td class="R">294</td><td class="R">293</td><td class="R">296</td></tr>
+        <tr><td>세금</td><td class="R">60</td><td class="R">-</td><td class="R">24</td><td class="R">-</td><td class="R">1,590</td><td class="R">-</td><td class="R">11</td><td class="R">-</td></tr>
+        <tr><td>관리비</td><td class="R">175</td><td class="R">178</td><td class="R">213</td><td class="R">175</td><td class="R">195</td><td class="R">166</td><td class="R">172</td><td class="R">223</td></tr>
+        <tr><td>기타</td><td class="R">-</td><td class="R">11</td><td class="R">36</td><td class="R">660</td><td class="R">475</td><td class="R">30</td><td class="R">-</td><td class="R">405</td></tr>
+        <tr><td>보험료</td><td class="R">163</td><td class="R">163</td><td class="R">163</td><td class="R">165</td><td class="R">165</td><td class="R">165</td><td class="R">186</td><td class="R">176</td></tr>
+        <tr><td>시아버님</td><td class="R">150</td><td class="R">150</td><td class="R">150</td><td class="R">150</td><td class="R">150</td><td class="R">150</td><td class="R">150</td><td class="R">150</td></tr>
+        <tr><td>물품구입비</td><td class="R">150</td><td class="R">64</td><td class="R">130</td><td class="R">99</td><td class="R">87</td><td class="R">118</td><td class="R">245</td><td class="R">161</td></tr>
+        <tr><td>아우디할부료</td><td class="R">115</td><td class="R">115</td><td class="R">115</td><td class="R">115</td><td class="R">115</td><td class="R">115</td><td class="R">115</td><td class="R">115</td></tr>
+        <tr><td>교수님</td><td class="R">100</td><td class="R">100</td><td class="R">100</td><td class="R">100</td><td class="R">100</td><td class="R">100</td><td class="R">100</td><td class="R">100</td></tr>
+        <tr><td>건강보험료</td><td class="R">65</td><td class="R">65</td><td class="R">65</td><td class="R">65</td><td class="R">65</td><td class="R">65</td><td class="R">65</td><td class="R">65</td></tr>
+        <tr><td>신사장님</td><td class="R">50</td><td class="R">50</td><td class="R">50</td><td class="R">50</td><td class="R">50</td><td class="R">50</td><td class="R">50</td><td class="R">50</td></tr>
+        <tr><td>노란우산공제</td><td class="R">25</td><td class="R">25</td><td class="R">25</td><td class="R">25</td><td class="R">25</td><td class="R">25</td><td class="R">25</td><td class="R">25</td></tr>
+        <tr><td>골프회비</td><td class="R">-</td><td class="R">70</td><td class="R">-</td><td class="R">-</td><td class="R">-</td><td class="R">-</td><td class="R">-</td><td class="R">-</td></tr>
+        <tr><td>경조사비화환</td><td class="R">-</td><td class="R">-</td><td class="R">40</td><td class="R">-</td><td class="R">-</td><td class="R">30</td><td class="R">-</td><td class="R">20</td></tr>
+        <tr><td>숑숑이</td><td class="R">-</td><td class="R">6</td><td class="R">11</td><td class="R">6</td><td class="R">11</td><td class="R">6</td><td class="R">12</td><td class="R">6</td></tr>
+        <tr><td>가스비</td><td class="R">16</td><td class="R">16</td><td class="R">10</td><td class="R">2</td><td class="R">2</td><td class="R">2</td><td class="R">1</td><td class="R">2</td></tr>
+        <tr><td>아우디전기세</td><td class="R">6</td><td class="R">5</td><td class="R">6</td><td class="R">5</td><td class="R">5</td><td class="R">5</td><td class="R">6</td><td class="R">3</td></tr>
+        <tr><td>개인폰요금</td><td class="R">4</td><td class="R">4</td><td class="R">4</td><td class="R">4</td><td class="R">4</td><td class="R">4</td><td class="R">4</td><td class="R">4</td></tr>
+        <tr><td>상하우유</td><td class="R">2</td><td class="R">3</td><td class="R">2</td><td class="R">2</td><td class="R">2</td><td class="R">3</td><td class="R">2</td><td class="R">3</td></tr>
+        <tr><td>정수기</td><td class="R">-</td><td class="R">-</td><td class="R">-</td><td class="R">1</td><td class="R">2</td><td class="R">2</td><td class="R">2</td><td class="R">2</td></tr>
+        <tr class="T"><td><b>합계</b></td><td class="R">3,092</td><td class="R">2,962</td><td class="R">2,716</td><td class="R">4,698</td><td class="R">9,773</td><td class="R">5,504</td><td class="R">2,551</td><td class="R">3,423</td></tr>
       </table>
       </div>
       <div style="font-size:15px;color:var(--t2);margin-top:14px;line-height:1.9">
@@ -1112,7 +1115,7 @@ const KB=[
 {k:['법인','소솝','회사'],r:'🏢 법인(소솝) 현황:\n\n예금: ~8.1억 / 대출: 21.2억\n2024: +2.7억 흑자\n2025: -3.3억 적자 (행사↓ 지출↑)\n2026 1~7월: -2.03억 (임대수입 재개, 7월엔 적자 -1,470만까지 줄었어요)\n\n자산: 서울숲건물 120억 + 미술품 12.5억'},
 {k:['개인','내 돈','사적'],r:'👤 개인 현황:\n\n예금: ~3.1억 / 대출: 2.16억\n매월 수입: 약 2,700만 (급여1천+연금1,109+음원 등)\n매월 지출: 약 4,648만 (투자/적금 포함)\n실질 지출: 약 2,600만\n\n⚠️ 4월부터 급여 2천만→1천만 조정됨\n자산: DH클래스트 120억 + 전세 45억 + 미술품 20.2억'},
 {k:['보험'],r:'🛡️ 보험 현황:\n\n개인 보험료: 월 163만\n법인 화재보험: 월 100만\n법인 퇴직보험: 월 203만\n건강보험: 월 65만\n\n합계: <b>월 약 531만원</b>'},
-{k:['8월','팔월','왜 없','최신','언제까지','업데이트'],r:'📅 지금 화면은 <b>2026년 1~7월</b>까지예요.\n\n8월은 나간 돈만 적혀 있고 들어온 돈 칸이 아직 비어 있어요.\n지금 합치면 실제로 없는 1억 6,900만원 적자가 뜨기 때문에 넣지 않았어요.\n\n✅ 통장 잔고·미술품은 <b>9월 14일 기준</b>으로 최신이에요!'},
+{k:['8월','팔월','왜 없','최신','언제까지','업데이트','수입 언제'],r:'📅 <b>나간 돈은 8월까지</b>, <b>들어온 돈은 7월까지</b> 나와 있어요.\n\n8월 나간 돈은 8,462만원이에요 (법인 5,039만 + 개인 3,423만).\n올해 들어 가장 적게 쓴 달이에요 ✅\n\n8월 들어온 돈은 장부에 아직 안 적혀서, 8월 수지는 채워지면 보여드릴게요.\n\n✅ 통장 잔고·미술품은 <b>9월 14일 기준</b>으로 최신이에요!'},
 {k:['매각','팔','처분','현금화'],r:'💰 현금화할 수 있는 자산이에요:\n\n• 미술품 32.8억 (21점 보유, 장부가)\n• 전세보증금 45억 (갤러리아포레)\n• 예금·펀드 11.0억\n\n미술품을 파실 때는 세금이 있으니 미리 상의해 주세요!'},
 {k:['감사','고마'],r:'😊 도움이 되셨다면 기쁩니다!\n언제든 물어보세요 💎'},
 {k:['안녕','하이'],r:'안녕하세요 어머니! 😊\n재무 현황에 대해 뭐든 물어보세요!\n\n예: "내 자산 얼마야?" "세금 걱정돼" "돈 관리 어떡해?"'}
@@ -1164,7 +1167,7 @@ async function sendMsg(){
     const SYS=`당신은 가수 인순이 어머니의 개인 재무 AI 비서입니다. 친절하고 쉽게 한국어로 답변하세요. 300자 이내. 이모티콘 적절히 사용.
 
 [자산] 순자산약306억(부동산240억+전세45억+미술품32.8억+예금11.0억-대출23.2억)
-[기간] 월별 수입·지출은 2026년 1~7월까지만 확정. 8월은 지출만 있고 수입이 비어 있어 제외(넣으면 허위 적자 1.69억). 통장 잔고·미술품은 2026-09-14 기준 최신.
+[기간] 지출은 2026년 1~8월 실적 확정(8월 84,622,635원=소솝 50,394,366+개인 34,228,269, 올해 최저). 수입은 1~7월만 확정 — 8월 수입 칸이 시트에 미입력이며 수입 0 이 아니다(임대차·급여·연금은 매달 고정). 따라서 수지는 1~7월까지만 산출 가능. 9~12월 지출은 고정비 예정치라 실적이 아니다. 통장 잔고·미술품은 2026-09-14 기준 최신.
 [법인] 소솝. 지분: 어머니50%+아버님50%. 예금~8.1억/대출21.2억/서울숲건물120억/미술품12.5억
 2024:수입14억/지출11.3억/+2.7억. 2025:수입10.4억/지출13.7억/-3.3억. 2026(1~7월):수입3.63억/지출5.67억/-2.03억
 2026임대수입재개(월1,386만). 급여4월부터 축소(법인비용절감).
@@ -1220,22 +1223,22 @@ function initC(){
   new Chart(document.getElementById('cArt'),{type:'doughnut',data:{labels:['Boafo 10.5억','Kusama 6.7억','Condo 4.8억','Simmons 3.7억','미로 2.1억','Wong 1.5억','기타'],datasets:[{data:[1051,666,477,370,207,154,350],backgroundColor:['#c2a35a','#a63a2e','#123a33','#3a352c','#8f7a3a','#1c7a54','#9c9180'],borderWidth:2,borderColor:'#fff'}]},options:{responsive:true,maintainAspectRatio:false,plugins:{legend:{position:'bottom',labels:{font:{size:9},padding:8}}}}});
 
   // ===== 2026 법인 월별 차트 =====
-  const ml26=['1월','2월','3월','4월','5월','6월','7월'];
-  const ci26=[29258900,13860000,13860000,62480000,68860000,114510000,60260000];
-  const ce26=[103288436,79399297,75461713,67300494,59007327,107160515,74960264];
+  const ml26=['1월','2월','3월','4월','5월','6월','7월','8월'];
+  const ci26=[29258900,13860000,13860000,62480000,68860000,114510000,60260000,null];
+  const ce26=[103288436,79399297,75461713,67300494,59007327,107160515,74960264,50394366];
   new Chart(document.getElementById('cCorp2026'),{type:'bar',data:{labels:ml26,datasets:[{label:'수입',data:ci26,backgroundColor:'rgba(28,122,84,0.8)',borderRadius:8},{label:'지출',data:ce26,backgroundColor:'rgba(166,58,46,0.8)',borderRadius:8}]},options:{responsive:true,maintainAspectRatio:false,plugins:{legend:{position:'bottom',labels:{font:{size:13},padding:12}},tooltip:{callbacks:{label:c=>c.dataset.label+': '+fmt(c.raw)}}},scales:{y:{ticks:{callback:v=>fmt(v),font:{size:12},color:'#666'},grid:{color:'rgba(150,150,150,0.08)'}},x:{ticks:{font:{size:13},color:'#666'},grid:{display:false}}}}});
 
   // ===== 2026 개인 월별 차트 =====
-  const pi26=[37282352,38747288,35815094,25534215,25143348,25218093,26328900];
-  const pe26=[30916983,29615967,27164432,46982654,97732023,55042121,25507718];
+  const pi26=[37282352,38747288,35815094,25534215,25143348,25218093,26328900,null];
+  const pe26=[30916983,29615967,27164432,46982654,97732023,55042121,25507718,34228269];
   new Chart(document.getElementById('cPers2026'),{type:'bar',data:{labels:ml26,datasets:[{label:'수입',data:pi26,backgroundColor:'rgba(28,122,84,0.8)',borderRadius:8},{label:'지출',data:pe26,backgroundColor:'rgba(166,58,46,0.8)',borderRadius:8}]},options:{responsive:true,maintainAspectRatio:false,plugins:{legend:{position:'bottom',labels:{font:{size:13},padding:12}},tooltip:{callbacks:{label:c=>c.dataset.label+': '+fmt(c.raw)}}},scales:{y:{ticks:{callback:v=>fmt(v),font:{size:12},color:'#666'},grid:{color:'rgba(150,150,150,0.08)'}},x:{ticks:{font:{size:13},color:'#666'},grid:{display:false}}}}});
 
-  // ===== 2026 지출 구성 (1~7월) =====
-  new Chart(document.getElementById('cCorpMix'),{type:'doughnut',data:{labels:['급여 1.70억','대출이자 5,225만','갑근세 4,732만','인건비 4,082만','기타 3,831만','대출원금 3,400만','그 외 1.84억'],datasets:[{data:[17034,5225,4732,4082,3831,3400,18354],backgroundColor:['#123a33','#a63a2e','#8f7a3a','#2f6083','#9c9180','#1c7a54','#bcae98'],borderWidth:2,borderColor:'#fff'}]},options:{responsive:true,maintainAspectRatio:false,plugins:{legend:{position:'bottom',labels:{font:{size:10},padding:8}},tooltip:{callbacks:{label:c=>c.label}}}}});
-  new Chart(document.getElementById('cPersMix'),{type:'doughnut',data:{labels:['주식/코인 8,800만','카드대금 3,275만','대출상환 2,630만','생활비 2,400만','적금 2,100만','이모님 1,996만','그 외 1.01억'],datasets:[{data:[8800,3275,2630,2400,2100,1996,10096],backgroundColor:['#c2a35a','#a63a2e','#1c7a54','#8f7a3a','#2f6083','#a63a63','#bcae98'],borderWidth:2,borderColor:'#fff'}]},options:{responsive:true,maintainAspectRatio:false,plugins:{legend:{position:'bottom',labels:{font:{size:10},padding:8}},tooltip:{callbacks:{label:c=>c.label}}}}});
+  // ===== 2026 지출 구성 (1~8월) =====
+  new Chart(document.getElementById('cCorpMix'),{type:'doughnut',data:{labels:['급여 1.92억','대출이자 5,993만','갑근세 5,058만','인건비 4,082만','기타 3,901만','4대보험 3,428만','그 외 2.00억'],datasets:[{data:[19213,5993,5058,4082,3901,3428,20022],backgroundColor:['#123a33','#a63a2e','#8f7a3a','#2f6083','#9c9180','#1c7a54','#bcae98'],borderWidth:2,borderColor:'#fff'}]},options:{responsive:true,maintainAspectRatio:false,plugins:{legend:{position:'bottom',labels:{font:{size:10},padding:8}},tooltip:{callbacks:{label:c=>c.label}}}}});
+  new Chart(document.getElementById('cPersMix'),{type:'doughnut',data:{labels:['주식/코인 8,800만','카드대금 3,860만','대출상환 3,062만','생활비 2,700만','적금 2,400만','이모님 2,292만','그 외 1.16억'],datasets:[{data:[8800,3860,3062,2700,2400,2292,11605],backgroundColor:['#c2a35a','#a63a2e','#1c7a54','#8f7a3a','#2f6083','#a63a63','#bcae98'],borderWidth:2,borderColor:'#fff'}]},options:{responsive:true,maintainAspectRatio:false,plugins:{legend:{position:'bottom',labels:{font:{size:10},padding:8}},tooltip:{callbacks:{label:c=>c.label}}}}});
   // ===== 2026 월별 수지 (법인+개인) =====
   const net26=[-67664167,-56407976,-52951051,-26268933,-62736002,-22474543,-13879082];
-  new Chart(document.getElementById('cNet26'),{type:'bar',data:{labels:ml26,datasets:[{label:'남은 돈',data:net26,backgroundColor:net26.map(v=>v>=0?'rgba(28,122,84,0.8)':'rgba(166,58,46,0.75)'),borderRadius:8}]},options:{responsive:true,maintainAspectRatio:false,plugins:{legend:{display:false},tooltip:{callbacks:{label:c=>(c.raw>=0?'+':'')+fmt(c.raw)}}},scales:{y:{ticks:{callback:v=>fmt(v),font:{size:12},color:'#666'},grid:{color:'rgba(150,150,150,0.08)'}},x:{ticks:{font:{size:13},color:'#666'},grid:{display:false}}}}});
+  new Chart(document.getElementById('cNet26'),{type:'bar',data:{labels:ml26.slice(0,net26.length),datasets:[{label:'남은 돈',data:net26,backgroundColor:net26.map(v=>v>=0?'rgba(28,122,84,0.8)':'rgba(166,58,46,0.75)'),borderRadius:8}]},options:{responsive:true,maintainAspectRatio:false,plugins:{legend:{display:false},tooltip:{callbacks:{label:c=>(c.raw>=0?'+':'')+fmt(c.raw)}}},scales:{y:{ticks:{callback:v=>fmt(v),font:{size:12},color:'#666'},grid:{color:'rgba(150,150,150,0.08)'}},x:{ticks:{font:{size:13},color:'#666'},grid:{display:false}}}}});
 
 }
 </script>
