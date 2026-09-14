@@ -7,7 +7,7 @@
 <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
 <title>어머니 재무</title>
 <link rel="manifest" href="manifest.json">
-<meta name="theme-color" content="#0f0c29">
+<meta name="theme-color" content="#123a33">
 <meta name="apple-mobile-web-app-title" content="재무현황">
 <link rel="apple-touch-icon" href="icons/icon-192.png">
 <link rel="preconnect" href="https://cdn.jsdelivr.net">
@@ -15,15 +15,18 @@
 <style>
 /* ========== VARIABLES ========== */
 :root{
-  --bg:#f2f3f7;--card:#fff;--card2:#f8f9fc;--bdr:rgba(0,0,0,0.08);
-  --t1:#111;--t2:#333;--t3:#666;
-  --grn:#00a884;--red:#d63031;--blu:#0770c9;--org:#e67e00;--pur:#5f3dc4;--pnk:#d63384;
-  --g1:#0f0c29;--g2:#302b63;--g3:#24243e;
-  --r:18px;--sh:0 4px 24px rgba(0,0,0,0.06);
+  --bg:#f1ede3;--card:#fbf9f3;--card2:#f4efe4;--bdr:rgba(60,48,26,0.14);
+  --t1:#211d16;--t2:#494235;--t3:#6e6456;
+  --grn:#1c7a54;--red:#a63a2e;--blu:#2f6083;--org:#8f560f;--pur:#6b4d2a;--pnk:#a63a63;
+  --gold:#c2a35a;
+  --g1:#0a2621;--g2:#123a33;--g3:#0d2c27;
+  --r:20px;--sh:0 1px 2px rgba(40,30,15,.05),0 12px 32px rgba(40,30,15,.07);
 }
 .dk{
-  --bg:#0c0c1d;--card:rgba(25,25,50,0.9);--card2:rgba(35,35,60,0.7);--bdr:rgba(255,255,255,0.08);
-  --t1:#eee;--t2:#ccc;--t3:#999;--sh:0 4px 24px rgba(0,0,0,0.3);
+  --bg:#12100b;--card:rgba(40,36,26,0.94);--card2:rgba(54,48,34,0.7);--bdr:rgba(210,190,150,0.13);
+  --t1:#efe9dc;--t2:#cfc6b4;--t3:#a99e88;
+  --grn:#3fb98a;--red:#e0776b;--blu:#6aa5cf;--org:#d99f4a;--pur:#c7a06a;--pnk:#d97ba8;--gold:#d8bd7e;
+  --sh:0 4px 24px rgba(0,0,0,0.4);
 }
 
 /* ========== RESET ========== */
@@ -35,7 +38,7 @@ button{font-family:inherit}
 
 /* ========== LOCK SCREEN ========== */
 #lock{position:fixed;inset:0;z-index:9999;background:linear-gradient(135deg,var(--g1),var(--g2),var(--g3));display:flex;flex-direction:column;align-items:center;justify-content:center}
-.lk-icon{font-size:72px;margin-bottom:20px;filter:drop-shadow(0 4px 12px rgba(255,255,255,0.2))}
+.lk-icon{margin-bottom:22px;line-height:0;filter:drop-shadow(0 6px 18px rgba(194,163,90,0.28))}
 #lock h2{color:#fff;font-size:32px;font-weight:800;letter-spacing:-0.5px}
 #lock .sub{color:rgba(255,255,255,0.5);font-size:18px;margin:10px 0 32px}
 .dots{display:flex;gap:18px;margin-bottom:12px}
@@ -58,12 +61,14 @@ button{font-family:inherit}
 .hdr-row{display:flex;justify-content:space-between;align-items:flex-start}
 .hdr h1{font-size:30px;font-weight:800;letter-spacing:-0.5px;line-height:1.2}
 .hdr .hsub{font-size:15px;color:rgba(255,255,255,0.55);margin-top:6px}
-.mbtn{width:44px;height:44px;border-radius:14px;border:none;background:rgba(255,255,255,0.1);color:#fff;font-size:22px;cursor:pointer;display:flex;align-items:center;justify-content:center;flex-shrink:0}
+.mbtn{width:44px;height:44px;border-radius:14px;border:1px solid rgba(226,205,150,0.18);background:rgba(255,255,255,0.08);color:#e2cd96;cursor:pointer;display:flex;align-items:center;justify-content:center;flex-shrink:0;transition:background .15s}
+.mbtn:active{background:rgba(255,255,255,0.16)}
+.mbtn svg{display:block}
 
 /* 순자산 Hero */
 .hero{margin-top:20px;background:rgba(255,255,255,0.08);border-radius:20px;padding:24px;backdrop-filter:blur(16px)}
 .hero .lab{font-size:16px;color:rgba(255,255,255,0.6);font-weight:600;letter-spacing:1px}
-.hero .big{font-size:52px;font-weight:900;letter-spacing:-2px;margin:8px 0 4px;background:linear-gradient(135deg,#00b894,#0984e3);-webkit-background-clip:text;-webkit-text-fill-color:transparent}
+.hero .big{font-size:52px;font-weight:900;letter-spacing:-2px;margin:8px 0 4px;background:linear-gradient(135deg,#e8d09a,#c2a35a);-webkit-background-clip:text;-webkit-text-fill-color:transparent}
 .hero .hdt{font-size:15px;color:rgba(255,255,255,0.45);display:flex;align-items:center;gap:6px}
 .pulse-dot{width:6px;height:6px;border-radius:50%;background:var(--grn);animation:blink 2s infinite}
 @keyframes blink{0%,100%{opacity:1}50%{opacity:.3}}
@@ -131,9 +136,9 @@ button{font-family:inherit}
 .tab{display:none}.tab.on{display:block}
 
 /* ========== CHATBOT ========== */
-.fab{position:fixed;bottom:90px;right:16px;z-index:200;width:64px;height:64px;border-radius:50%;border:none;background:linear-gradient(135deg,var(--pur),var(--blu));color:#fff;font-size:26px;cursor:pointer;box-shadow:0 6px 24px rgba(108,92,231,0.4);display:flex;align-items:center;justify-content:center;transition:all .3s;-webkit-tap-highlight-color:transparent}
+.fab{position:fixed;bottom:90px;right:16px;z-index:200;width:64px;height:64px;border-radius:50%;border:none;background:linear-gradient(135deg,var(--g2),var(--grn));color:#fff;font-size:26px;cursor:pointer;box-shadow:0 8px 28px rgba(18,58,51,0.45);display:flex;align-items:center;justify-content:center;transition:all .3s;-webkit-tap-highlight-color:transparent}
 .fab:active{transform:scale(.88)}
-.fab.open{transform:rotate(45deg);background:var(--red);box-shadow:0 6px 24px rgba(231,76,60,0.4)}
+.fab.open{transform:rotate(45deg);background:var(--red);box-shadow:0 6px 24px rgba(166,58,46,0.4)}
 
 .cpan{position:fixed;inset:0;z-index:300;background:var(--bg);display:none;flex-direction:column}
 .cpan.show{display:flex;animation:su .3s ease}
@@ -164,8 +169,8 @@ button{font-family:inherit}
 .csnd:active{transform:scale(.88)}
 
 /* ========== ADVICE CARD ========== */
-.advice{background:linear-gradient(135deg,#f8f4ff,#eef0ff);border:1px solid rgba(108,92,231,0.15);border-radius:var(--r);padding:20px;margin-bottom:12px}
-.dk .advice{background:linear-gradient(135deg,rgba(108,92,231,0.08),rgba(9,132,227,0.08));border-color:rgba(108,92,231,0.2)}
+.advice{background:var(--card2);border:1px solid var(--bdr);border-left:4px solid var(--gold);border-radius:var(--r);padding:20px;margin-bottom:12px}
+.dk .advice{background:var(--card2);border-color:var(--bdr);border-left-color:var(--gold)}
 .advice .atit{font-size:19px;font-weight:700;margin-bottom:12px;color:var(--pur)}
 .advice ul{list-style:none;font-size:16px;line-height:2.2;color:var(--t2)}
 .advice li::before{content:'💡 ';font-size:15px}
@@ -173,21 +178,42 @@ button{font-family:inherit}
 /* ========== MONTH FLOW ========== */
 .flow{display:grid;grid-template-columns:1fr auto 1fr;align-items:center;gap:8px;padding:12px 0}
 .flow-in,.flow-out{text-align:center;padding:18px;border-radius:16px}
-.flow-in{background:rgba(0,184,148,0.08);border:1px solid rgba(0,184,148,0.15)}
-.flow-out{background:rgba(231,76,60,0.08);border:1px solid rgba(231,76,60,0.15)}
+.flow-in{background:rgba(28,122,84,0.08);border:1px solid rgba(28,122,84,0.15)}
+.flow-out{background:rgba(166,58,46,0.08);border:1px solid rgba(166,58,46,0.15)}
 .flow-arr{font-size:24px;color:var(--t3)}
 .flow .fl{font-size:14px;color:var(--t3);font-weight:600}
 .flow .fv{font-size:26px;font-weight:800;margin-top:6px}
 
 /* ========== RESPONSIVE ========== */
 @media(min-width:500px){.sc{width:180px}}
+
+/* ===== 리디자인 마감 (딥 파인 · 웜 아이보리 · 앤티크 골드) ===== */
+/* 평면 그라데이션 대신 방사형 하이라이트 — 납작하지 않고 깊이가 생긴다 */
+.hdr{background:radial-gradient(120% 80% at 80% 0%,#1a4d43 0%,var(--g2) 42%,var(--g1) 100%)}
+#lock{background:radial-gradient(120% 90% at 50% 0%,#1a4d43 0%,var(--g2) 45%,var(--g1) 100%)}
+.chdr{background:linear-gradient(135deg,var(--g2),var(--g1))!important}
+.hero{background:rgba(255,255,255,0.05);border:1px solid rgba(226,205,150,0.14)}
+.hero .lab{color:rgba(226,205,150,0.72);font-weight:600;letter-spacing:1.5px}
+.hero .big{letter-spacing:-1.5px}
+/* 순자산 아래 골드 헤어라인 — 한 번 더 「격」을 준다 */
+.hero .hdt{padding-top:14px;margin-top:4px;border-top:1px solid rgba(226,205,150,0.16)}
+/* 섹션 제목 앞 짧은 골드 바 — 색·굵기 말고 구조로 위계를 만든다 */
+.sec>.st{position:relative;padding-left:14px}
+.sec>.st::before{content:'';position:absolute;left:0;top:6px;bottom:6px;width:4px;border-radius:2px;background:var(--gold)}
+.sc{border-radius:18px}
+.cd{border-radius:var(--r)}
+/* 게이지 트랙을 웜하게 (예전 #eee 찬 회색) */
+.gauge-bar{background:var(--card2)}
+.dk .gauge-bar{background:rgba(255,255,255,0.08)}
+/* 아이콘 칩 가장자리 — 파인 톤에서 흰 글자가 뜨게 */
+.ci{box-shadow:inset 0 0 0 1px rgba(255,255,255,0.14)}
 </style>
 </head>
 <body>
 
 <!-- ===================== LOCK SCREEN ===================== -->
 <div id="lock">
-  <div class="lk-icon">💎</div>
+  <div class="lk-icon" aria-hidden="true"><svg width="76" height="76" viewBox="0 0 48 48" fill="none" stroke="url(#gemg)" stroke-width="1.6" stroke-linejoin="round" stroke-linecap="round"><defs><linearGradient id="gemg" x1="0" y1="0" x2="1" y2="1"><stop offset="0%" stop-color="#f0dcac"/><stop offset="100%" stop-color="#b8954c"/></linearGradient></defs><path d="M14 8h20l8 11-18 21L6 19z"/><path d="M6 19h36"/><path d="M14 8l-8 11M34 8l8 11"/><path d="M14 8l10 11 10-11M24 19v21"/></svg></div>
   <h2>어머니 재무 현황</h2>
   <div class="sub">비밀번호 4자리를 눌러주세요</div>
   <div class="lerr" id="le"></div>
@@ -207,7 +233,7 @@ button{font-family:inherit}
 <div class="hdr">
   <div class="hdr-row">
     <div><h1>어머니 재무 현황</h1><div class="hsub">소솝 &amp; 개인 통합</div></div>
-    <button class="mbtn" onclick="toggleDk()" id="dm">🌙</button>
+    <button class="mbtn" onclick="toggleDk()" id="dm" aria-pressed="false" aria-label="어두운 화면으로 바꾸기"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M20 14.5A8.5 8.5 0 0 1 9.5 4a8.5 8.5 0 1 0 10.5 10.5z"/></svg></button>
   </div>
   <div class="hero">
     <div class="lab">총 순자산</div>
@@ -239,7 +265,7 @@ button{font-family:inherit}
     <div class="cd">
       <div class="ct" style="font-size:19px;color:var(--grn)">✅ 자산 안정성 — 매우 좋음</div>
       <div class="gauge">
-        <div class="gauge-bar"><div class="gauge-fill" style="width:92%;background:linear-gradient(90deg,var(--grn),var(--blu))"></div></div>
+        <div class="gauge-bar"><div class="gauge-fill" style="width:92%;background:linear-gradient(90deg,var(--grn),var(--gold))"></div></div>
         <div class="gauge-label"><span>위험</span><span style="color:var(--grn);font-weight:700">92점 / 100</span><span>안전</span></div>
       </div>
       <div style="font-size:16px;color:var(--t2);line-height:1.9;margin-top:8px">
@@ -252,7 +278,7 @@ button{font-family:inherit}
     <div class="cd">
       <div class="ct" style="font-size:19px;color:var(--org)">⚠️ 현금 흐름 — 주의 필요</div>
       <div class="gauge">
-        <div class="gauge-bar"><div class="gauge-fill" style="width:55%;background:linear-gradient(90deg,var(--red),var(--org))"></div></div>
+        <div class="gauge-bar"><div class="gauge-fill" style="width:55%;background:linear-gradient(90deg,var(--red),var(--gold))"></div></div>
         <div class="gauge-label"><span>부족</span><span style="color:var(--org);font-weight:700">55점 / 100</span><span>여유</span></div>
       </div>
       <div style="font-size:16px;color:var(--t2);line-height:1.9;margin-top:8px">
@@ -276,8 +302,8 @@ button{font-family:inherit}
       <div style="font-size:15px;color:rgba(255,255,255,0.55);font-weight:600;margin-bottom:14px">💎 자산·부채 전체 내역</div>
       <table class="tb" style="color:#fff">
         <tr><td colspan="2" style="color:rgba(255,255,255,0.35);font-size:14px;padding:5px 6px">─── 금융자산 ───</td></tr>
-        <tr><td>예금 (법인+개인)</td><td class="R" style="font-weight:700;color:#00b894">+11.0억</td></tr>
-        <tr><td>대출 (법인+개인)</td><td class="R" style="font-weight:700;color:#e74c3c">-23.2억</td></tr>
+        <tr><td>예금 (법인+개인)</td><td class="R" style="font-weight:700;color:#5fc99a">+11.0억</td></tr>
+        <tr><td>대출 (법인+개인)</td><td class="R" style="font-weight:700;color:#ef9d90">-23.2억</td></tr>
         <tr><td>전세보증금 (갤러리아포레)</td><td class="R" style="font-weight:700">+45.0억</td></tr>
         <tr><td colspan="2" style="color:rgba(255,255,255,0.35);font-size:14px;padding:5px 6px">─── 부동산 ───</td></tr>
         <tr><td>서울숲 건물 (법인, 40평)</td><td class="R" style="font-weight:700">+120.0억</td></tr>
@@ -285,7 +311,7 @@ button{font-family:inherit}
         <tr><td colspan="2" style="color:rgba(255,255,255,0.35);font-size:14px;padding:5px 6px">─── 미술품 ───</td></tr>
         <tr><td>법인 미술품 7점</td><td class="R" style="font-weight:700">+12.5억</td></tr>
         <tr><td>개인 미술품 14점</td><td class="R" style="font-weight:700">+20.2억</td></tr>
-        <tr style="border-top:1px solid rgba(255,255,255,0.2)"><td style="font-weight:800;font-size:17px;padding-top:16px">순자산 합계</td><td class="R" style="font-weight:900;font-size:24px;padding-top:16px;color:#00b894">약 306억</td></tr>
+        <tr style="border-top:1px solid rgba(255,255,255,0.2)"><td style="font-weight:800;font-size:17px;padding-top:16px">순자산 합계</td><td class="R" style="font-weight:900;font-size:24px;padding-top:16px;color:#e8d09a">약 306억</td></tr>
       </table>
       <div style="font-size:14px;color:rgba(255,255,255,0.35);margin-top:12px">* 부동산=시세 추정 · 미술품=장부가 기준 · 통장 잔고는 2026-09-14 시트에서 읽은 값</div>
     </div>
@@ -340,7 +366,7 @@ button{font-family:inherit}
   <div class="sec">
     <div class="st">🏢 법인(소솝) 상세</div>
 
-    <div class="cd" style="background:linear-gradient(135deg,#e3f2fd,#bbdefb);border-color:#90caf9">
+    <div class="cd" style="border-left:4px solid var(--blu)">
       <div class="ct"><div class="ci" aria-hidden="true" style="background:var(--blu);color:#fff">🏦</div>법인 통장 현황 (9월 14일 확인)</div>
       <table class="tb">
         <tr><td style="font-size:18px">예금 잔고</td><td class="R g big-num">약 8억 622만</td></tr>
@@ -585,7 +611,7 @@ button{font-family:inherit}
   <div class="sec">
     <div class="st">👤 개인 재무 상세</div>
 
-    <div class="cd" style="background:linear-gradient(135deg,#e8f5e9,#c8e6c9);border-color:#a5d6a7">
+    <div class="cd" style="border-left:4px solid var(--grn)">
       <div class="ct"><div class="ci" aria-hidden="true" style="background:var(--grn);color:#fff">🏦</div>개인 통장 현황 (9월 14일 확인)</div>
       <table class="tb">
         <tr><td style="font-size:18px">예금 잔고</td><td class="R b big-num">약 2억 9,724만</td></tr>
@@ -631,7 +657,7 @@ button{font-family:inherit}
         <tr><td>기타</td><td class="R">약 160만</td><td class="R">161만</td></tr>
         <tr class="T"><td>매월 수입 합계</td><td class="R g big-num">약 2,700만</td><td class="R g">1억 5,877만</td></tr>
       </table>
-      <div style="font-size:16px;color:var(--t2);margin-top:10px;line-height:1.7;padding:12px;background:rgba(243,156,18,0.06);border-radius:12px;border:1px solid rgba(243,156,18,0.12)">
+      <div style="font-size:16px;color:var(--t2);margin-top:10px;line-height:1.7;padding:12px;background:rgba(143,86,15,0.06);border-radius:12px;border:1px solid rgba(143,86,15,0.12)">
         📢 <b>급여 변경 안내</b><br>
         4월부터 급여가 <b>2,000만 → 1,000만</b>으로 줄었어요.<br>
         법인의 비용을 줄이기 위한 조정이에요.<br>
@@ -787,9 +813,9 @@ button{font-family:inherit}
       <div class="sc"><div class="sl">전체 자산 비중</div><div class="sv" style="color:var(--t1)">73%</div><div class="ss">매우 안정</div></div>
     </div>
 
-    <div class="pi" style="background:linear-gradient(135deg,rgba(108,92,231,0.03),rgba(108,92,231,0.08));border-color:rgba(108,92,231,0.15);flex-direction:column;align-items:stretch">
+    <div class="pi" style="background:var(--card2);border-left:4px solid var(--gold);flex-direction:column;align-items:stretch">
       <div style="display:flex;justify-content:space-between;align-items:center">
-        <div><div class="pn">🏢 서울숲 건물 <span class="bdg" style="background:rgba(9,132,227,0.12);color:var(--blu)">법인 소유</span></div></div>
+        <div><div class="pn">🏢 서울숲 건물 <span class="bdg" style="background:rgba(47,96,131,0.08);color:var(--blu)">법인 소유</span></div></div>
         <div class="pv p" style="font-size:22px">약 120억</div>
       </div>
       <div style="font-size:16px;color:var(--t2);margin-top:10px;line-height:1.7;padding:12px;background:var(--card2);border-radius:12px">
@@ -800,9 +826,9 @@ button{font-family:inherit}
       </div>
     </div>
 
-    <div class="pi" style="background:linear-gradient(135deg,rgba(243,156,18,0.03),rgba(243,156,18,0.08));border-color:rgba(243,156,18,0.15);flex-direction:column;align-items:stretch">
+    <div class="pi" style="background:var(--card2);border-left:4px solid var(--org);flex-direction:column;align-items:stretch">
       <div style="display:flex;justify-content:space-between;align-items:center">
-        <div><div class="pn">🏗️ 디에이치 클래스트 <span class="bdg" style="background:rgba(243,156,18,0.12);color:var(--org)">재건축중</span></div></div>
+        <div><div class="pn">🏗️ 디에이치 클래스트 <span class="bdg" style="background:rgba(143,86,15,0.08);color:var(--org)">재건축중</span></div></div>
         <div class="pv o" style="font-size:22px">약 120억</div>
       </div>
       <div style="font-size:16px;color:var(--t2);margin-top:10px;line-height:1.7;padding:12px;background:var(--card2);border-radius:12px">
@@ -813,9 +839,9 @@ button{font-family:inherit}
       </div>
     </div>
 
-    <div class="pi" style="background:linear-gradient(135deg,rgba(0,184,148,0.03),rgba(0,184,148,0.08));border-color:rgba(0,184,148,0.15);flex-direction:column;align-items:stretch">
+    <div class="pi" style="background:var(--card2);border-left:4px solid var(--grn);flex-direction:column;align-items:stretch">
       <div style="display:flex;justify-content:space-between;align-items:center">
-        <div><div class="pn">🏠 갤러리아포레 <span class="bdg" style="background:rgba(108,92,231,0.12);color:var(--pur)">현재 거주중</span></div></div>
+        <div><div class="pn">🏠 갤러리아포레 <span class="bdg" style="background:rgba(194,163,90,0.12);color:var(--pur)">현재 거주중</span></div></div>
         <div class="pv" style="font-size:22px;color:var(--grn)">전세 45억</div>
       </div>
       <div style="font-size:16px;color:var(--t2);margin-top:10px;line-height:1.7;padding:12px;background:var(--card2);border-radius:12px">
@@ -956,7 +982,7 @@ button{font-family:inherit}
       </div>
     </div>
 
-    <div class="cd" style="background:linear-gradient(135deg,rgba(108,92,231,0.04),rgba(108,92,231,0.08));border:1px solid rgba(108,92,231,0.15)">
+    <div class="cd" style="background:linear-gradient(135deg,rgba(194,163,90,0.04),rgba(194,163,90,0.08));border:1px solid rgba(194,163,90,0.15)">
       <div class="ct" style="color:var(--pur)">📋 법인 자산의 현명한 절세 관리 아이디어</div>
       <div style="font-size:17px;color:var(--t2);line-height:2.1">
         법인 자산을 효율적으로 관리하면서 <b>세금 부담을 최소화</b>하는 방법들입니다.<br><br>
@@ -1050,7 +1076,18 @@ document.addEventListener('touchstart',rl);document.addEventListener('click',rl)
 function go(i,el){document.querySelectorAll('.tab').forEach(t=>t.classList.remove('on'));document.getElementById('t'+i).classList.add('on');document.querySelectorAll('.ni').forEach(n=>n.classList.remove('a'));el.classList.add('a');window.scrollTo({top:0,behavior:'smooth'})}
 
 // ===== DARK MODE =====
-let dk=false;function toggleDk(){dk=!dk;document.body.classList.toggle('dk',dk);document.getElementById('dm').textContent=dk?'☀️':'🌙'}
+let dk=false;
+const ICO_MOON=`<svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M20 14.5A8.5 8.5 0 0 1 9.5 4a8.5 8.5 0 1 0 10.5 10.5z"/></svg>`;
+const ICO_SUN=`<svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="4.2"/><path d="M12 2.6v2.2M12 19.2v2.2M4.3 4.3l1.6 1.6M18.1 18.1l1.6 1.6M2.6 12h2.2M19.2 12h2.2M4.3 19.7l1.6-1.6M18.1 5.9l1.6-1.6"/></svg>`;
+function toggleDk(){dk=!dk;document.body.classList.toggle('dk',dk);
+  const b=document.getElementById('dm');
+  // 아이콘·이름·상태를 함께 바꾼다. 이름만 바꾸면 낭독기에서 무엇이
+  // 켜졌는지 알 수 없고, 아이콘만 바꾸면 눈으로만 알 수 있다.
+  b.innerHTML=dk?ICO_SUN:ICO_MOON;
+  b.setAttribute('aria-pressed',String(dk));
+  b.setAttribute('aria-label',dk?'밝은 화면으로 바꾸기':'어두운 화면으로 바꾸기');
+  document.querySelector('meta[name=theme-color]').setAttribute('content',dk?'#12100b':'#123a33');
+}
 
 // ===== CHATBOT (하이브리드: 오프라인 KB + Claude API) =====
 let co=false;
@@ -1157,40 +1194,40 @@ function initC(){
   const fmt=v=>{if(Math.abs(v)>=1e8)return(v/1e8).toFixed(1)+'억';return(v/1e4).toFixed(0)+'만'};
   const cO={responsive:true,maintainAspectRatio:false,plugins:{legend:{position:'bottom',labels:{font:{size:13},padding:12}}},scales:{y:{ticks:{callback:v=>fmt(v),font:{size:12},color:'#666'},grid:{color:'rgba(150,150,150,0.08)'}},x:{ticks:{font:{size:12},color:'#666'},grid:{display:false}}}};
 
-  new Chart(document.getElementById('cAsset'),{type:'doughnut',data:{labels:['서울숲건물(법인)','DH클래스트(개인)','전세보증금','미술품(법인)','미술품(개인)','예금','대출'],datasets:[{data:[120,120,45,12.5,20.2,11.0,23.2],backgroundColor:['#302b63','#e65100','#6c5ce7','#0984e3','#e84393','#00b894','#e74c3c'],borderWidth:3,borderColor:'#fff'}]},options:{responsive:true,maintainAspectRatio:false,plugins:{legend:{position:'bottom',labels:{font:{size:10},padding:8}},tooltip:{callbacks:{label:c=>c.label+': '+c.raw+'억'}}}}});
+  new Chart(document.getElementById('cAsset'),{type:'doughnut',data:{labels:['서울숲건물(법인)','DH클래스트(개인)','전세보증금','미술품(법인)','미술품(개인)','예금','대출'],datasets:[{data:[120,120,45,12.5,20.2,11.0,23.2],backgroundColor:['#123a33','#8f560f','#c2a35a','#2f6083','#a63a63','#1c7a54','#a63a2e'],borderWidth:3,borderColor:'#fff'}]},options:{responsive:true,maintainAspectRatio:false,plugins:{legend:{position:'bottom',labels:{font:{size:10},padding:8}},tooltip:{callbacks:{label:c=>c.label+': '+c.raw+'억'}}}}});
 
-  new Chart(document.getElementById('cCorpPL'),{type:'bar',data:{labels:['2024','2025','2026(1~7월)'],datasets:[{label:'수입',data:[1399580551,1039019627,363088900],backgroundColor:'rgba(0,184,148,0.75)',borderRadius:8},{label:'지출',data:[1132569148,1371004388,566578046],backgroundColor:'rgba(231,76,60,0.75)',borderRadius:8}]},options:cO});
+  new Chart(document.getElementById('cCorpPL'),{type:'bar',data:{labels:['2024','2025','2026(1~7월)'],datasets:[{label:'수입',data:[1399580551,1039019627,363088900],backgroundColor:'rgba(28,122,84,0.75)',borderRadius:8},{label:'지출',data:[1132569148,1371004388,566578046],backgroundColor:'rgba(166,58,46,0.75)',borderRadius:8}]},options:cO});
 
   const ml=['1월','2월','3월','4월','5월','6월','7월','8월','9월','10월','11월','12월'];
   const ci=[111235362,34086243,36792336,52217022,66775022,38248718,30605939,28112698,242066495,102729792,164150000,132000000];
   const ce=[127370101,101469681,116597901,108530771,135644299,88100709,94174358,105664315,126268779,133452014,110293358,123438102];
-  new Chart(document.getElementById('cCorpM'),{type:'line',data:{labels:ml,datasets:[{label:'수입',data:ci,borderColor:'#00b894',backgroundColor:'rgba(0,184,148,0.06)',fill:true,tension:.4,pointRadius:3},{label:'지출',data:ce,borderColor:'#e74c3c',backgroundColor:'rgba(231,76,60,0.06)',fill:true,tension:.4,pointRadius:3}]},options:cO});
+  new Chart(document.getElementById('cCorpM'),{type:'line',data:{labels:ml,datasets:[{label:'수입',data:ci,borderColor:'#1c7a54',backgroundColor:'rgba(28,122,84,0.06)',fill:true,tension:.4,pointRadius:3},{label:'지출',data:ce,borderColor:'#a63a2e',backgroundColor:'rgba(166,58,46,0.06)',fill:true,tension:.4,pointRadius:3}]},options:cO});
 
   const pi=[37948104,35105771,34300758,33694517,35640931,35461541,34293247,34613517,31290602,37158192,53333523,20000000];
   const pe=[42339545,32913178,33160651,49699793,36613372,46922190,224441044,30624456,44244713,25780410,68350243,19069749];
-  new Chart(document.getElementById('cPersM'),{type:'line',data:{labels:ml,datasets:[{label:'수입',data:pi,borderColor:'#00b894',backgroundColor:'rgba(0,184,148,0.06)',fill:true,tension:.4,pointRadius:3},{label:'지출',data:pe,borderColor:'#e74c3c',backgroundColor:'rgba(231,76,60,0.06)',fill:true,tension:.4,pointRadius:3}]},options:cO});
+  new Chart(document.getElementById('cPersM'),{type:'line',data:{labels:ml,datasets:[{label:'수입',data:pi,borderColor:'#1c7a54',backgroundColor:'rgba(28,122,84,0.06)',fill:true,tension:.4,pointRadius:3},{label:'지출',data:pe,borderColor:'#a63a2e',backgroundColor:'rgba(166,58,46,0.06)',fill:true,tension:.4,pointRadius:3}]},options:cO});
 
-  new Chart(document.getElementById('cRealty'),{type:'bar',data:{labels:['서울숲건물\n(법인)','DH클래스트\n(개인)','갤러리아포레\n(전세)'],datasets:[{data:[120,120,45],backgroundColor:['#302b63','#e65100','#6c5ce7'],borderRadius:8}]},options:{responsive:true,maintainAspectRatio:false,indexAxis:'y',plugins:{legend:{display:false},tooltip:{callbacks:{label:c=>c.raw+'억원'}}},scales:{x:{ticks:{callback:v=>v+'억',font:{size:10},color:'#999'},grid:{color:'rgba(150,150,150,0.08)'}},y:{ticks:{font:{size:11},color:'#999'}}}}});
+  new Chart(document.getElementById('cRealty'),{type:'bar',data:{labels:['서울숲건물\n(법인)','DH클래스트\n(개인)','갤러리아포레\n(전세)'],datasets:[{data:[120,120,45],backgroundColor:['#123a33','#8f560f','#c2a35a'],borderRadius:8}]},options:{responsive:true,maintainAspectRatio:false,indexAxis:'y',plugins:{legend:{display:false},tooltip:{callbacks:{label:c=>c.raw+'억원'}}},scales:{x:{ticks:{callback:v=>v+'억',font:{size:10},color:'#999'},grid:{color:'rgba(150,150,150,0.08)'}},y:{ticks:{font:{size:11},color:'#999'}}}}});
 
-  new Chart(document.getElementById('cArt'),{type:'doughnut',data:{labels:['Boafo 10.5억','Kusama 6.7억','Condo 4.8억','Simmons 3.7억','미로 2.1억','Wong 1.5억','기타'],datasets:[{data:[1051,666,477,370,207,154,350],backgroundColor:['#6c5ce7','#e74c3c','#302b63','#2d3436','#f39c12','#00b894','#95a5a6'],borderWidth:2,borderColor:'#fff'}]},options:{responsive:true,maintainAspectRatio:false,plugins:{legend:{position:'bottom',labels:{font:{size:9},padding:8}}}}});
+  new Chart(document.getElementById('cArt'),{type:'doughnut',data:{labels:['Boafo 10.5억','Kusama 6.7억','Condo 4.8억','Simmons 3.7억','미로 2.1억','Wong 1.5억','기타'],datasets:[{data:[1051,666,477,370,207,154,350],backgroundColor:['#c2a35a','#a63a2e','#123a33','#3a352c','#8f7a3a','#1c7a54','#9c9180'],borderWidth:2,borderColor:'#fff'}]},options:{responsive:true,maintainAspectRatio:false,plugins:{legend:{position:'bottom',labels:{font:{size:9},padding:8}}}}});
 
   // ===== 2026 법인 월별 차트 =====
   const ml26=['1월','2월','3월','4월','5월','6월','7월'];
   const ci26=[29258900,13860000,13860000,62480000,68860000,114510000,60260000];
   const ce26=[103288436,79399297,75461713,67300494,59007327,107160515,74960264];
-  new Chart(document.getElementById('cCorp2026'),{type:'bar',data:{labels:ml26,datasets:[{label:'수입',data:ci26,backgroundColor:'rgba(0,184,148,0.8)',borderRadius:8},{label:'지출',data:ce26,backgroundColor:'rgba(231,76,60,0.8)',borderRadius:8}]},options:{responsive:true,maintainAspectRatio:false,plugins:{legend:{position:'bottom',labels:{font:{size:13},padding:12}},tooltip:{callbacks:{label:c=>c.dataset.label+': '+fmt(c.raw)}}},scales:{y:{ticks:{callback:v=>fmt(v),font:{size:12},color:'#666'},grid:{color:'rgba(150,150,150,0.08)'}},x:{ticks:{font:{size:13},color:'#666'},grid:{display:false}}}}});
+  new Chart(document.getElementById('cCorp2026'),{type:'bar',data:{labels:ml26,datasets:[{label:'수입',data:ci26,backgroundColor:'rgba(28,122,84,0.8)',borderRadius:8},{label:'지출',data:ce26,backgroundColor:'rgba(166,58,46,0.8)',borderRadius:8}]},options:{responsive:true,maintainAspectRatio:false,plugins:{legend:{position:'bottom',labels:{font:{size:13},padding:12}},tooltip:{callbacks:{label:c=>c.dataset.label+': '+fmt(c.raw)}}},scales:{y:{ticks:{callback:v=>fmt(v),font:{size:12},color:'#666'},grid:{color:'rgba(150,150,150,0.08)'}},x:{ticks:{font:{size:13},color:'#666'},grid:{display:false}}}}});
 
   // ===== 2026 개인 월별 차트 =====
   const pi26=[37282352,38747288,35815094,25534215,25143348,25218093,26328900];
   const pe26=[30916983,29615967,27164432,46982654,97732023,55042121,25507718];
-  new Chart(document.getElementById('cPers2026'),{type:'bar',data:{labels:ml26,datasets:[{label:'수입',data:pi26,backgroundColor:'rgba(0,184,148,0.8)',borderRadius:8},{label:'지출',data:pe26,backgroundColor:'rgba(231,76,60,0.8)',borderRadius:8}]},options:{responsive:true,maintainAspectRatio:false,plugins:{legend:{position:'bottom',labels:{font:{size:13},padding:12}},tooltip:{callbacks:{label:c=>c.dataset.label+': '+fmt(c.raw)}}},scales:{y:{ticks:{callback:v=>fmt(v),font:{size:12},color:'#666'},grid:{color:'rgba(150,150,150,0.08)'}},x:{ticks:{font:{size:13},color:'#666'},grid:{display:false}}}}});
+  new Chart(document.getElementById('cPers2026'),{type:'bar',data:{labels:ml26,datasets:[{label:'수입',data:pi26,backgroundColor:'rgba(28,122,84,0.8)',borderRadius:8},{label:'지출',data:pe26,backgroundColor:'rgba(166,58,46,0.8)',borderRadius:8}]},options:{responsive:true,maintainAspectRatio:false,plugins:{legend:{position:'bottom',labels:{font:{size:13},padding:12}},tooltip:{callbacks:{label:c=>c.dataset.label+': '+fmt(c.raw)}}},scales:{y:{ticks:{callback:v=>fmt(v),font:{size:12},color:'#666'},grid:{color:'rgba(150,150,150,0.08)'}},x:{ticks:{font:{size:13},color:'#666'},grid:{display:false}}}}});
 
   // ===== 2026 지출 구성 (1~7월) =====
-  new Chart(document.getElementById('cCorpMix'),{type:'doughnut',data:{labels:['급여 1.70억','대출이자 5,225만','갑근세 4,732만','인건비 4,082만','기타 3,831만','대출원금 3,400만','그 외 1.84억'],datasets:[{data:[17034,5225,4732,4082,3831,3400,18354],backgroundColor:['#302b63','#e74c3c','#f39c12','#0984e3','#95a5a6','#00b894','#b2bec3'],borderWidth:2,borderColor:'#fff'}]},options:{responsive:true,maintainAspectRatio:false,plugins:{legend:{position:'bottom',labels:{font:{size:10},padding:8}},tooltip:{callbacks:{label:c=>c.label}}}}});
-  new Chart(document.getElementById('cPersMix'),{type:'doughnut',data:{labels:['주식/코인 8,800만','카드대금 3,275만','대출상환 2,630만','생활비 2,400만','적금 2,100만','이모님 1,996만','그 외 1.01억'],datasets:[{data:[8800,3275,2630,2400,2100,1996,10096],backgroundColor:['#6c5ce7','#e74c3c','#00b894','#f39c12','#0984e3','#e84393','#b2bec3'],borderWidth:2,borderColor:'#fff'}]},options:{responsive:true,maintainAspectRatio:false,plugins:{legend:{position:'bottom',labels:{font:{size:10},padding:8}},tooltip:{callbacks:{label:c=>c.label}}}}});
+  new Chart(document.getElementById('cCorpMix'),{type:'doughnut',data:{labels:['급여 1.70억','대출이자 5,225만','갑근세 4,732만','인건비 4,082만','기타 3,831만','대출원금 3,400만','그 외 1.84억'],datasets:[{data:[17034,5225,4732,4082,3831,3400,18354],backgroundColor:['#123a33','#a63a2e','#8f7a3a','#2f6083','#9c9180','#1c7a54','#bcae98'],borderWidth:2,borderColor:'#fff'}]},options:{responsive:true,maintainAspectRatio:false,plugins:{legend:{position:'bottom',labels:{font:{size:10},padding:8}},tooltip:{callbacks:{label:c=>c.label}}}}});
+  new Chart(document.getElementById('cPersMix'),{type:'doughnut',data:{labels:['주식/코인 8,800만','카드대금 3,275만','대출상환 2,630만','생활비 2,400만','적금 2,100만','이모님 1,996만','그 외 1.01억'],datasets:[{data:[8800,3275,2630,2400,2100,1996,10096],backgroundColor:['#c2a35a','#a63a2e','#1c7a54','#8f7a3a','#2f6083','#a63a63','#bcae98'],borderWidth:2,borderColor:'#fff'}]},options:{responsive:true,maintainAspectRatio:false,plugins:{legend:{position:'bottom',labels:{font:{size:10},padding:8}},tooltip:{callbacks:{label:c=>c.label}}}}});
   // ===== 2026 월별 수지 (법인+개인) =====
   const net26=[-67664167,-56407976,-52951051,-26268933,-62736002,-22474543,-13879082];
-  new Chart(document.getElementById('cNet26'),{type:'bar',data:{labels:ml26,datasets:[{label:'남은 돈',data:net26,backgroundColor:net26.map(v=>v>=0?'rgba(0,184,148,0.8)':'rgba(231,76,60,0.75)'),borderRadius:8}]},options:{responsive:true,maintainAspectRatio:false,plugins:{legend:{display:false},tooltip:{callbacks:{label:c=>(c.raw>=0?'+':'')+fmt(c.raw)}}},scales:{y:{ticks:{callback:v=>fmt(v),font:{size:12},color:'#666'},grid:{color:'rgba(150,150,150,0.08)'}},x:{ticks:{font:{size:13},color:'#666'},grid:{display:false}}}}});
+  new Chart(document.getElementById('cNet26'),{type:'bar',data:{labels:ml26,datasets:[{label:'남은 돈',data:net26,backgroundColor:net26.map(v=>v>=0?'rgba(28,122,84,0.8)':'rgba(166,58,46,0.75)'),borderRadius:8}]},options:{responsive:true,maintainAspectRatio:false,plugins:{legend:{display:false},tooltip:{callbacks:{label:c=>(c.raw>=0?'+':'')+fmt(c.raw)}}},scales:{y:{ticks:{callback:v=>fmt(v),font:{size:12},color:'#666'},grid:{color:'rgba(150,150,150,0.08)'}},x:{ticks:{font:{size:13},color:'#666'},grid:{display:false}}}}});
 
 }
 </script>
