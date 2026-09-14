@@ -4,8 +4,8 @@
   "description": "어머니의 법인/개인 재무 현황 대시보드",
   "start_url": "./index.html",
   "display": "standalone",
-  "background_color": "#0f0c29",
-  "theme_color": "#0f0c29",
+  "background_color": "#0d2c27",
+  "theme_color": "#123a33",
   "orientation": "portrait",
   "lang": "ko",
   "icons": [
