@@ -18,14 +18,14 @@
   --bg:#f1ede3;--card:#fbf9f3;--card2:#f4efe4;--bdr:rgba(60,48,26,0.14);
   --t1:#211d16;--t2:#494235;--t3:#6e6456;
   --grn:#1c7a54;--red:#a63a2e;--blu:#2f6083;--org:#8f560f;--pur:#6b4d2a;--pnk:#a63a63;
-  --gold:#c2a35a;
+  --gold:#c2a35a;--sel:#123a33;
   --g1:#0a2621;--g2:#123a33;--g3:#0d2c27;
   --r:20px;--sh:0 1px 2px rgba(40,30,15,.05),0 12px 32px rgba(40,30,15,.07);
 }
 .dk{
   --bg:#12100b;--card:rgba(40,36,26,0.94);--card2:rgba(54,48,34,0.7);--bdr:rgba(210,190,150,0.13);
   --t1:#efe9dc;--t2:#cfc6b4;--t3:#a99e88;
-  --grn:#3fb98a;--red:#e0776b;--blu:#6aa5cf;--org:#d99f4a;--pur:#c7a06a;--pnk:#d97ba8;--gold:#d8bd7e;
+  --grn:#3fb98a;--red:#e0776b;--blu:#6aa5cf;--org:#d99f4a;--pur:#c7a06a;--pnk:#d97ba8;--gold:#d8bd7e;--sel:#d8bd7e;
   --sh:0 4px 24px rgba(0,0,0,0.4);
 }
 
@@ -40,7 +40,7 @@ button{font-family:inherit}
 #lock{position:fixed;inset:0;z-index:9999;background:linear-gradient(135deg,var(--g1),var(--g2),var(--g3));display:flex;flex-direction:column;align-items:center;justify-content:center}
 .lk-icon{margin-bottom:22px;line-height:0;filter:drop-shadow(0 6px 18px rgba(194,163,90,0.28))}
 #lock h2{color:#fff;font-size:32px;font-weight:800;letter-spacing:-0.5px}
-#lock .sub{color:rgba(255,255,255,0.5);font-size:18px;margin:10px 0 32px}
+#lock .sub{color:rgba(255,255,255,0.72);font-size:18px;margin:10px 0 32px}
 .dots{display:flex;gap:18px;margin-bottom:12px}
 .dot{width:18px;height:18px;border-radius:50%;border:2.5px solid rgba(255,255,255,0.35);transition:all .2s}
 .dot.on{background:#fff;border-color:#fff;box-shadow:0 0 12px rgba(255,255,255,0.5)}
@@ -60,7 +60,7 @@ button{font-family:inherit}
 .hdr::after{content:'';position:absolute;bottom:-1px;left:0;right:0;height:32px;background:var(--bg);border-radius:28px 28px 0 0}
 .hdr-row{display:flex;justify-content:space-between;align-items:flex-start}
 .hdr h1{font-size:30px;font-weight:800;letter-spacing:-0.5px;line-height:1.2}
-.hdr .hsub{font-size:15px;color:rgba(255,255,255,0.55);margin-top:6px}
+.hdr .hsub{font-size:15px;color:rgba(255,255,255,0.62);margin-top:6px}
 .mbtn{width:44px;height:44px;border-radius:14px;border:1px solid rgba(226,205,150,0.18);background:rgba(255,255,255,0.08);color:#e2cd96;cursor:pointer;display:flex;align-items:center;justify-content:center;flex-shrink:0;transition:background .15s}
 .mbtn:active{background:rgba(255,255,255,0.16)}
 .mbtn svg{display:block}
@@ -69,7 +69,7 @@ button{font-family:inherit}
 .hero{margin-top:20px;background:rgba(255,255,255,0.08);border-radius:20px;padding:24px;backdrop-filter:blur(16px)}
 .hero .lab{font-size:16px;color:rgba(255,255,255,0.6);font-weight:600;letter-spacing:1px}
 .hero .big{font-size:52px;font-weight:900;letter-spacing:-2px;margin:8px 0 4px;background:linear-gradient(135deg,#e8d09a,#c2a35a);-webkit-background-clip:text;-webkit-text-fill-color:transparent}
-.hero .hdt{font-size:15px;color:rgba(255,255,255,0.45);display:flex;align-items:center;gap:6px}
+.hero .hdt{font-size:15px;color:rgba(255,255,255,0.62);display:flex;align-items:center;gap:6px}
 .pulse-dot{width:6px;height:6px;border-radius:50%;background:var(--grn);animation:blink 2s infinite}
 @keyframes blink{0%,100%{opacity:1}50%{opacity:.3}}
 
@@ -127,8 +127,8 @@ button{font-family:inherit}
 /* 눌림 피드백 — 아이콘만 살짝 줄여 레이아웃을 흔들지 않는다 */
 .ni:active .ic{transform:scale(.88)}
 /* 선택 표시를 색·굵기에만 의존하지 않는다 — 위쪽 짧은 바가 함께 말한다 */
-.ni.a::before{content:'';position:absolute;top:-8px;left:50%;transform:translateX(-50%);width:22px;height:3px;border-radius:2px;background:var(--blu)}
-.ni.a{color:var(--blu);font-weight:700}
+.ni.a::before{content:'';position:absolute;top:-8px;left:50%;transform:translateX(-50%);width:22px;height:3px;border-radius:2px;background:var(--sel)}
+.ni.a{color:var(--sel);font-weight:700}
 .ni .ic{font-size:26px;display:block;transition:transform .12s}
 .ni .ic svg{display:block}
 
@@ -146,7 +146,7 @@ button{font-family:inherit}
 .chdr{background:linear-gradient(135deg,var(--g2),var(--g3));color:#fff;padding:max(16px,env(safe-area-inset-top)) 20px 16px;display:flex;align-items:center;gap:12px}
 .chdr .av{width:44px;height:44px;border-radius:14px;background:rgba(255,255,255,0.12);display:flex;align-items:center;justify-content:center;font-size:22px}
 .chdr h3{font-size:17px;font-weight:700}
-.chdr .cst{font-size:15px;color:rgba(255,255,255,0.5)}
+.chdr .cst{font-size:15px;color:rgba(255,255,255,0.72)}
 .cx{margin-left:auto;background:none;border:none;color:#fff;font-size:24px;cursor:pointer;padding:8px}
 .cbudget{padding:6px 16px;font-size:14px;color:var(--t3);background:var(--card);border-bottom:1px solid var(--bdr)}
 .cbody{flex:1;overflow-y:auto;padding:16px;display:flex;flex-direction:column;gap:12px;-webkit-overflow-scrolling:touch}
@@ -192,8 +192,8 @@ button{font-family:inherit}
 .hdr{background:radial-gradient(120% 80% at 80% 0%,#1a4d43 0%,var(--g2) 42%,var(--g1) 100%)}
 #lock{background:radial-gradient(120% 90% at 50% 0%,#1a4d43 0%,var(--g2) 45%,var(--g1) 100%)}
 .chdr{background:linear-gradient(135deg,var(--g2),var(--g1))!important}
-.hero{background:rgba(255,255,255,0.05);border:1px solid rgba(226,205,150,0.14)}
-.hero .lab{color:rgba(226,205,150,0.72);font-weight:600;letter-spacing:1.5px}
+.hero{background:rgba(0,0,0,0.14);border:1px solid rgba(226,205,150,0.18)}
+.hero .lab{color:rgba(226,205,150,0.82);font-weight:600;letter-spacing:1.5px}
 .hero .big{letter-spacing:-1.5px}
 /* 순자산 아래 골드 헤어라인 — 한 번 더 「격」을 준다 */
 .hero .hdt{padding-top:14px;margin-top:4px;border-top:1px solid rgba(226,205,150,0.16)}
@@ -299,21 +299,21 @@ button{font-family:inherit}
   <!-- 자산/부채 상세 -->
   <div class="sec">
     <div class="hcd" style="background:linear-gradient(135deg,var(--g1),var(--g2));color:#fff;">
-      <div style="font-size:15px;color:rgba(255,255,255,0.55);font-weight:600;margin-bottom:14px">💎 자산·부채 전체 내역</div>
+      <div style="font-size:15px;color:rgba(255,255,255,0.62);font-weight:600;margin-bottom:14px">💎 자산·부채 전체 내역</div>
       <table class="tb" style="color:#fff">
-        <tr><td colspan="2" style="color:rgba(255,255,255,0.35);font-size:14px;padding:5px 6px">─── 금융자산 ───</td></tr>
+        <tr><td colspan="2" style="color:rgba(255,255,255,0.62);font-size:14px;padding:5px 6px">─── 금융자산 ───</td></tr>
         <tr><td>예금 (법인+개인)</td><td class="R" style="font-weight:700;color:#5fc99a">+11.0억</td></tr>
         <tr><td>대출 (법인+개인)</td><td class="R" style="font-weight:700;color:#ef9d90">-23.2억</td></tr>
         <tr><td>전세보증금 (갤러리아포레)</td><td class="R" style="font-weight:700">+45.0억</td></tr>
-        <tr><td colspan="2" style="color:rgba(255,255,255,0.35);font-size:14px;padding:5px 6px">─── 부동산 ───</td></tr>
+        <tr><td colspan="2" style="color:rgba(255,255,255,0.62);font-size:14px;padding:5px 6px">─── 부동산 ───</td></tr>
         <tr><td>서울숲 건물 (법인, 40평)</td><td class="R" style="font-weight:700">+120.0억</td></tr>
         <tr><td>DH 클래스트 (개인, 66평)</td><td class="R" style="font-weight:700">+120.0억</td></tr>
-        <tr><td colspan="2" style="color:rgba(255,255,255,0.35);font-size:14px;padding:5px 6px">─── 미술품 ───</td></tr>
+        <tr><td colspan="2" style="color:rgba(255,255,255,0.62);font-size:14px;padding:5px 6px">─── 미술품 ───</td></tr>
         <tr><td>법인 미술품 7점</td><td class="R" style="font-weight:700">+12.5억</td></tr>
         <tr><td>개인 미술품 14점</td><td class="R" style="font-weight:700">+20.2억</td></tr>
         <tr style="border-top:1px solid rgba(255,255,255,0.2)"><td style="font-weight:800;font-size:17px;padding-top:16px">순자산 합계</td><td class="R" style="font-weight:900;font-size:24px;padding-top:16px;color:#e8d09a">약 306억</td></tr>
       </table>
-      <div style="font-size:14px;color:rgba(255,255,255,0.35);margin-top:12px">* 부동산=시세 추정 · 미술품=장부가 기준 · 통장 잔고는 2026-09-14 시트에서 읽은 값</div>
+      <div style="font-size:14px;color:rgba(255,255,255,0.62);margin-top:12px">* 부동산=시세 추정 · 미술품=장부가 기준 · 통장 잔고는 2026-09-14 시트에서 읽은 값</div>
     </div>
   </div>
 
