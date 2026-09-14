@@ -71,6 +71,7 @@ button{font-family:inherit}
 /* ========== SCROLL CARDS ========== */
 .scr{display:flex;gap:12px;padding:0 16px;overflow-x:auto;-webkit-overflow-scrolling:touch;scroll-snap-type:x mandatory}
 .scr::-webkit-scrollbar{display:none}
+.sv,.big,.big-num,.pv{font-variant-numeric:tabular-nums}
 .sc{flex:0 0 auto;width:160px;scroll-snap-align:start;background:var(--card);border:1px solid var(--bdr);border-radius:16px;padding:16px;box-shadow:var(--sh)}
 .sc .sl{font-size:14px;color:var(--t3);font-weight:600;letter-spacing:.5px}
 .sc .sv{font-size:28px;font-weight:900;margin-top:6px;letter-spacing:-1px}
@@ -117,9 +118,14 @@ button{font-family:inherit}
 
 /* ========== BOTTOM NAV ========== */
 .bn{position:fixed;bottom:0;left:0;right:0;z-index:100;background:var(--card);backdrop-filter:blur(24px);-webkit-backdrop-filter:blur(24px);border-top:1px solid var(--bdr);display:flex;padding:8px 0 max(8px,env(safe-area-inset-bottom))}
-.ni{flex:1;display:flex;flex-direction:column;align-items:center;gap:3px;font-size:15px;color:var(--t3);cursor:pointer;padding:6px 0;-webkit-tap-highlight-color:transparent;transition:color .2s}
+.ni{position:relative;flex:1;display:flex;flex-direction:column;align-items:center;gap:3px;font-size:15px;color:var(--t3);cursor:pointer;padding:6px 0;-webkit-tap-highlight-color:transparent;transition:color .2s}
+/* 눌림 피드백 — 아이콘만 살짝 줄여 레이아웃을 흔들지 않는다 */
+.ni:active .ic{transform:scale(.88)}
+/* 선택 표시를 색·굵기에만 의존하지 않는다 — 위쪽 짧은 바가 함께 말한다 */
+.ni.a::before{content:'';position:absolute;top:-8px;left:50%;transform:translateX(-50%);width:22px;height:3px;border-radius:2px;background:var(--blu)}
 .ni.a{color:var(--blu);font-weight:700}
-.ni .ic{font-size:26px}
+.ni .ic{font-size:26px;display:block;transition:transform .12s}
+.ni .ic svg{display:block}
 
 /* Tabs */
 .tab{display:none}.tab.on{display:block}
@@ -206,7 +212,7 @@ button{font-family:inherit}
   <div class="hero">
     <div class="lab">총 순자산</div>
     <div class="big">약 306억</div>
-    <div class="hdt"><span class="pulse-dot"></span>2026년 8월 기준</div>
+    <div class="hdt"><span class="pulse-dot"></span>2026년 9월 14일 확인</div>
   </div>
 </div>
 
@@ -325,7 +331,7 @@ button{font-family:inherit}
       </div>
     </div>
 
-    <div class="cd"><div class="ct"><div class="ci" style="background:var(--org);color:#fff">📊</div>2026 월별 수지 — 적자가 줄고 있어요!</div><div class="chrt"><canvas id="cNet26"></canvas></div><div style="font-size:15px;color:var(--grn);margin-top:10px;font-weight:600">1월 -6,766만 → 7월 -1,388만 · 매달 좋아지고 있어요 ✅</div></div>
+    <div class="cd"><div class="ct"><div class="ci" aria-hidden="true" style="background:var(--org);color:#fff">📊</div>2026 월별 수지 — 적자가 줄고 있어요!</div><div class="chrt"><canvas id="cNet26"></canvas></div><div style="font-size:15px;color:var(--grn);margin-top:10px;font-weight:600">1월 -6,766만 → 7월 -1,388만 · 매달 좋아지고 있어요 ✅</div></div>
   </div>
 </div>
 
@@ -335,7 +341,7 @@ button{font-family:inherit}
     <div class="st">🏢 법인(소솝) 상세</div>
 
     <div class="cd" style="background:linear-gradient(135deg,#e3f2fd,#bbdefb);border-color:#90caf9">
-      <div class="ct"><div class="ci" style="background:var(--blu);color:#fff">🏦</div>법인 통장 현황 (9월 14일 확인)</div>
+      <div class="ct"><div class="ci" aria-hidden="true" style="background:var(--blu);color:#fff">🏦</div>법인 통장 현황 (9월 14일 확인)</div>
       <table class="tb">
         <tr><td style="font-size:18px">예금 잔고</td><td class="R g big-num">약 8억 622만</td></tr>
         <tr><td style="font-size:18px">대출 잔액</td><td class="R r big-num">21억 1,700만</td></tr>
@@ -349,7 +355,7 @@ button{font-family:inherit}
     </div>
 
     <div class="cd">
-      <div class="ct"><div class="ci" style="background:var(--blu);color:#fff">🧾</div>법인 통장별 잔고</div>
+      <div class="ct"><div class="ci" aria-hidden="true" style="background:var(--blu);color:#fff">🧾</div>법인 통장별 잔고</div>
       <table class="tb" style="font-size:15px">
         <tr><th>통장</th><th class="R">잔고 (만원)</th></tr>
         <tr><td>정기예금(초록B/D 3.4층 보증금8000포함예치)<span style="color:var(--t3);font-size:13px"> · 우리</span></td><td class="R">20,000</td></tr>
@@ -373,11 +379,11 @@ button{font-family:inherit}
       <div style="font-size:14px;color:var(--t3);margin-top:8px">2026년 9월 14일 시트에서 확인 · 외화는 1달러 1,423.4원으로 환산</div>
     </div>
 
-    <div class="cd"><div class="ct"><div class="ci" style="background:var(--grn);color:#fff">📊</div>연도별 수입/지출 비교</div><div class="chrt"><canvas id="cCorpPL"></canvas></div></div>
-    <div class="cd"><div class="ct"><div class="ci" style="background:var(--blu);color:#fff">📈</div>2025 월별 수입·지출 추이</div><div class="chrt"><canvas id="cCorpM"></canvas></div></div>
+    <div class="cd"><div class="ct"><div class="ci" aria-hidden="true" style="background:var(--grn);color:#fff">📊</div>연도별 수입/지출 비교</div><div class="chrt"><canvas id="cCorpPL"></canvas></div></div>
+    <div class="cd"><div class="ct"><div class="ci" aria-hidden="true" style="background:var(--blu);color:#fff">📈</div>2025 월별 수입·지출 추이</div><div class="chrt"><canvas id="cCorpM"></canvas></div></div>
 
     <div class="cd">
-      <div class="ct"><div class="ci" style="background:var(--org);color:#fff">📋</div>2024년 — 흑자</div>
+      <div class="ct"><div class="ci" aria-hidden="true" style="background:var(--org);color:#fff">📋</div>2024년 — 흑자</div>
       <table class="tb">
         <tr><td>행사 수입</td><td class="R">12억 5,878만</td></tr>
         <tr><td>임대차 수입</td><td class="R">1억 4,080만</td></tr>
@@ -388,7 +394,7 @@ button{font-family:inherit}
     </div>
 
     <div class="cd">
-      <div class="ct"><div class="ci" style="background:var(--red);color:#fff">📋</div>2025년 — 적자 전환</div>
+      <div class="ct"><div class="ci" aria-hidden="true" style="background:var(--red);color:#fff">📋</div>2025년 — 적자 전환</div>
       <table class="tb">
         <tr><td>행사 수입</td><td class="R">10억 3,902만</td></tr>
         <tr><td>총 지출</td><td class="R r">13억 7,100만</td></tr>
@@ -423,7 +429,7 @@ button{font-family:inherit}
     </div>
 
     <div class="cd">
-      <div class="ct"><div class="ci" style="background:var(--blu);color:#fff">📋</div>2026년 1~7월 — 비용 절감 중</div>
+      <div class="ct"><div class="ci" aria-hidden="true" style="background:var(--blu);color:#fff">📋</div>2026년 1~7월 — 비용 절감 중</div>
       <table class="tb">
         <tr><td>행사 수입</td><td class="R">2억 6,145만</td></tr>
         <tr><td>건물 임대 수입 ✅</td><td class="R" style="color:var(--grn)">1억 164만</td></tr>
@@ -441,7 +447,7 @@ button{font-family:inherit}
     </div>
 
     <div class="cd">
-      <div class="ct"><div class="ci" style="background:var(--pur);color:#fff">💰</div>매월 꼭 나가는 돈 (2026년)</div>
+      <div class="ct"><div class="ci" aria-hidden="true" style="background:var(--pur);color:#fff">💰</div>매월 꼭 나가는 돈 (2026년)</div>
       <table class="tb">
         <tr><th>항목</th><th class="R">매월</th></tr>
         <tr><td>직원 급여</td><td class="R" style="font-weight:600">1,946만</td></tr>
@@ -462,12 +468,12 @@ button{font-family:inherit}
       </div>
     </div>
 
-    <div class="cd"><div class="ct"><div class="ci" style="background:var(--blu);color:#fff">📈</div>2026 법인 월별 수입·지출 (1~7월)</div><div class="chrt"><canvas id="cCorp2026"></canvas></div></div>
+    <div class="cd"><div class="ct"><div class="ci" aria-hidden="true" style="background:var(--blu);color:#fff">📈</div>2026 법인 월별 수입·지출 (1~7월)</div><div class="chrt"><canvas id="cCorp2026"></canvas></div></div>
 
-    <div class="cd"><div class="ct"><div class="ci" style="background:var(--pur);color:#fff">🍩</div>2026 법인 지출 구성 (1~7월)</div><div class="chrt"><canvas id="cCorpMix"></canvas></div></div>
+    <div class="cd"><div class="ct"><div class="ci" aria-hidden="true" style="background:var(--pur);color:#fff">🍩</div>2026 법인 지출 구성 (1~7월)</div><div class="chrt"><canvas id="cCorpMix"></canvas></div></div>
 
     <div class="cd">
-      <div class="ct"><div class="ci" style="background:var(--grn);color:#fff">💵</div>2026 법인 수입 내역 (1~7월)</div>
+      <div class="ct"><div class="ci" aria-hidden="true" style="background:var(--grn);color:#fff">💵</div>2026 법인 수입 내역 (1~7월)</div>
       <table class="tb" style="font-size:14px;min-width:640px">
         <tr><th>항목</th><th class="R">1월</th><th class="R">2월</th><th class="R">3월</th><th class="R">4월</th><th class="R">5월</th><th class="R">6월</th><th class="R">7월</th></tr>
         <tr><td>행사 수입</td><td class="R">1,078</td><td class="R">-</td><td class="R">-</td><td class="R">4,862</td><td class="R">5,500</td><td class="R">10,065</td><td class="R">4,640</td></tr>
@@ -490,7 +496,7 @@ button{font-family:inherit}
     </div>
 
     <div class="cd">
-      <div class="ct"><div class="ci" style="background:var(--red);color:#fff">📅</div>2026 법인 월별 지출 한눈에 보기 (1~7월)</div>
+      <div class="ct"><div class="ci" aria-hidden="true" style="background:var(--red);color:#fff">📅</div>2026 법인 월별 지출 한눈에 보기 (1~7월)</div>
       <div style="overflow-x:auto;-webkit-overflow-scrolling:touch">
       <table class="tb" style="font-size:14px;min-width:640px">
         <tr><th>항목</th><th class="R">1월</th><th class="R">2월</th><th class="R">3월</th><th class="R">4월</th><th class="R">5월</th><th class="R">6월</th><th class="R">7월</th></tr>
@@ -542,7 +548,7 @@ button{font-family:inherit}
     </div>
 
     <div class="cd">
-      <div class="ct"><div class="ci" style="background:var(--pnk);color:#fff">📅</div>2025 법인 월별 지출 한눈에 보기</div>
+      <div class="ct"><div class="ci" aria-hidden="true" style="background:var(--pnk);color:#fff">📅</div>2025 법인 월별 지출 한눈에 보기</div>
       <div style="overflow-x:auto;-webkit-overflow-scrolling:touch">
       <table class="tb" style="font-size:14px;min-width:700px">
         <tr><th>항목</th><th class="R">1월</th><th class="R">2월</th><th class="R">3월</th><th class="R">4월</th><th class="R">5월</th><th class="R">6월</th><th class="R">7월</th><th class="R">8월</th><th class="R">9월</th><th class="R">10월</th><th class="R">11월</th><th class="R">12월</th></tr>
@@ -580,7 +586,7 @@ button{font-family:inherit}
     <div class="st">👤 개인 재무 상세</div>
 
     <div class="cd" style="background:linear-gradient(135deg,#e8f5e9,#c8e6c9);border-color:#a5d6a7">
-      <div class="ct"><div class="ci" style="background:var(--grn);color:#fff">🏦</div>개인 통장 현황 (9월 14일 확인)</div>
+      <div class="ct"><div class="ci" aria-hidden="true" style="background:var(--grn);color:#fff">🏦</div>개인 통장 현황 (9월 14일 확인)</div>
       <table class="tb">
         <tr><td style="font-size:18px">예금 잔고</td><td class="R b big-num">약 2억 9,724만</td></tr>
         <tr><td style="font-size:18px">대출 잔액</td><td class="R o big-num">2억 742만</td></tr>
@@ -593,7 +599,7 @@ button{font-family:inherit}
     </div>
 
     <div class="cd">
-      <div class="ct"><div class="ci" style="background:var(--grn);color:#fff">🧾</div>개인 통장별 잔고</div>
+      <div class="ct"><div class="ci" aria-hidden="true" style="background:var(--grn);color:#fff">🧾</div>개인 통장별 잔고</div>
       <table class="tb" style="font-size:15px">
         <tr><th>통장</th><th class="R">잔고 (만원)</th></tr>
         <tr><td>정기예금(그림)<span style="color:var(--t3);font-size:13px"> · 우리</span></td><td class="R">12,409</td></tr>
@@ -615,7 +621,7 @@ button{font-family:inherit}
     </div>
 
     <div class="cd">
-      <div class="ct"><div class="ci" style="background:var(--grn);color:#fff">💵</div>매월 들어오는 수입</div>
+      <div class="ct"><div class="ci" aria-hidden="true" style="background:var(--grn);color:#fff">💵</div>매월 들어오는 수입</div>
       <table class="tb">
         <tr><th>항목</th><th class="R">매월</th><th class="R">올해 합계</th></tr>
         <tr><td>급여 (법인에서)</td><td class="R" style="font-weight:700">1,000만</td><td class="R">8,000만</td></tr>
@@ -634,7 +640,7 @@ button{font-family:inherit}
     </div>
 
     <div class="cd">
-      <div class="ct"><div class="ci" style="background:var(--red);color:#fff">💸</div>매월 나가는 지출</div>
+      <div class="ct"><div class="ci" aria-hidden="true" style="background:var(--red);color:#fff">💸</div>매월 나가는 지출</div>
       <table class="tb">
         <tr><th>항목</th><th class="R">매월</th><th class="R">올해 합계</th></tr>
         <tr><td>🏠 생활비 인출</td><td class="R">320만</td><td class="R">1,600만</td></tr>
@@ -661,12 +667,12 @@ button{font-family:inherit}
       </div>
     </div>
 
-    <div class="cd"><div class="ct"><div class="ci" style="background:var(--blu);color:#fff">📈</div>2026 개인 월별 수입·지출 (1~7월)</div><div class="chrt"><canvas id="cPers2026"></canvas></div></div>
+    <div class="cd"><div class="ct"><div class="ci" aria-hidden="true" style="background:var(--blu);color:#fff">📈</div>2026 개인 월별 수입·지출 (1~7월)</div><div class="chrt"><canvas id="cPers2026"></canvas></div></div>
 
-    <div class="cd"><div class="ct"><div class="ci" style="background:var(--pnk);color:#fff">🍩</div>2026 개인 지출 구성 (1~7월)</div><div class="chrt"><canvas id="cPersMix"></canvas></div></div>
+    <div class="cd"><div class="ct"><div class="ci" aria-hidden="true" style="background:var(--pnk);color:#fff">🍩</div>2026 개인 지출 구성 (1~7월)</div><div class="chrt"><canvas id="cPersMix"></canvas></div></div>
 
     <div class="cd">
-      <div class="ct"><div class="ci" style="background:var(--grn);color:#fff">💵</div>2026 개인 수입 내역 (1~7월)</div>
+      <div class="ct"><div class="ci" aria-hidden="true" style="background:var(--grn);color:#fff">💵</div>2026 개인 수입 내역 (1~7월)</div>
       <table class="tb" style="font-size:14px;min-width:640px">
         <tr><th>항목</th><th class="R">1월</th><th class="R">2월</th><th class="R">3월</th><th class="R">4월</th><th class="R">5월</th><th class="R">6월</th><th class="R">7월</th></tr>
         <tr><td>급여</td><td class="R">2,000</td><td class="R">2,000</td><td class="R">2,000</td><td class="R">1,000</td><td class="R">1,000</td><td class="R">1,000</td><td class="R">1,000</td></tr>
@@ -683,7 +689,7 @@ button{font-family:inherit}
     </div>
 
     <div class="cd">
-      <div class="ct"><div class="ci" style="background:var(--red);color:#fff">📅</div>2026 개인 월별 지출 한눈에 보기 (1~7월)</div>
+      <div class="ct"><div class="ci" aria-hidden="true" style="background:var(--red);color:#fff">📅</div>2026 개인 월별 지출 한눈에 보기 (1~7월)</div>
       <div style="overflow-x:auto;-webkit-overflow-scrolling:touch">
       <table class="tb" style="font-size:14px;min-width:640px">
         <tr><th>항목</th><th class="R">1월</th><th class="R">2월</th><th class="R">3월</th><th class="R">4월</th><th class="R">5월</th><th class="R">6월</th><th class="R">7월</th></tr>
@@ -735,10 +741,10 @@ button{font-family:inherit}
       </div>
     </div>
 
-    <div class="cd"><div class="ct"><div class="ci" style="background:var(--blu);color:#fff">📈</div>2025 월별 수입·지출 (참고)</div><div class="chrt"><canvas id="cPersM"></canvas></div></div>
+    <div class="cd"><div class="ct"><div class="ci" aria-hidden="true" style="background:var(--blu);color:#fff">📈</div>2025 월별 수입·지출 (참고)</div><div class="chrt"><canvas id="cPersM"></canvas></div></div>
 
     <div class="cd">
-      <div class="ct"><div class="ci" style="background:var(--pnk);color:#fff">📅</div>2025 개인 월별 지출 한눈에 보기</div>
+      <div class="ct"><div class="ci" aria-hidden="true" style="background:var(--pnk);color:#fff">📅</div>2025 개인 월별 지출 한눈에 보기</div>
       <div style="overflow-x:auto;-webkit-overflow-scrolling:touch">
       <table class="tb" style="font-size:14px;min-width:700px">
         <tr><th>항목</th><th class="R">1월</th><th class="R">2월</th><th class="R">3월</th><th class="R">4월</th><th class="R">5월</th><th class="R">6월</th><th class="R">7월</th><th class="R">8월</th><th class="R">9월</th><th class="R">10월</th><th class="R">11월</th><th class="R">12월</th></tr>
@@ -820,7 +826,7 @@ button{font-family:inherit}
       </div>
     </div>
 
-    <div class="cd"><div class="ct"><div class="ci" style="background:var(--pur);color:#fff">📊</div>부동산 자산 비교</div><div class="chrt"><canvas id="cRealty"></canvas></div></div>
+    <div class="cd"><div class="ct"><div class="ci" aria-hidden="true" style="background:var(--pur);color:#fff">📊</div>부동산 자산 비교</div><div class="chrt"><canvas id="cRealty"></canvas></div></div>
   </div>
 </div>
 
@@ -856,7 +862,7 @@ button{font-family:inherit}
     <div class="pi"><div><div class="pn">스트키타가고</div><div class="pd">2024.09 구입</div></div><div><div class="pv p">1,900만</div></div></div>
     <div class="pi"><div><div class="pn">기타 9점</div><div class="pd">쿠사마(펌킨), 제프쿤스(2), 강예신(2), 정성준, Eddie Hara, 윤상윤, 정인혜</div></div><div><div class="pv p">1,596만</div></div></div>
 
-    <div class="cd"><div class="ct"><div class="ci" style="background:var(--pnk);color:#fff">🎨</div>보유 비중 (상위)</div><div class="chrt"><canvas id="cArt"></canvas></div></div>
+    <div class="cd"><div class="ct"><div class="ci" aria-hidden="true" style="background:var(--pnk);color:#fff">🎨</div>보유 비중 (상위)</div><div class="chrt"><canvas id="cArt"></canvas></div></div>
 
     <div class="advice">
       <div class="atit">💡 미술품 관련 참고</div>
@@ -890,7 +896,7 @@ button{font-family:inherit}
     </div>
 
     <div class="cd">
-      <div class="ct"><div class="ci" style="background:var(--org);color:#fff">💰</div>현재 내고 있는 세금</div>
+      <div class="ct"><div class="ci" aria-hidden="true" style="background:var(--org);color:#fff">💰</div>현재 내고 있는 세금</div>
       <table class="tb">
         <tr><th>항목</th><th class="R">금액</th><th class="R">주기</th></tr>
         <tr><td>갑근세 (근로소득세)</td><td class="R" style="font-weight:600">약 1,200만</td><td class="R">매월</td></tr>
@@ -903,7 +909,7 @@ button{font-family:inherit}
     </div>
 
     <div class="cd">
-      <div class="ct"><div class="ci" style="background:var(--pur);color:#fff">🛡️</div>현재 절세하고 있는 것들</div>
+      <div class="ct"><div class="ci" aria-hidden="true" style="background:var(--pur);color:#fff">🛡️</div>현재 절세하고 있는 것들</div>
       <div style="font-size:17px;color:var(--t2);line-height:2.1">
         ✅ <b>노란우산공제</b> — 월 25만 적립 (연 300만 소득공제)<br>
         ✅ <b>퇴직보험</b> — 월 203만 (법인 비용 처리)<br>
@@ -914,7 +920,7 @@ button{font-family:inherit}
     </div>
 
     <div class="cd">
-      <div class="ct"><div class="ci" style="background:var(--blu);color:#fff">💡</div>추가 절세 검토 사항</div>
+      <div class="ct"><div class="ci" aria-hidden="true" style="background:var(--blu);color:#fff">💡</div>추가 절세 검토 사항</div>
       <div style="font-size:17px;color:var(--t2);line-height:2.1">
         🔍 <b>대출 이자율 재협상</b> — 연 8,555만 이자 줄일 수 있는지<br>
         🔍 <b>법인→개인 급여 조정</b> — 최적 세율 구간 검토<br>
@@ -993,12 +999,12 @@ button{font-family:inherit}
 
 <!-- ===== BOTTOM NAV ===== -->
 <div class="bn">
-  <div class="ni a" onclick="go(0,this)"><div class="ic">📊</div>전체</div>
-  <div class="ni" onclick="go(1,this)"><div class="ic">🏢</div>법인</div>
-  <div class="ni" onclick="go(2,this)"><div class="ic">👤</div>개인</div>
-  <div class="ni" onclick="go(3,this)"><div class="ic">🏠</div>부동산</div>
-  <div class="ni" onclick="go(4,this)"><div class="ic">🎨</div>미술품</div>
-  <div class="ni" onclick="go(5,this)"><div class="ic">📋</div>세금</div>
+  <div class="ni a" onclick="go(0,this)"><span class="ic" aria-hidden="true"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 20h18"/><path d="M7 20v-6"/><path d="M12 20V5"/><path d="M17 20v-9"/></svg></span>전체</div>
+  <div class="ni" onclick="go(1,this)"><span class="ic" aria-hidden="true"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="5" y="3" width="14" height="18" rx="1.5"/><path d="M9 7h2M13 7h2M9 11h2M13 11h2M9 15h2M13 15h2"/><path d="M10 21v-3h4v3"/></svg></span>법인</div>
+  <div class="ni" onclick="go(2,this)"><span class="ic" aria-hidden="true"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="4"/><path d="M4 21c0-4 3.6-6.5 8-6.5S20 17 20 21"/></svg></span>개인</div>
+  <div class="ni" onclick="go(3,this)"><span class="ic" aria-hidden="true"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m3 10.5 9-7 9 7"/><path d="M5 9.5V21h14V9.5"/><path d="M10 21v-6h4v6"/></svg></span>부동산</div>
+  <div class="ni" onclick="go(4,this)"><span class="ic" aria-hidden="true"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5" width="18" height="14" rx="2"/><circle cx="8.5" cy="10" r="1.6"/><path d="m21 15.5-4.5-4.5L8 19"/></svg></span>미술품</div>
+  <div class="ni" onclick="go(5,this)"><span class="ic" aria-hidden="true"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 3H7a1 1 0 0 0-1 1v16a1 1 0 0 0 1 1h10a1 1 0 0 0 1-1V8z"/><path d="M14 3v5h5"/><path d="M9 13h6M9 17h6"/></svg></span>세금</div>
 </div>
 
 <!-- Chat FAB -->
